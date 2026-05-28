@@ -12,6 +12,9 @@ google_scholar: zHuT7aIAAAAJ
 linkedin_username: yourlinkedinusername
 youtube_channel: yourchannelid
 
+# Recent News on the home page: only items on or after this date (YYYY-MM-DD)
+news_cutoff_date: 2022-01-01
+
 # Build settings
 markdown: kramdown
 kramdown:

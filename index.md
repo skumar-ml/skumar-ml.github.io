@@ -30,8 +30,16 @@ layout: home
 <div class="compact-news" style="margin-bottom: 20px;">
   <ul>
   {% assign sorted_news = site.news | sort: 'date' | reverse %}
-  {% for news_item in sorted_news limit:5 %}
-    <li><strong>{{ news_item.date | date: "%m/%Y" }}</strong>: {{ news_item.content | strip_html | strip }}</li>
+  {% assign news_cutoff = site.news_cutoff_date | date: '%Y-%m-%d' %}
+  {% assign news_shown = 0 %}
+  {% for news_item in sorted_news %}
+    {% assign item_date = news_item.date | date: '%Y-%m-%d' %}
+    {% if site.news_cutoff_date == nil or item_date >= news_cutoff %}
+      {% if news_shown < 5 %}
+    <li><strong>{{ news_item.date | date: "%B %Y" }}</strong>: {{ news_item.content | markdownify | replace: '<p>', '' | replace: '</p>', '' | strip }}</li>
+      {% assign news_shown = news_shown | plus: 1 %}
+      {% endif %}
+    {% endif %}
   {% endfor %}
   </ul>
 </div>
