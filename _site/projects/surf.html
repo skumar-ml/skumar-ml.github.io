@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="title" content="Measuring the (Un)Faithfulness of Concept-Based Explanations - Shubham Kumar, Narendra Ahuja">
+<meta name="description" content="We propose SURF, a principled faithfulness measure for unsupervised concept-based explanations, and show that many state-of-the-art methods are not as faithf..."><meta name="keywords" content="explainable AI, concept-based explanations, faithfulness, sparse autoencoders, interpretability"><meta name="author" content="Shubham Kumar, Narendra Ahuja"><meta name="robots" content="index, follow">
+<meta name="language" content="English">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="University of Illinois Urbana-Champaign">
+<meta property="og:title" content="Measuring the (Un)Faithfulness of Concept-Based Explanations">
+<meta property="og:description" content="We propose SURF, a principled faithfulness measure for unsupervised concept-based explanations, and show that many state-of-the-art methods are not as faithf...">
+<meta property="og:url" content="http://localhost:4000/projects/surf.html"><meta property="article:published_time" content="2026-03-27T00:00:00-04:00"><meta property="article:tag" content="explainable AI"><meta property="article:tag" content="concept-based explanations"><meta property="article:tag" content="faithfulness"><meta property="article:tag" content="sparse autoencoders"><meta property="article:tag" content="interpretability"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@yourusername"><meta name="twitter:title" content="Measuring the (Un)Faithfulness of Concept-Based Explanations">
+<meta name="twitter:description" content="We propose SURF, a principled faithfulness measure for unsupervised concept-based explanations, and show that many state-of-the-art methods are not as faithf..."><meta name="citation_title" content="Measuring the (Un)Faithfulness of Concept-Based Explanations"><meta name="citation_author" content="Shubham Kumar"><meta name="citation_author" content="Narendra Ahuja"><meta name="citation_publication_date" content="2026"><meta name="citation_conference_title" content="CVPR 2026"><meta name="citation_pdf_url" content="/assets/academic-project/pdfs/surf-camera-ready.pdf"><meta name="theme-color" content="#2563eb">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://ajax.googleapis.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+<title>Measuring the (Un)Faithfulness of Concept-Based Explanations - Shubham Kumar, Narendra Ahuja</title><link rel="stylesheet" href="/assets/academic-project/css/bulma.min.css">
+<link rel="stylesheet" href="/assets/academic-project/css/index.css">
+
+<link rel="preload" href="/assets/academic-project/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="/assets/academic-project/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="/assets/academic-project/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<noscript>
+  <link rel="stylesheet" href="/assets/academic-project/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="/assets/academic-project/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="/assets/academic-project/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+</noscript>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script defer src="/assets/academic-project/js/fontawesome.all.min.js"></script>
+<script defer src="/assets/academic-project/js/bulma-carousel.min.js"></script>
+<script defer src="/assets/academic-project/js/bulma-slider.min.js"></script>
+<script defer src="/assets/academic-project/js/index.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)'], ['$', '$']],
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      processEscapes: true
+    },
+    options: {
+      skipHtmlTags: ['noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+</head>
+<body>
+
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top" type="button">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <div class="more-works-container">
+  <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works" type="button">
+    <i class="fas fa-flask"></i>
+    More Works
+    <i class="fas fa-chevron-down dropdown-arrow"></i>
+  </button>
+  <div class="more-works-dropdown" id="moreWorksDropdown">
+    <div class="dropdown-header">
+      <h4>More Works</h4>
+      <button class="close-btn" onclick="toggleMoreWorks()" type="button" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="works-list"><a href="/projects/sample-project.html" class="work-item"><div class="work-info">
+          <h5>Academic Project Page</h5><p>A sample academic project page demonstrating the Horwitz et al. project page template integrated with Jekyll.</p><span class="work-venue">Sample Conference 2024</span></div>
+        <i class="fas fa-external-link-alt"></i>
+      </a></div>
+  </div>
+</div>
+
+  <main id="main-content">
+    <section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Measuring the (Un)Faithfulness of Concept-Based Explanations</h1><div class="is-size-5 publication-authors"><span class="author-block"><a href="https://github.com/skumar-ml" target="_blank" rel="noopener noreferrer">Shubham Kumar</a>,</span><span class="author-block"><a href="https://vision.ai.illinois.edu" target="_blank" rel="noopener noreferrer">Narendra Ahuja</a></span></div><div class="is-size-5 publication-authors"><span class="author-block">University of Illinois Urbana-Champaign<br>CVPR 2026</span></div><div class="column has-text-centered">
+            <div class="publication-links"><span class="link-block">
+  <a href="/assets/academic-project/pdfs/surf-camera-ready.pdf" target="_blank" rel="noopener noreferrer"
+     class="external-link button is-normal is-rounded is-dark">
+    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+    <span>Paper</span>
+  </a>
+</span>
+<span class="link-block">
+  <a href="https://arxiv.org/abs/2504.10833" target="_blank" rel="noopener noreferrer"
+     class="external-link button is-normal is-rounded is-dark">
+    <span class="icon"><i class="ai ai-arxiv"></i></span>
+    <span>arXiv</span>
+  </a>
+</span>
+<span class="link-block">
+  <a href="https://github.com/skumar-ml/surf-eval" target="_blank" rel="noopener noreferrer"
+     class="external-link button is-normal is-rounded is-dark">
+    <span class="icon"><i class="fab fa-github"></i></span>
+    <span>Code</span>
+  </a>
+</span>
+<span class="link-block">
+  <a href="/assets/academic-project/images/CVPR_2026_SURF_Poster.png" target="_blank" rel="noopener noreferrer"
+     class="external-link button is-normal is-rounded is-dark">
+    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+    <span>Poster</span>
+  </a>
+</span>
+</div>
+          </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="hero teaser">
+      <div class="container is-max-desktop">
+        <div class="hero-body"><img src="/assets/academic-project/images/CVPR_2026_SURF_Poster.png" alt="Measuring the (Un)Faithfulness of Concept-Based Explanations" loading="lazy"><h2 class="subtitle has-text-centered">CVPR 2026 poster — SURF measures whether concept-based explanations actually reflect a vision model's computation.</h2></div>
+      </div>
+    </section><section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>Deep vision models perform input-output computations that are hard to interpret. Concept-based explanation methods (CBEMs) increase interpretability by re-expressing parts of the model with human-understandable semantic units, or concepts. Checking if the derived explanations are faithful—that is, they represent the model’s internal computation—requires a surrogate that combines concepts to compute the output. Simplifications made for interpretability inevitably reduce faithfulness, resulting in a tradeoff between the two. State-of-the-art unsupervised CBEMs (U-CBEMs) are seemingly more interpretable, while also being more faithful to the model. However, we observe that the reported improvement in faithfulness artificially results from either (1) using overly complex surrogates, which introduces an unmeasured cost to the explanation’s interpretability, or (2) relying on deletion-based approaches that, as we demonstrate, do not properly measure faithfulness. We propose <strong>Surrogate Faithfulness (SURF)</strong>, which replaces prior complex surrogates with a simple, linear surrogate and introduces metrics that assess error across all output classes. SURF enables the first reliable faithfulness benchmark of U-CBEMs, revealing that many visually compelling U-CBEMs are not faithful.</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><section class="section project-body-section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-12">
+            <div class="content publication-body has-text-justified">
+              <h2 id="1-positioning-concept-based-explanations">1. Positioning Concept-Based Explanations</h2>
+
+<p>Explainable AI spans a spectrum of approaches. <strong>Inherently interpretable models</strong> bake structure into the network itself, but often sacrifice performance. <strong>Feature attribution methods</strong> (e.g., saliency maps, SHAP) highlight which input pixels matter, but struggle with faithfulness evaluation and rarely convey <em>what</em> semantics the model recognizes. <strong>Concept-based explanation methods (CBEMs)</strong> instead explain predictions in terms of human-understandable concepts—edges, textures, object parts—and operate on the model’s intermediate representations, making surrogate-based faithfulness evaluation more natural.</p>
+
+<p>Within CBEMs, <strong>supervised</strong> methods require a pre-defined, annotated concept vocabulary, which is costly and may miss important aspects of the model’s computation. <strong>Unsupervised CBEMs (U-CBEMs)</strong> automatically discover concepts as directions in representation space, paired with importance scores. Recent work has applied <strong>sparse autoencoders (SAEs)</strong>—originally developed for language model interpretability—as a scalable U-CBEM for vision. Methods like ACE, CRAFT, C-SHAP, MCD, and SAEs all promise explanations that are both interpretable <em>and</em> faithful. We ask: are they?</p>
+
+<h2 id="2-the-problem-of-measuring-faithfulness">2. The Problem of Measuring Faithfulness</h2>
+
+<p>For any explanation method, <strong>faithfulness</strong> asks whether the explanation actually reflects the model’s internal computation. Formally, an explanation is faithful if a <strong>surrogate</strong> $s$ that maps the explanation back to the model’s output reproduces the model’s behavior:</p>
+
+\[\text{Faith}(E;\, d,\, s) = \int_{\mathcal{X}} d\big(\phi(X),\, s(E(X))\big)\, dX\]
+
+<p>Because explanations are lossy simplifications, some discrepancy is expected—but the choice of surrogate $s$ and metric $d$ matter enormously.</p>
+
+<p>For post-hoc, concept-based explanations specifically, the challenge is twofold:</p>
+
+<ol>
+  <li><strong>Each U-CBEM proposes its own faithfulness measure</strong>, with no measure-over-measure comparison, so the field lacks consensus on what “faithful” even means in practice.</li>
+  <li><strong>Reported faithfulness gains may be artifacts of the evaluation itself</strong>—either hidden complexity in the surrogate (shifting the interpretability burden downstream) or flawed deletion-based proxies borrowed from the attribution literature.</li>
+</ol>
+
+<p>Without a principled measure, we cannot reliably compare methods or diagnose when a visually compelling explanation misrepresents the model.</p>
+
+<h2 id="3-components-of-an-unsupervised-concept-based-explanation">3. Components of an Unsupervised Concept-Based Explanation</h2>
+
+<p>A vision model $\phi = f \circ g$ maps an input $X$ to output $y$ through an intermediate embedding $h = g(X)$. For each output class $i$, a U-CBEM discovers <strong>K concept activation vectors (CAVs)</strong> and <strong>concept importances</strong>:</p>
+
+\[V_i = \{v_{i,k}\}_{k=1}^{K}, \qquad A_i = \{\alpha_{i,k}\}_{k=1}^{K}\]
+
+<p>along with a <strong>concept projection</strong> $P(h;\, V_i)$ that maps embeddings into concept space. The explanation is:</p>
+
+\[E_i(X) = E_i(X;\, g,\, V_i,\, A_i,\, P) = \big\{P(g(X);\, V_i),\; A_i\big\}\]
+
+<p>This is conveyed to the user through visualizations—concept heatmaps, example patches, importance bars. Faithfulness is evaluated by comparing the model output $f(h)$ to the surrogate output $\hat{y}$ obtained by passing the explanation through a surrogate $s$. On the final layer (where $H = W = 1$):</p>
+
+\[\text{Faith}_{\text{U-CBEM}}(P,\, \{V_i\}_{i=1}^{C},\, \{A_i\}_{i=1}^{C};\, d,\, s) = \int_{\mathcal{H}} d\Big(f(h),\, \big\{s(P(h;\, V_i),\, A_i)\big\}_{i=1}^{C}\Big)\, dh\]
+
+<p><em>Placeholder: diagram of U-CBEM components (concept projection, CAVs, importances, surrogate).</em></p>
+
+<h2 id="4-a-motivating-example">4. A Motivating Example</h2>
+
+<p>Consider a model that misclassifies a <strong>helicopter</strong> image as an <strong>airplane</strong>. A U-CBEM like CRAFT can produce concept-based explanations for <em>both</em> the correct class (helicopter) and the incorrect predicted class (airplane). Visually, both explanations may appear equally plausible—highlighting coherent concept patches and sensible importances.</p>
+
+<p>Without a reliable faithfulness measure, a user has no principled way to determine which explanation (if either) reflects the model’s actual computation. The explanation for the wrong class may look just as convincing as the one for the right class. This is precisely the failure mode SURF is designed to detect: <strong>interpretability alone does not guarantee faithfulness</strong>.</p>
+
+<p><em>Placeholder: helicopter misclassification example with side-by-side CRAFT explanations for the correct and predicted classes.</em></p>
+
+<h2 id="5-limitations-of-prior-faithfulness-metrics">5. Limitations of Prior Faithfulness Metrics</h2>
+
+<p>We unify prior U-CBEM faithfulness measures under a common framework with two families:</p>
+
+<h3 id="deletion-based-proxies">Deletion-based proxies</h3>
+
+<p>These remove concepts (in image, weight, or concept space) in order of importance and measure model degradation. Prior works (ACE, MCD, HU-MCD, CDISCO, CRAFT) differ in deletion space, deletion method, and metric—but share fundamental problems:</p>
+
+<ul>
+  <li><strong>Ill-defined deletion:</strong> Setting a concept to zero does not guarantee it is fully removed without affecting other concepts.</li>
+  <li><strong>Off-manifold inputs:</strong> Perturbed representations may leave the data manifold, causing the model to behave unpredictably and producing misleading faithfulness signals.</li>
+</ul>
+
+<p>We argue deletion-based proxies are unreliable and do not benchmark against them.</p>
+
+<h3 id="surrogate-based-measures">Surrogate-based measures</h3>
+
+<p>Prior surrogates from ICE-Eval and C-SHAP-Eval fail three key <strong>desiderata</strong>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th style="text-align: center">ICE-Eval</th>
+      <th style="text-align: center">C-SHAP-Eval</th>
+      <th style="text-align: center">SURF (Ours)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Simple (no reconstruction, no extra parameters)</td>
+      <td style="text-align: center">✗</td>
+      <td style="text-align: center">✗</td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td>Uses concept importances</td>
+      <td style="text-align: center">✗</td>
+      <td style="text-align: center">✗</td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td>Errors on all outputs</td>
+      <td style="text-align: center">✗</td>
+      <td style="text-align: center">✗</td>
+      <td style="text-align: center">✓</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>ICE-Eval and C-SHAP-Eval reconstruct embeddings (often non-linearly), ignore concept importances $A_i$, and measure error only on the predicted or ground-truth class—missing errors across the full output distribution.</p>
+
+<p><em>Placeholder: unified faithfulness framework diagram (Fig. 1 from paper).</em></p>
+
+<h2 id="6-surf-method-and-assumptions">6. SURF: Method and Assumptions</h2>
+
+<p><strong>Surrogate Faithfulness (SURF)</strong> introduces a simple, linear surrogate inspired by the structure of the model’s final linear layer. The model output for class $i$ decomposes as (up to the bias term):</p>
+
+\[y_i = \sum_{j=1}^{HW} h_j^\top v_{i,j}\, \alpha_{i,j}, \quad \text{where } \|v_{i,j}\|_2 = 1,\; \alpha_{i,j} = \|f_{i,j}\|_2\]
+
+<p>SURF’s surrogate replaces the learned weights with the U-CBEM’s discovered CAVs and importances:</p>
+
+\[\hat{y}_i = s_i(\cdot) = \sum_{j=1}^{HW} \sum_{k=1}^{K} \alpha_{i,k}\, P(h_j;\, V_i)_k\]
+
+<p><strong>Metrics.</strong> SURF measures error in both logit and probability space:</p>
+
+\[\text{SURF}_{\text{MAE}} = \frac{1}{|V|\, C} \sum_{x \in V} \sum_{i=1}^{C} \big|y_i - \hat{y}_i\big|\]
+
+\[\text{SURF}_{\text{EMD}} = \frac{1}{2|V|} \sum_{x \in V} \sum_{i=1}^{C} \big|p_i - \hat{p}_i\big|\]
+
+<p>where $y$ denotes class logits, $p = \text{softmax}(y)$, and $V$ is the evaluation set.</p>
+
+<p><strong>Assumptions:</strong></p>
+
+<ol>
+  <li>Faithfulness is evaluated on the <strong>final linear layer</strong> (following prior U-CBEM work), where $H = W = 1$ after global pooling.</li>
+  <li>The surrogate is <strong>linear and has no trainable parameters</strong>—it reflects the mental computation a human would perform to connect concepts to predictions.</li>
+  <li>Both CAVs $V_i$ and importances $A_i$ are used; inaccuracies in either affect the score.</li>
+  <li>Errors are measured <strong>holistically across all output classes</strong>, not just the predicted class.</li>
+</ol>
+
+<p><em>Placeholder: SURF surrogate diagram showing parallel paths from embedding to model output vs. surrogate output.</em></p>
+
+<h2 id="7-measure-over-measure-results">7. Measure-over-Measure Results</h2>
+
+<p>Because there is no ground-truth faithfulness, we propose a <strong>sanity check</strong> with three manufactured settings where relative faithfulness is known:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Setting</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Perfect</strong></td>
+      <td>CAVs and importances copied from the model’s own final layer</td>
+    </tr>
+    <tr>
+      <td><strong>Rand Imp</strong></td>
+      <td>Perfect CAVs, random importances</td>
+    </tr>
+    <tr>
+      <td><strong>Full Rand</strong></td>
+      <td>Random CAVs and random importances</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>We expect perfect faithfulness in the Perfect setting, with monotonically worse scores as randomness increases. Evaluated on ImageNet-pretrained ResNet-50 finetuned on Caltech-101:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Measure</th>
+      <th style="text-align: center">Perfect</th>
+      <th style="text-align: center">Rand Imp</th>
+      <th style="text-align: center">Full Rand</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>SURF (Ours)</strong></td>
+      <td style="text-align: center">✓ passes</td>
+      <td style="text-align: center">✓ degrades</td>
+      <td style="text-align: center">✓ degrades</td>
+    </tr>
+    <tr>
+      <td>ICE-Eval</td>
+      <td style="text-align: center">✓ perfect</td>
+      <td style="text-align: center">✗ unchanged</td>
+      <td style="text-align: center">✓ degrades</td>
+    </tr>
+    <tr>
+      <td>C-SHAP-Eval</td>
+      <td style="text-align: center">✗ imperfect</td>
+      <td style="text-align: center">✗ unchanged</td>
+      <td style="text-align: center">✗ <em>improves</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Only SURF passes the sanity check while using the simplest surrogate (0 learned parameters, ~200 FLOPs vs. ~205M for C-SHAP-Eval). Prior metrics also fail on individual metrics—e.g., Top-1 accuracy stays high in the Rand Imp setting even when <script type="math/tex; mode=inline">\text{SURF}_{\text{EMD}}</script>
+ reveals severe errors on non-predicted classes.</p>
+
+<p><em>Placeholder: measure-over-measure comparison table/plot (Tab. 3 from paper).</em></p>
+
+<h2 id="8-benchmark-caltech-101-resnet-50">8. Benchmark: Caltech-101 (ResNet-50)</h2>
+
+<p>We apply SURF to seven U-CBEMs on object classification with a Caltech-101 finetuned ResNet-50 (~95.6% test accuracy). Each method discovers $K = 5$ concepts per output class:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>U-CBEM</th>
+      <th style="text-align: center">SURF-MAE ↓</th>
+      <th style="text-align: center">SURF-EMD ↓</th>
+      <th style="text-align: center">Top-1 (%) ↑</th>
+      <th style="text-align: center">Rank Corr ↑</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CDISCO</td>
+      <td style="text-align: center">3.40</td>
+      <td style="text-align: center">0.932</td>
+      <td style="text-align: center">0.2</td>
+      <td style="text-align: center">0.002</td>
+    </tr>
+    <tr>
+      <td>ICE</td>
+      <td style="text-align: center">3.33</td>
+      <td style="text-align: center">0.628</td>
+      <td style="text-align: center">98.9</td>
+      <td style="text-align: center">0.093</td>
+    </tr>
+    <tr>
+      <td>CRAFT</td>
+      <td style="text-align: center">3.19</td>
+      <td style="text-align: center">0.878</td>
+      <td style="text-align: center">90.6</td>
+      <td style="text-align: center">0.068</td>
+    </tr>
+    <tr>
+      <td>C-SHAP</td>
+      <td style="text-align: center">3.28</td>
+      <td style="text-align: center">0.882</td>
+      <td style="text-align: center">6.3</td>
+      <td style="text-align: center">0.005</td>
+    </tr>
+    <tr>
+      <td>MCD</td>
+      <td style="text-align: center">2.60</td>
+      <td style="text-align: center">0.426</td>
+      <td style="text-align: center">99.4</td>
+      <td style="text-align: center">0.145</td>
+    </tr>
+    <tr>
+      <td>HU-MCD</td>
+      <td style="text-align: center">1.97</td>
+      <td style="text-align: center">0.384</td>
+      <td style="text-align: center">99.7</td>
+      <td style="text-align: center">0.149</td>
+    </tr>
+    <tr>
+      <td><strong>SAE</strong></td>
+      <td style="text-align: center"><strong>1.04</strong></td>
+      <td style="text-align: center"><strong>0.195</strong></td>
+      <td style="text-align: center">99.2</td>
+      <td style="text-align: center">0.366</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>No evaluated U-CBEM is faithful.</strong> Even the best method (SAE) has <script type="math/tex; mode=inline">\text{SURF}_{\text{EMD}} = 0.195</script>
+—on average, ~20% of the surrogate’s output distribution is incorrect. High Top-1 accuracy (e.g., 99.7% for HU-MCD) masks large errors on non-predicted classes, illustrating why holistic metrics matter.</p>
+
+<p><em>Placeholder: benchmark bar chart comparing SURF metrics across U-CBEMs.</em></p>
+
+<h2 id="9-parsimony-vs-faithfulness">9. Parsimony vs. Faithfulness</h2>
+
+<p>The number of concepts $K$ is the most important hyperparameter for any U-CBEM. More concepts should yield more faithful explanations, but too many harm interpretability—humans can hold only a limited number of items in working memory.</p>
+
+<p>Prior works set $K$ arbitrarily (e.g., $K = 10$ for ICE, $K = 25$ for CRAFT). SURF enables principled analysis of this tradeoff by measuring faithfulness as $K$ increases:</p>
+
+<ul>
+  <li><strong>CDISCO, CRAFT, C-SHAP, ICE</strong> barely improve—or worsen—as $K$ grows.</li>
+  <li><strong>SAE</strong> improves initially but then oscillates.</li>
+  <li><strong>MCD and HU-MCD</strong> uniformly improve and <strong>plateau</strong>, suggesting a natural choice for $K$ at the knee of the curve.</li>
+</ul>
+
+<p>Interestingly, HU-MCD is more faithful than MCD only at low $K$; as concepts increase, MCD overtakes it—contradicting prior claims based on deletion-based proxies.</p>
+
+<p><em>Placeholder: faithfulness vs. number of concepts plots (EMD and MAE, Fig. 2 from paper).</em></p>
+
+<h2 id="10-conclusion">10. Conclusion</h2>
+
+<p>Current U-CBEMs have been evaluated with fragmented, flawed faithfulness measures that create an illusion of progress. By organizing prior metrics under a unified framework, identifying their limitations, and proposing <strong>SURF</strong>—a simple linear surrogate with holistic logit- and probability-space metrics—we provide the first reliable benchmark of U-CBEM faithfulness.</p>
+
+<p>Our key findings:</p>
+
+<ol>
+  <li><strong>Prior faithfulness measures fail basic sanity checks</strong> that SURF passes.</li>
+  <li><strong>State-of-the-art U-CBEMs—including visually compelling methods—are not faithful</strong> to the model’s final-layer computation.</li>
+  <li><strong>SURF enables principled selection of the number of concepts</strong>, balancing parsimony and faithfulness.</li>
+</ol>
+
+<p>SURF measures faithfulness, not interpretability. We urge future work to report SURF scores alongside interpretability claims. Extending SURF to intermediate layers—where the relationship between explanation and output is non-linear—remains important future work.</p>
+
+<h2 id="poster">Poster</h2>
+
+<p><a href="/assets/academic-project/images/CVPR_2026_SURF_Poster.png"><img src="/assets/academic-project/images/CVPR_2026_SURF_Poster.png" alt="CVPR 2026 SURF Poster" /></a></p>
+
+<p>Full-resolution poster for CVPR 2026. <a href="/assets/academic-project/pdfs/surf-camera-ready.pdf">Download PDF</a>.</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <div class="bibtex-header">
+          <h2 class="title">BibTeX</h2>
+          <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard" type="button">
+            <i class="fas fa-copy"></i>
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+        <pre id="bibtex-code"><code>@inproceedings{kumar2026surf,
+  title={Measuring the (Un)Faithfulness of Concept-Based Explanations},
+  author={Kumar, Shubham and Ahuja, Narendra},
+  booktitle={IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year={2026},
+  url={https://arxiv.org/abs/2504.10833}
+}</code></pre>
+      </div>
+    </section></main>
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            <a href="/">&larr; Back to Home</a>
+          </p>
+          <p>
+            This page was built using the
+            <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener noreferrer">Academic Project Page Template</a>,
+            adapted from the <a href="https://nerfies.github.io" target="_blank" rel="noopener noreferrer">Nerfies</a> project page.
+            This website is licensed under a
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>

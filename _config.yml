@@ -1,0 +1,49 @@
+# Site settings
+title: Home
+email: sk138@illinois.edu
+description: >-
+  Personal website of Your Name, PhD Student in Your Field
+  at Your University.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: yourusername
+github_username:  skumar-ml
+google_scholar: zHuT7aIAAAAJ
+linkedin_username: yourlinkedinusername
+youtube_channel: yourchannelid
+
+# Build settings
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
+  syntax_highlighter: rouge
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Collections
+collections:
+  news:
+    output: true
+  publications:
+    output: true
+  projects:
+    output: true
+
+# Navigation
+header_pages:
+  # - about.md
+  # - publications.md
+  # - projects.md
+  # - blog.md
+  # - contact.md
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .gitignore
+  - README.md 

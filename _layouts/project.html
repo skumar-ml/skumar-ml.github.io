@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include academic-project/head.html %}
+</head>
+<body>
+
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top" type="button">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  {% include academic-project/more-works.html %}
+
+  <main id="main-content">
+    {% include academic-project/hero.html %}
+
+    {%- if page.teaser -%}
+    <section class="hero teaser">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          {%- if page.teaser.video -%}
+          <video {% if page.teaser.poster %}poster="{{ page.teaser.poster | relative_url }}"{% endif %}
+                 autoplay controls muted loop height="100%" preload="metadata">
+            <source src="{{ page.teaser.video | relative_url }}" type="video/mp4">
+          </video>
+          {%- elsif page.teaser.image -%}
+          <img src="{{ page.teaser.image | relative_url }}" alt="{{ page.title | escape }}" loading="lazy">
+          {%- endif -%}
+          {%- if page.teaser.caption -%}
+          <h2 class="subtitle has-text-centered">{{ page.teaser.caption }}</h2>
+          {%- endif -%}
+        </div>
+      </div>
+    </section>
+    {%- endif -%}
+
+    {%- if page.abstract -%}
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              {{ page.abstract | markdownify }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {%- endif -%}
+
+    {%- if content != "" -%}
+    <section class="section project-body-section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-12">
+            <div class="content publication-body has-text-justified">
+              {{ content }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {%- endif -%}
+
+    {%- if page.image_carousel and page.image_carousel.size > 0 -%}
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container">
+          {%- if page.image_carousel_title -%}
+          <h2 class="title is-3 has-text-centered">{{ page.image_carousel_title }}</h2>
+          {%- endif -%}
+          <div class="carousel results-carousel image-results-carousel">
+            {%- for item in page.image_carousel -%}
+            <div class="item">
+              <img src="{{ item.image | relative_url }}" alt="{{ item.caption | default: page.title | escape }}" loading="lazy">
+              {%- if item.caption -%}
+              <h2 class="subtitle has-text-centered">{{ item.caption }}</h2>
+              {%- endif -%}
+            </div>
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </section>
+    {%- endif -%}
+
+    {%- if page.youtube -%}
+    <section class="hero is-small is-light">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title is-3">{{ page.youtube.title | default: "Video Presentation" }}</h2>
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+              <div class="publication-video">
+                {%- assign youtube_id = page.youtube.id -%}
+                {%- if page.youtube.url -%}
+                  {%- if page.youtube.url contains "youtu.be/" -%}
+                    {%- assign youtube_id = page.youtube.url | split: "youtu.be/" | last | split: "?" | first -%}
+                  {%- elsif page.youtube.url contains "v=" -%}
+                    {%- assign youtube_id = page.youtube.url | split: "v=" | last | split: "&" | first -%}
+                  {%- endif -%}
+                {%- endif -%}
+                <iframe src="https://www.youtube.com/embed/{{ youtube_id }}"
+                        frameborder="0"
+                        allow="autoplay; encrypted-media"
+                        allowfullscreen
+                        title="{{ page.youtube.title | default: page.title | escape }}"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {%- endif -%}
+
+    {%- if page.video_carousel and page.video_carousel.items.size > 0 -%}
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title is-3">{{ page.video_carousel.title | default: "Video Results" }}</h2>
+          <div class="carousel results-carousel video-results-carousel">
+            {%- for item in page.video_carousel.items -%}
+            <div class="item">
+              <video {% if item.poster %}poster="{{ item.poster | relative_url }}"{% endif %}
+                     controls muted loop height="100%" preload="metadata">
+                <source src="{{ item.video | relative_url }}" type="video/mp4">
+              </video>
+              {%- if item.caption -%}
+              <h2 class="subtitle has-text-centered">{{ item.caption }}</h2>
+              {%- endif -%}
+            </div>
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </section>
+    {%- endif -%}
+
+    {%- if page.poster -%}
+    <section class="hero is-small is-light">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title is-3">{{ page.poster.title | default: "Poster" }}</h2>
+          <iframe src="{{ page.poster.pdf | relative_url }}" width="100%" height="550" title="Project poster"></iframe>
+        </div>
+      </div>
+    </section>
+    {%- endif -%}
+
+    {%- if page.bibtex -%}
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <div class="bibtex-header">
+          <h2 class="title">BibTeX</h2>
+          <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard" type="button">
+            <i class="fas fa-copy"></i>
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+        <pre id="bibtex-code"><code>{{ page.bibtex | strip }}</code></pre>
+      </div>
+    </section>
+    {%- endif -%}
+  </main>
+
+  {% include academic-project/footer.html %}
+
+</body>
+</html>

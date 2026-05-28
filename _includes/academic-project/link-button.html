@@ -1,0 +1,20 @@
+{%- assign link = include.link -%}
+{%- assign icon = link.icon -%}
+{%- if icon == nil -%}
+  {%- case link.type -%}
+    {%- when 'paper' -%}{%- assign icon = 'fas fa-file-pdf' -%}
+    {%- when 'supplementary' -%}{%- assign icon = 'fas fa-file-pdf' -%}
+    {%- when 'code' -%}{%- assign icon = 'fab fa-github' -%}
+    {%- when 'arxiv' -%}{%- assign icon = 'ai ai-arxiv' -%}
+    {%- when 'demo' -%}{%- assign icon = 'fas fa-play' -%}
+    {%- when 'website' -%}{%- assign icon = 'fas fa-globe' -%}
+    {%- else -%}{%- assign icon = 'fas fa-link' -%}
+  {%- endcase -%}
+{%- endif -%}
+<span class="link-block">
+  <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer"
+     class="external-link button is-normal is-rounded is-dark">
+    <span class="icon"><i class="{{ icon }}"></i></span>
+    <span>{{ link.name }}</span>
+  </a>
+</span>

@@ -1,0 +1,57 @@
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">{{ page.title | escape }}</h1>
+
+          {%- if page.authors and page.authors.size > 0 -%}
+          <div class="is-size-5 publication-authors">
+            {%- for author in page.authors -%}
+            <span class="author-block">
+              {%- if author.url -%}
+                <a href="{{ author.url }}" target="_blank" rel="noopener noreferrer">{{ author.name }}</a>
+              {%- else -%}
+                {{ author.name }}
+              {%- endif -%}
+              {%- if author.equal_contribution -%}<sup>*</sup>{%- endif -%}
+              {%- unless forloop.last -%},{%- endunless -%}
+            </span>
+            {%- endfor -%}
+          </div>
+          {%- endif -%}
+
+          {%- if page.affiliation or page.venue or page.awards -%}
+          <div class="is-size-5 publication-authors">
+            {%- if page.affiliation -%}
+            <span class="author-block">{{ page.affiliation }}{%- if page.venue -%}<br>{{ page.venue }}{%- endif -%}</span>
+            {%- elsif page.venue -%}
+            <span class="author-block">{{ page.venue }}</span>
+            {%- endif -%}
+            {%- if page.awards -%}
+            <span class="publication-awards">{{ page.awards }}</span>
+            {%- endif -%}
+            {%- assign has_equal = false -%}
+            {%- for author in page.authors -%}
+              {%- if author.equal_contribution -%}{%- assign has_equal = true -%}{%- endif -%}
+            {%- endfor -%}
+            {%- if has_equal -%}
+            <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+            {%- endif -%}
+          </div>
+          {%- endif -%}
+
+          {%- if page.links and page.links.size > 0 -%}
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              {%- for link in page.links -%}
+                {% include academic-project/link-button.html link=link %}
+              {%- endfor -%}
+            </div>
+          </div>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

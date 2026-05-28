@@ -1,0 +1,5 @@
+{%- comment -%}
+  Use for inline math that Kramdown mangles inside $...$ (e.g. subscript ranges).
+  Example: {% include inline-math.html latex="A_i = \{\alpha_{i,k}\}_{k=1}^{K}" %}
+{%- endcomment -%}
+<script type="math/tex; mode=inline">{{ include.latex }}</script>

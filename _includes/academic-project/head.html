@@ -1,0 +1,102 @@
+{%- assign ap = page -%}
+{%- assign page_description = ap.description | default: ap.abstract | strip_html | truncate: 160 -%}
+{%- assign page_url = ap.url | absolute_url -%}
+{%- assign social_image = ap.social_image | default: ap.image | absolute_url -%}
+{%- assign author_names = ap.authors | map: "name" | join: ", " -%}
+{%- assign keyword_list = ap.keywords | join: ", " -%}
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="title" content="{{ ap.title | escape }} - {{ author_names | escape }}">
+<meta name="description" content="{{ page_description | escape }}">
+{%- if ap.keywords -%}
+<meta name="keywords" content="{{ keyword_list | escape }}">
+{%- endif -%}
+{%- if author_names != "" -%}
+<meta name="author" content="{{ author_names | escape }}">
+{%- endif -%}
+<meta name="robots" content="index, follow">
+<meta name="language" content="English">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="{{ ap.affiliation | default: site.title | escape }}">
+<meta property="og:title" content="{{ ap.title | escape }}">
+<meta property="og:description" content="{{ page_description | escape }}">
+<meta property="og:url" content="{{ page_url }}">
+{%- if social_image -%}
+<meta property="og:image" content="{{ social_image }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ ap.title | escape }}">
+{%- endif -%}
+{%- if ap.published_date -%}
+<meta property="article:published_time" content="{{ ap.published_date | date_to_xmlschema }}">
+{%- endif -%}
+{%- for keyword in ap.keywords -%}
+<meta property="article:tag" content="{{ keyword | escape }}">
+{%- endfor -%}
+
+<meta name="twitter:card" content="summary_large_image">
+{%- if site.twitter_username -%}
+<meta name="twitter:site" content="@{{ site.twitter_username }}">
+{%- endif -%}
+<meta name="twitter:title" content="{{ ap.title | escape }}">
+<meta name="twitter:description" content="{{ page_description | escape }}">
+{%- if social_image -%}
+<meta name="twitter:image" content="{{ social_image }}">
+{%- endif -%}
+
+{%- if ap.title -%}
+<meta name="citation_title" content="{{ ap.title | escape }}">
+{%- endif -%}
+{%- for author in ap.authors -%}
+<meta name="citation_author" content="{{ author.name | escape }}">
+{%- endfor -%}
+{%- if ap.published_date -%}
+<meta name="citation_publication_date" content="{{ ap.published_date | date: '%Y' }}">
+{%- endif -%}
+{%- if ap.venue -%}
+<meta name="citation_conference_title" content="{{ ap.venue | escape }}">
+{%- endif -%}
+{%- assign paper_link = ap.links | where: "type", "paper" | first -%}
+{%- if paper_link -%}
+<meta name="citation_pdf_url" content="{{ paper_link.url }}">
+{%- endif -%}
+
+<meta name="theme-color" content="#2563eb">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://ajax.googleapis.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+<title>{{ ap.title | escape }}{% if author_names != "" %} - {{ author_names | escape }}{% endif %}</title>
+
+{%- if ap.favicon -%}
+<link rel="icon" type="image/x-icon" href="{{ ap.favicon | relative_url }}">
+{%- endif -%}
+
+<link rel="stylesheet" href="{{ '/assets/academic-project/css/bulma.min.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/academic-project/css/index.css' | relative_url }}">
+
+<link rel="preload" href="{{ '/assets/academic-project/css/bulma-carousel.min.css' | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="{{ '/assets/academic-project/css/bulma-slider.min.css' | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="{{ '/assets/academic-project/css/fontawesome.all.min.css' | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<noscript>
+  <link rel="stylesheet" href="{{ '/assets/academic-project/css/bulma-carousel.min.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/academic-project/css/bulma-slider.min.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/academic-project/css/fontawesome.all.min.css' | relative_url }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+</noscript>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script defer src="{{ '/assets/academic-project/js/fontawesome.all.min.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/academic-project/js/bulma-carousel.min.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/academic-project/js/bulma-slider.min.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/academic-project/js/index.js' | relative_url }}"></script>
+{% include mathjax.html %}

@@ -1,0 +1,43 @@
+{%- assign works = page.more_works -%}
+{%- if works == nil or works.size == 0 -%}
+  {%- assign works = site.projects | where_exp: "item", "item.url != page.url" | sort: "start_date" | reverse | limit: 5 -%}
+{%- endif -%}
+{%- if works and works.size > 0 -%}
+<div class="more-works-container">
+  <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works" type="button">
+    <i class="fas fa-flask"></i>
+    More Works
+    <i class="fas fa-chevron-down dropdown-arrow"></i>
+  </button>
+  <div class="more-works-dropdown" id="moreWorksDropdown">
+    <div class="dropdown-header">
+      <h4>{{ page.more_works_title | default: "More Works" }}</h4>
+      <button class="close-btn" onclick="toggleMoreWorks()" type="button" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="works-list">
+      {%- for work in works -%}
+      {%- if work.link -%}
+      <a href="{{ work.link }}" class="work-item" target="_blank" rel="noopener noreferrer">
+      {%- else -%}
+      <a href="{{ work.url | relative_url }}" class="work-item">
+      {%- endif -%}
+        <div class="work-info">
+          <h5>{{ work.title }}</h5>
+          {%- if work.description -%}
+          <p>{{ work.description }}</p>
+          {%- elsif work.excerpt -%}
+          <p>{{ work.excerpt | strip_html | truncate: 120 }}</p>
+          {%- endif -%}
+          {%- if work.venue -%}
+          <span class="work-venue">{{ work.venue }}</span>
+          {%- endif -%}
+        </div>
+        <i class="fas fa-external-link-alt"></i>
+      </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+{%- endif -%}
