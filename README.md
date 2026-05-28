@@ -7,12 +7,9 @@ This is a personal academic website built with Jekyll. It's designed for PhD stu
 - Clean, professional design
 - Responsive layout
 - Sections for:
-  - About/Bio
-  - Publications
   - Projects/Research
   - Teaching
   - Blog/News
-  - Contact
 
 ## Setup Instructions
 

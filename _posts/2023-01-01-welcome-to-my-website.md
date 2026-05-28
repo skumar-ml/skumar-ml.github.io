@@ -1,5 +1,7 @@
 ---
+# Template example — not shown on /blog/ (see `listed: false`)
 layout: post
+listed: false
 title: "Welcome to My Academic Website"
 date: 2023-01-01 12:00:00 -0500
 categories: news

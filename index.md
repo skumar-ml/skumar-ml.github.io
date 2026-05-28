@@ -38,7 +38,8 @@ layout: home
 
 <!-- ## Research Highlights
 
-{% for project in site.projects limit:2 %}
+{% assign listed_projects = site.projects | where_exp: "item", "item.listed != false" %}
+{% for project in listed_projects limit:2 %}
 ### [{{ project.title }}]({{ project.url | relative_url }})
 {{ project.excerpt }}
 {% endfor %} -->

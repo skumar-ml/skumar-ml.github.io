@@ -1,6 +1,6 @@
 {%- assign works = page.more_works -%}
 {%- if works == nil or works.size == 0 -%}
-  {%- assign works = site.projects | where_exp: "item", "item.url != page.url" | sort: "start_date" | reverse | limit: 5 -%}
+  {%- assign works = site.projects | where_exp: "item", "item.url != page.url and item.listed != false" | sort: "start_date" | reverse | limit: 5 -%}
 {%- endif -%}
 {%- if works and works.size > 0 -%}
 <div class="more-works-container">

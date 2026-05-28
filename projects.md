@@ -4,12 +4,16 @@ title: Research
 permalink: /research/
 ---
 
-# Research Projects
-
-{% assign sorted_projects = site.projects | sort: "start_date" | reverse %}
+{% assign sorted_projects = site.projects | where_exp: "item", "item.listed != false" | sort: "start_date" | reverse %}
+<div class="research-projects">
 {% for project in sorted_projects %}
 <div class="project">
-  <h2><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h2>
+  <div class="project-header">
+    <h3 class="project-title"><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
+    {% if project.venue %}
+    <span class="project-venue-badge" title="Accepted to {{ project.venue | escape }}">{{ project.venue }}</span>
+    {% endif %}
+  </div>
 
   {% if project.image %}
   <a href="{{ project.url | relative_url }}">
@@ -31,3 +35,4 @@ permalink: /research/
   {% endif %}
 </div>
 {% endfor %}
+</div>

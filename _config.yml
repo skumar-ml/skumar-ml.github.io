@@ -33,11 +33,8 @@ collections:
 
 # Navigation
 header_pages:
-  # - about.md
-  # - publications.md
   # - projects.md
   # - blog.md
-  # - contact.md
 
 # Exclude from processing
 exclude:

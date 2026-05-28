@@ -1,7 +1,9 @@
 ---
 # Copy this file to a new name (e.g. my-project.md) to create a project page.
 # Files prefixed with _ are not published by Jekyll.
+# For a full working example, see sample-project.md (listed: false — hidden from /research/).
 layout: project
+listed: true
 title: "Paper Title"
 description: "One-sentence summary for SEO and the research listing page."
 authors:
@@ -10,7 +12,7 @@ authors:
   - name: "Co-author Name"
     url: "https://coauthor-website.com"
 affiliation: "Your University"
-venue: "Conference / Journal, Year"
+venue: "Conference / Journal, Year"  # Shown as a badge on /research/
 published_date: 2024-01-01
 keywords:
   - keyword one

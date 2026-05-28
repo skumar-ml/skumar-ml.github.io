@@ -4,7 +4,7 @@ This directory contains images used throughout the website.
 
 ## Important Files
 
-- `profile.jpg` - Your profile picture that appears on the home page and about page
+- `profile.jpg` - Your profile picture that appears on the home page
 - `project1.jpg`, `project2.jpg`, etc. - Images for your research projects
 - Other images used in blog posts or other pages
 

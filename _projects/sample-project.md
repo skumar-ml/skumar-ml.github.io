@@ -1,5 +1,7 @@
 ---
+# Template example — not shown on /research/ (see `listed: false`)
 layout: project
+listed: false
 title: "Academic Project Page"
 description: "A sample academic project page demonstrating the Horwitz et al. project page template integrated with Jekyll."
 authors:
