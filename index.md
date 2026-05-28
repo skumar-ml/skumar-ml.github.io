@@ -8,7 +8,7 @@ layout: home
     <p>Welcome to my website! I am a third-year PhD student in the Computer Vision and Robotics Laboratory at the University of Illinois at Urbana-Champaign. I am advised by Prof. <a href="https://vision.ai.illinois.edu/narendra-ahuja/" target="_blank" rel="noopener noreferrer">Narendra Ahuja</a>.</p>
     <p>I want to understand how and why AI models (from any modality) fail. I believe the key to understanding this is by making sense of our model's intermediate representations. I am currently interning at IBM this summer, under the mentorship of <a href="https://saurabhjha.one/" target="_blank" rel="noopener noreferrer">Saurabh Jha</a>.</p>
     <p>I obtained my B.S. from UCSD, where I did research with Prof. <a href="https://sites.google.com/view/ucsdvpl/home?authuser=0" target="_blank" rel="noopener noreferrer">Truong Nguyen</a> and Prof. <a href="https://jacobsschool.ucsd.edu/node/3287" target="_blank" rel="noopener noreferrer">Pamela Cosman</a>.</p>
-    <p>I obtained my B.S. from UCSD, where I did research with Prof. Truong Nguyen and Prof. Pamela Cosman.</p>
+
     <div class="social-links" style="text-align: center;">
       <p style="font-size: 14px; font-family: 'Lato', Verdana, Helvetica, sans-serif;">
         <a href="mailto:{{ site.email }}">Email</a> / 
