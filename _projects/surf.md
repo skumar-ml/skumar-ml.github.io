@@ -4,9 +4,9 @@ title: "Measuring the (Un)Faithfulness of Concept-Based Explanations"
 description: "We propose SURF, a principled faithfulness measure for unsupervised concept-based explanations, and show that many state-of-the-art methods are not as faithful as previously reported."
 authors:
   - name: "Shubham Kumar"
-    url: "https://github.com/skumar-ml"
+    url: "https://skumar-ml.github.io/"
   - name: "Narendra Ahuja"
-    url: "https://vision.ai.illinois.edu"
+    url: "https://vision.ai.illinois.edu/narendra-ahuja/"
 affiliation: "University of Illinois Urbana-Champaign"
 venue: "CVPR 2026"
 published_date: 2026-03-27

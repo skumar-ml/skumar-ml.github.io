@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Specify the Ruby version
-ruby '3.2.2'
+ruby '~> 3.2.0'
 
 # Hello! This is where you manage which Jekyll version is used to run.
 gem "jekyll", "~> 4.3.2"
