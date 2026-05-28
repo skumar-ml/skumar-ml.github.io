@@ -1,0 +1,16 @@
+{%- comment -%}
+  Renders Recent News from _news/*.md (site.news collection).
+  Configure visibility via news_cutoff_date in _config.yml.
+{%- endcomment -%}
+{%- assign sorted_news = site.news | sort: 'date' | reverse -%}
+{%- assign news_cutoff = site.news_cutoff_date | date: '%Y-%m-%d' -%}
+<div class="compact-news" style="margin-bottom: 20px;">
+  <ul>
+  {%- for news_item in sorted_news -%}
+    {%- assign item_date = news_item.date | date: '%Y-%m-%d' -%}
+    {%- if site.news_cutoff_date == nil or item_date >= news_cutoff -%}
+    <li><strong>{{ news_item.date | date: "%B %Y" }}</strong>: {{ news_item.content | markdownify | replace: '<p>', '' | replace: '</p>', '' | strip }}</li>
+    {%- endif -%}
+  {%- endfor -%}
+  </ul>
+</div>

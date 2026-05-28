@@ -5,8 +5,9 @@ layout: home
 <div class="profile-container">
   <div class="profile-bio">
     <h1>Shubham Kumar</h1>
-    <p>Hi there! I am a second-year PhD student in the Computer Vision and Robotics Laboratory at the University of Illinois at Urbana-Champaign. I am advised by Prof. Narendra Ahuja.</p>
-    <p>I want to understand how computer vision models see and understand the world. Most recently, I have been working on concept-based explainability.</p>
+    <p>Welcome to my website! I am a third-year PhD student in the Computer Vision and Robotics Laboratory at the University of Illinois at Urbana-Champaign. I am advised by Prof. <a href="https://vision.ai.illinois.edu/narendra-ahuja/" target="_blank" rel="noopener noreferrer">Narendra Ahuja</a>.</p>
+    <p>I want to understand how and why AI models (from any modality) fail. I believe the key to understanding this is by making sense of our model's intermediate representations. I am currently interning at IBM this summer, under the mentorship of <a href="https://saurabhjha.one/" target="_blank" rel="noopener noreferrer">Saurabh Jha</a>.</p>
+    <p>I obtained my B.S. from UCSD, where I did research with Prof. <a href="https://sites.google.com/view/ucsdvpl/home?authuser=0" target="_blank" rel="noopener noreferrer">Truong Nguyen</a> and Prof. <a href="https://jacobsschool.ucsd.edu/node/3287" target="_blank" rel="noopener noreferrer">Pamela Cosman</a>.</p>
     <p>I obtained my B.S. from UCSD, where I did research with Prof. Truong Nguyen and Prof. Pamela Cosman.</p>
     <div class="social-links" style="text-align: center;">
       <p style="font-size: 14px; font-family: 'Lato', Verdana, Helvetica, sans-serif;">
@@ -27,22 +28,7 @@ layout: home
 
 ## Recent News
 
-<div class="compact-news" style="margin-bottom: 20px;">
-  <ul>
-  {% assign sorted_news = site.news | sort: 'date' | reverse %}
-  {% assign news_cutoff = site.news_cutoff_date | date: '%Y-%m-%d' %}
-  {% assign news_shown = 0 %}
-  {% for news_item in sorted_news %}
-    {% assign item_date = news_item.date | date: '%Y-%m-%d' %}
-    {% if site.news_cutoff_date == nil or item_date >= news_cutoff %}
-      {% if news_shown < 5 %}
-    <li><strong>{{ news_item.date | date: "%B %Y" }}</strong>: {{ news_item.content | markdownify | replace: '<p>', '' | replace: '</p>', '' | strip }}</li>
-      {% assign news_shown = news_shown | plus: 1 %}
-      {% endif %}
-    {% endif %}
-  {% endfor %}
-  </ul>
-</div>
+{% include recent-news.html %}
 
 <!-- ## Research Highlights
 
