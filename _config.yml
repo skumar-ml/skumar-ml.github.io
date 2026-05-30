@@ -6,11 +6,11 @@ description: >-
   at Your University.
 baseurl: ""
 url: "https://skumar-ml.github.io"
-twitter_username: yourusername
+twitter_username: skumar_ml
 github_username:  skumar-ml
 google_scholar: zHuT7aIAAAAJ
-linkedin_username: yourlinkedinusername
-youtube_channel: yourchannelid
+linkedin_username: shubhamkumar-ml
+youtube_channel: skumar-ml
 
 # Recent News on the home page: only items on or after this date (YYYY-MM-DD)
 news_cutoff_date: 2022-01-01

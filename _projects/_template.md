@@ -29,6 +29,9 @@ links:
     url: "https://arxiv.org/abs/PAPER_ID"
 
 # Optional sections — remove any you don't need
+disclaimer: |
+  Optional notice shown below the paper links and above the teaser image.
+
 teaser:
   video: "/assets/academic-project/videos/banner_video.mp4"
   # image: "/assets/images/teaser.jpg"

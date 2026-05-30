@@ -205,6 +205,28 @@ body {
   margin-right: 0.5rem;
 }
 
+.publication-disclaimer-section {
+  padding: 10px 1.5rem !important;
+}
+
+.hero:has(+ .publication-disclaimer-section) .hero-body {
+  padding-bottom: 10px;
+}
+
+.publication-disclaimer {
+  max-width: 100%;
+  margin: 0 auto;
+  color: var(--text-primary);
+  font-size: 0.98rem;
+  font-style: italic;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.publication-disclaimer p:last-child {
+  margin-bottom: 0;
+}
+
 .publication-banner img {
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-lg);
