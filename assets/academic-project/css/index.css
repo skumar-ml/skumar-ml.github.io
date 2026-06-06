@@ -264,15 +264,109 @@ body {
     border-radius: var(--border-radius-lg);
 }
 
-.publication-body img {
+.publication-body img,
+.publication-body video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-md);
   transition: var(--transition);
+  margin: 1.25rem 0;
 }
 
-.publication-body img:hover {
+.publication-body img:hover,
+.publication-body video:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
+}
+
+.publication-body video.inline-video,
+.publication-body img.inline-image {
+  width: 100%;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Distill-style numbered hover footnotes in project body */
+.project-body-section .publication-body {
+  counter-reset: footnote;
+}
+
+.footnote {
+  position: relative;
+  display: inline;
+  cursor: default;
+  white-space: nowrap;
+  counter-increment: footnote;
+}
+
+.footnote-marker {
+  line-height: 1em;
+  font-size: 0.75em;
+  position: relative;
+  top: -0.5em;
+  vertical-align: baseline;
+  font-weight: 400;
+  margin-left: 0.05em;
+}
+
+.footnote-marker::before {
+  content: counter(footnote);
+  color: hsla(206, 90%, 20%, 0.7);
+}
+
+.footnote:hover .footnote-marker::before,
+.footnote:focus .footnote-marker::before,
+.footnote:focus-within .footnote-marker::before {
+  color: hsla(206, 90%, 20%, 1);
+}
+
+.footnote-content {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  z-index: 20;
+  bottom: calc(100% + 0.6rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  width: max-content;
+  max-width: min(22rem, 80vw);
+  padding: 0.65rem 0.85rem;
+  border-radius: 4px;
+  background: rgba(250, 250, 250, 0.98);
+  color: var(--text-primary);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  white-space: normal;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  transition: var(--transition);
+  pointer-events: none;
+}
+
+.footnote-content::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(250, 250, 250, 0.98);
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.08));
+}
+
+.footnote:hover .footnote-content,
+.footnote:focus .footnote-content,
+.footnote:focus-within .footnote-content {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 .results-carousel {
@@ -791,6 +885,95 @@ main .container.is-max-desktop {
 .project-body-section .publication-body.content.has-text-justified td,
 .project-body-section .publication-body.content.has-text-justified th {
   color: #1e293b;
+}
+
+/* Collapsible content dropdowns in project body */
+.content-dropdown {
+  margin: 1.25rem 0;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  background: var(--background-secondary);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.content-dropdown:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-md);
+  background: var(--background-accent);
+}
+
+.content-dropdown[open] {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-md);
+  background: var(--background-primary);
+}
+
+.content-dropdown summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  color: var(--text-primary);
+  transition: var(--transition);
+}
+
+.content-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.content-dropdown summary::marker {
+  content: '';
+}
+
+.content-dropdown summary:hover,
+.content-dropdown:hover summary {
+  color: var(--primary-color);
+}
+
+.content-dropdown summary::after {
+  content: '';
+  flex-shrink: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-right: 2px solid var(--text-secondary);
+  border-bottom: 2px solid var(--text-secondary);
+  transform: rotate(45deg);
+  transition: var(--transition);
+  margin-top: -0.15rem;
+}
+
+.content-dropdown:hover summary::after,
+.content-dropdown[open] summary::after {
+  border-color: var(--primary-color);
+}
+
+.content-dropdown[open] summary::after {
+  transform: rotate(-135deg);
+  margin-top: 0.15rem;
+}
+
+.content-dropdown[open] summary {
+  border-bottom: 1px solid var(--border-color);
+  background: var(--background-secondary);
+}
+
+.content-dropdown > p {
+  margin: 0;
+  padding: 0 1.25rem;
+}
+
+.content-dropdown > p:first-of-type {
+  padding-top: 1rem;
+}
+
+.content-dropdown > p:last-of-type {
+  padding-bottom: 1.25rem;
 }
 
 

@@ -1,0 +1,9 @@
+{%- comment -%}
+  Distill-style numbered hover footnote for project pages.
+  Numbers auto-increment per page via CSS counters.
+  Usage: {% include academic-project/footnote.html text="Your note here." %}
+{%- endcomment -%}
+<span class="footnote" tabindex="0" role="note">
+  <sup class="footnote-marker" aria-hidden="true"></sup>
+  <span class="footnote-content">{{ include.text }}</span>
+</span>

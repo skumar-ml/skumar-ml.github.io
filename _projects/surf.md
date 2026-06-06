@@ -1,7 +1,7 @@
 ---
 layout: project
 title: "Measuring the (Un)Faithfulness of Concept-Based Explanations"
-description: "We propose SURF, a principled faithfulness measure for unsupervised concept-based explanations, and show that many state-of-the-art methods are not as faithful as previously reported."
+description: "We propose SURF, a principled faithfulness measure for unsupervised concept-based explanations, and show that many state-of-the-art explanation methods are not as faithful as previously reported."
 authors:
   - name: "Shubham Kumar"
     url: "https://skumar-ml.github.io/"
@@ -18,20 +18,20 @@ keywords:
   - sparse autoencoders
   - interpretability
 links:
-  - name: "Paper"
-    type: paper
-    url: "/assets/academic-project/pdfs/surf-camera-ready.pdf"
   - name: "arXiv"
     type: arxiv
     url: "https://arxiv.org/abs/2504.10833"
   - name: "Code"
     type: code
     url: "https://github.com/skumar-ml/surf-eval"
+  - name: "Video"
+    type: demo
+    url: "https://youtu.be/HpDWq9PIAjs"
   - name: "Poster"
     type: supplementary
     url: "/assets/academic-project/images/CVPR_2026_SURF_Poster.png"
 disclaimer: |
-  Disclaimer: I initially one-shot generated the content on this project page with Cursor (provided my poster and paper PDFs). I then proceeded to <s>lightly</s> meaningfully manually edit the text.
+  Disclaimer: I initially one-shot generated the content on this project page with Cursor (provided my poster and paper PDFs). I was unsatisifed, so I proceeded to <s>lightly</s> meaningfully manually edit the text.
 teaser:
   image: "/assets/academic-project/images/CVPR_2026_SURF_Poster.png"
   caption: "CVPR 2026 poster — SURF measures whether concept-based explanations actually reflect a vision model's computation. <a href='/assets/academic-project/pdfs/surf-camera-ready.pdf' target='_blank'>PDF for full resolution</a>."
@@ -46,17 +46,20 @@ bibtex: |
 ---
 
 ## Intro
-We do not know how an AI model gets to a certain prediction. Take an image classifier as an example. If we show it a picture of a helicopter, there's probably a 99% chance it classifies it as an airplane correctly. But there's a 1% chance it fails, and we do not when it will happen apriori (i.e., before actually running the model). But why? What is it that makes it think it's an airplane?
+We do not know how an AI model gets to a certain prediction. Take an image classifier as an example. If we show it a picture of a helicopter, there's may be a 99% chance it classifies the image correctly. But there's a 1% chance it may fail, and we do not when it will happen apriori (i.e., before actually running the model). But why? What is it that makes the model think the image is a helicopter?
 
-This motivates explainable AI (XAI), aka interpreability, mechanistic intepretability, etc, etc. There are many opinions on how to generate explanations for AI models. One of the most promising approaches is to try to find out the **concepts** that the model internally recognizes as it makes it's predictions. This is particularly useful for vision models, since we can understand the airplane classification in terms of if the fuselage, wings, windows, and tires were detected, rather than looking at pixels. These class of XAI methods are called **concept-based explanation methods (CBEMs)**. Nowadays, we find concepts in an unsupervised manner, so these are called **unsupervised CBEMs (U-CBEMs)**.
+This motivates explainable AI (XAI) (aka interpreability, mechanistic intepretability, etc). There are many opinions on how to generate explanations for AI models. One of the most promising approaches is to try to find out the **concepts** that the model internally recognizes as it makes it's predictions. This is particularly useful for vision models, since we can understand the airplane classification in terms of if the fuselage, wings, windows, and tires were detected, rather than having to interpret pixels. This class of XAI methods are called **concept-based explanation methods (CBEMs)**, and nowadays, we find concepts in an unsupervised manner, which is called **unsupervised CBEMs (U-CBEMs)**.
 
-If you're interested in a brief overview of the XAI literature and where U-CBEMs fit, open the dropdown:
+<details class="content-dropdown" markdown="1">
+<summary><strong>Brief overview of the XAI literature and where U-CBEMs fit</strong></summary>
 
-<!-- For a full There are many opinions on how to generate explanations for AI models. Some folks think we should be developing **Inherently interpretable models**, where the explanation is explicitly in the model architecture; however, these often sacrifice performance. For vision models, the initial popular method was **feature attribution methods** (e.g., saliency maps, SHAP), which highlight which input pixels matter, but they struggle with faithfulness evaluation and rarely convey *what* semantics the model recognizes. Then, **Concept-based explanation methods (CBEMs)** entered the scene. They explain predictions in terms of human-understandable concepts—edges, textures, object parts—and operate on the model's intermediate representations.
+There are many opinions on how to generate explanations for AI models. Some folks think we should be developing **Inherently interpretable models**, where the explanation is explicitly in the model architecture; however, these often sacrifice performance. For vision models, the initial popular method was **feature attribution methods** (e.g., saliency maps, SHAP), which highlight which input pixels matter, but they struggle with faithfulness evaluation and rarely convey *what* semantics the model recognizes. Then, **Concept-based explanation methods (CBEMs)** entered the scene. They explain predictions in terms of human-understandable concepts—edges, textures, object parts—and operate on the model's intermediate representations.
 
-Initial CBEM approaches were **supervised** methods, requiring a pre-defined, annotated concept vocabulary (which is costly and may miss important aspects of the model's computation). So we developed **Unsupervised CBEMs (U-CBEMs)** that automatically discover concepts as directions in representation space, paired with importance scores. The most scalable version of this (which has gained recent popularity) are **sparse autoencoders (SAEs)**—originally developed for language model interpretability. U-CBEMs like ACE, CRAFT, C-SHAP, MCD, and SAEs all promise explanations that are both interpretable *and* faithful. This work asks: are they?-->
+Initial CBEM approaches were **supervised** methods, requiring a pre-defined, annotated concept vocabulary (which is costly and may miss important aspects of the model's computation). So we developed **Unsupervised CBEMs (U-CBEMs)** that automatically discover concepts as directions in representation space, paired with importance scores. The most scalable version of this (which has recently gained popularity) are **sparse autoencoders (SAEs)**—originally developed for language model interpretability.
 
-Naturally, we want explanations that are both interpretable (i.e., helpful to humans) and faithful (i.e., reflect the model's internal computation). However, there's a tradeoff between the two: more complex explanations are more faithful, but less interpretable (and vice versa). As newer U-CBEM methods are developed, they promise to be more interpretable (i.e., helpful to humans) **and** faithful (i.e., reflect the model's internal computation). This work asks: are they?
+</details>
+
+Naturally, we want explanations that are both interpretable (i.e., helpful to humans) and faithful (i.e., reflect the model's internal computation). However, there's a tradeoff between the two: more complex explanations are more faithful, but less interpretable (and vice versa). As newer U-CBEM methods are developed, they promise to be more interpretable **and** faithful. This work asks: are they?
 
 
 ## The Problem of Measuring Faithfulness
@@ -72,25 +75,35 @@ Because explanations are lossy simplifications of the model's internal computati
 1. **Each U-CBEM proposes its own faithfulness measure**, with no measure-over-measure comparison, so the field lacks consensus on what "faithful" even means in practice.
 2. **Reported faithfulness gains may be artifacts of the evaluation itself**—either hidden complexity in the surrogate (shifting the interpretability burden downstream) or flawed deletion-based proxies (we will discuss this in more detail later) borrowed from the feature attribution literature.
 
-Without a principled measure, we cannot reliably compare methods or diagnose when a visually compelling explanation misrepresents the model. Before diving into our work, let's talk about what the heck a U-CBEM even is anyway.
+Without a principled measure, we cannot reliably compare methods or diagnose when a visually compelling explanation misrepresents the model. Before diving into our work, let's talk about what a U-CBEM is.
 
 ## Components of an Unsupervised Concept-Based Explanation
 
-Check out this video example of a U-CBEM:
-<!-- insert video here -->
-A U-CBEM finds concepts (or *concept activation vectors (CAVs)*) by analyzing intermediate representations in the model (i.e., like looking for patterns). After finding a set of concepts, the U-CBEM can determine how *much* of the concept any input image contains (*local concept importance*). Finally, the U-CBEM also characterizes how important the concept is for a given class (*global concept importance*). All of this information can be visualized in a compact image.
+Here's a video example of a U-CBEM (I made this for a user-study, so please ignore the robotic voice):
 
-See the paper for a formal definition of U-CBEMs.
+<video class="inline-video" controls muted preload="metadata" playsinline>
+  <source src="/assets/academic-project/videos/ucbem_intro.mp4" type="video/mp4">
+</video>
+
+A U-CBEM finds concepts (or *concept activation vectors (CAVs)*) by analyzing intermediate representations in the model (i.e., like looking for patterns) and how important the concept is for a given class (*global concept importance*). Then, given an image, the U-CBEM project the image representation onto the CAVs to determine how *much* the concept is present, which can be combined with global concept importance to determine the specific's image's *local concept importance*. All of this information can be visualized in a compact image.
+
+See the paper for a more formal definition of U-CBEMs.
 
 ## A Motivating Example
 
 Given the following explanation, what did the model predict? 
 
-<!-- create the demo here -->
+![CRAFT explanations for Class 1 and Class 2 on a helicopter image](/assets/academic-project/images/surf_faithfulness_demo.png){: .inline-image}
 
-Consider a model that misclassifies a **helicopter** image as an **airplane**. Using a U-CBEM like CRAFT, we can produce explanations for the correct class (helicopter) and the incorrect predicted class (airplane). Visually, both explanations appear equally plausible—highlighting coherent concept patches and sensible importances. This is because CRAFT is *unfaithful* in this setting. Only the class the model predicts (Airplane) should appear plausible from the explanation. This precisely motivates SURF: **interpretability alone does not guarantee faithfulness**.
+<details class="content-dropdown" markdown="1">
+<summary><strong>Reveal the answer</strong></summary>
 
-*Placeholder: helicopter misclassification example with side-by-side CRAFT explanations for the correct and predicted classes.*
+*Model Predicts*: Class 1 (Airplane) <br>
+*Ground Truth*: Class 2 (Helicopter) <br>
+Explanation comes from CRAFT.
+</details>
+
+Consider a model that misclassifies a **helicopter** image as an **airplane**. Using a U-CBEM like CRAFT, we can produce explanations for the correct class (helicopter) and the incorrect predicted class (airplane). Visually, both explanations appear equally plausible—highlighting coherent concept patches and sensible importances, but this makes it difficult for a user to *simulate* what the model predicted (given the explanation). This exemplifies how CRAFT is *unfaithful* in this setting. Only the class the model predicts (Airplane) should appear plausible from the explanation, which precisely motivates SURF: **interpretability alone does not guarantee faithfulness**.
 
 ## Limitations of Prior Faithfulness Metrics
 
@@ -100,7 +113,7 @@ There are two families of faithfulness metrics for U-CBEMs.
 
 The idea is intuitive: if an explanation is faithful, then removing the concepts one by one should degrade the model's output. Deleting the most important concepts should degrade the model the most. The idea has been adapted into a metric (but since we don't feel like it actually measures faithfulness, we call them proxies); these proxies have been commonly used in prior works (ACE, MCD, HU-MCD, CDISCO, CRAFT). Each prior work introduces a sightly different variant on the metric---but they all share fundamental problems:
 
-- **Ill-defined deletion:** What does it mean to delete a concept from a neural network? Can you really just set it to 0? *I like the example that gives in this video*. This is a hard problem to overcome.
+- **Ill-defined deletion:** What does it mean to delete a concept from a neural network? Can you really just set it to 0? I like the example that Ian Covert gives [in this talk](https://www.youtube.com/live/9P4e2Rx-Y-I?si=uXDekx_2JfrkZf3T&t=2004). This is a hard problem to overcome.
 - **Off-manifold inputs:** Deleting concepts (even if we can do them correctly) may result in inputs that the model has never seen before (very far from the data manifold). How can we know if model degradation is due to off-manifold inputs, or the model actually relying on the concept?
 
 There's (at least two) unresolved questions for deletion-based proxies, and we are not very interested in solving them because there's a simpler way to do measure faithfulness (at least for U-CBEMs).
@@ -109,11 +122,13 @@ There's (at least two) unresolved questions for deletion-based proxies, and we a
 
 A surrogate-based measure defines a *surrogate* that maps from the explanation to the model's output, and a *metric* to measure the error between the surrogate and the model's output. If a surrogate can accurately reconstruct the model's output from the explanation, then we can say that the explanation is faithful.
 
-The idea is simple; however, surrogate-based measures must be defined carefully. Faithfulness can easily be *artificially* inflated by using an overly complex surrogate to "overfit" to the model's output. Critically, observe that the surrogate mathematically represents what a human (or end user) must *conceptually* do to mentally map from the explanation to the model's output. Human's tend to struggle finding non-linear relationships. Thus, we want to move towards surrogates that are as simple (for humans to conceptually) as possible. Otherwise, we risk inflating faithfulness artificially (which is one reason why prior approaches obtained both interpretable and faithful explanations). <!-- Add a footnote here talking about how (in my mind) faithfulness and interpretability really are the two components of an explanation that ultimately determine it's usefulness. What I'm basically saying is that complex surrogates obscure the true faithfulness of the method, making it seem better on paper, but does not translate to practice. -->
+The idea is simple; however, surrogate-based measures must be defined carefully. Faithfulness can easily be *artificially* inflated by using an overly complex surrogate to "overfit" to the model's output. Critically, observe that the surrogate mathematically represents what a human (or end user) must *conceptually* do to mentally map from the explanation to the model's output. Human's tend to struggle finding non-linear relationships. Thus, we want to move towards surrogates that are as simple (for humans to conceptually) as possible. Otherwise, we risk inflating faithfulness artificially (which is one reason why prior approaches obtained both interpretable and faithful explanations){% include academic-project/footnote.html text="In my view, faithfulness and interpretability are the two qualities that ultimately determine whether an explanation is useful. Complex surrogates can obscure a method's true faithfulness—making it look better on paper than it is in practice." %}.
 
 There's some other issues with prior surrogate-based measures. Take our word for it (or read the paper!). Also, enjoy this nice figure comparing the two that I spent way too much time on, and that none of my reviewers seemingly cared for.
 
-<!-- *Placeholder: unified faithfulness framework diagram (Fig. 1 from paper).* -->
+![Unified faithfulness framework comparing surrogate-based measures and deletion-based proxies](/assets/academic-project/images/surf_framework_overview/surf_framework_overview-1.png)
+
+*Unified framework of faithfulness measures (deletion-based proxies on the left, surrogate-based measures on the right) (from the paper).*
 
 ## SURF: Method and Assumptions
 
@@ -162,7 +177,7 @@ We apply SURF to seven U-CBEMs on object classification with a Caltech-101 finet
 | HU-MCD | 1.97 | 0.384 | 99.7 | 0.149 |
 | **SAE** | **1.04** | **0.195** | 99.2 | 0.366 |
 
-**No evaluated U-CBEM is faithful.** Even the best method (SAE) has {% include inline-math.html latex="\text{SURF}_{\text{EMD}} = 0.195" %}—on average, ~20% of the surrogate's output distribution is incorrect. In the paper <!-- add section here -->, we speculate as to why certain methods struggle.
+**No evaluated U-CBEM is faithful.** Even the best method (SAE) has {% include inline-math.html latex="\text{SURF}_{\text{EMD}} = 0.195" %}—on average, ~20% of the surrogate's output distribution is incorrect. In the paper (end of Section 6.2), we speculate as to why certain methods struggle.
 
 ## Parsimony vs. Faithfulness
 
