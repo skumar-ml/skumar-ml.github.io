@@ -1,0 +1,31 @@
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var content = document.querySelector('.post-layout-with-toc .post-content');
+  var tocList = document.getElementById('post-toc-list');
+  var tocAside = document.querySelector('.post-toc');
+  if (!content || !tocList || !tocAside) return;
+
+  var headings = content.querySelectorAll('h2, h3');
+  if (!headings.length) {
+    tocAside.style.display = 'none';
+    return;
+  }
+
+  headings.forEach(function (heading, index) {
+    if (!heading.id) {
+      heading.id = 'section-' + index;
+    }
+
+    var item = document.createElement('li');
+    if (heading.tagName === 'H3') {
+      item.className = 'post-toc-h3';
+    }
+
+    var link = document.createElement('a');
+    link.href = '#' + heading.id;
+    link.textContent = heading.textContent;
+    item.appendChild(link);
+    tocList.appendChild(item);
+  });
+});
+</script>

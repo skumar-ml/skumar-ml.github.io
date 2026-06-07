@@ -289,6 +289,45 @@ body {
   margin-right: auto;
 }
 
+/* Heading permalink anchors (kramdown header_links) */
+.publication-body h1,
+.publication-body h2,
+.publication-body h3,
+.publication-body h4 {
+  position: relative;
+}
+
+.publication-body h1 > a[href^="#"]:empty,
+.publication-body h2 > a[href^="#"]:empty,
+.publication-body h3 > a[href^="#"]:empty,
+.publication-body h4 > a[href^="#"]:empty {
+  position: absolute;
+  left: -1.25em;
+  opacity: 0;
+  padding-right: 0.35em;
+  text-decoration: none;
+  color: var(--primary-color, #2563eb);
+  transition: opacity 0.15s ease;
+}
+
+.publication-body h1:hover > a[href^="#"]:empty,
+.publication-body h2:hover > a[href^="#"]:empty,
+.publication-body h3:hover > a[href^="#"]:empty,
+.publication-body h4:hover > a[href^="#"]:empty,
+.publication-body h1 > a[href^="#"]:empty:focus,
+.publication-body h2 > a[href^="#"]:empty:focus,
+.publication-body h3 > a[href^="#"]:empty:focus,
+.publication-body h4 > a[href^="#"]:empty:focus {
+  opacity: 1;
+}
+
+.publication-body h1 > a[href^="#"]:empty::before,
+.publication-body h2 > a[href^="#"]:empty::before,
+.publication-body h3 > a[href^="#"]:empty::before,
+.publication-body h4 > a[href^="#"]:empty::before {
+  content: "#";
+}
+
 /* Distill-style numbered hover footnotes in project body */
 .project-body-section .publication-body {
   counter-reset: footnote;

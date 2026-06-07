@@ -123,7 +123,7 @@
         <div class="columns is-centered">
           <div class="column is-12">
             <div class="content publication-body has-text-justified">
-              <h2 id="intro">Intro</h2>
+              <h2 id="intro"><a href="#intro"></a>Intro</h2>
 <p>We do not know how an AI model gets to a certain prediction. Take an image classifier as an example. If we show it a picture of a helicopter, there’s may be a 99% chance it classifies the image correctly. But there’s a 1% chance it may fail, and we do not when it will happen apriori (i.e., before actually running the model). But why? What is it that makes the model think the image is a helicopter?</p>
 
 <p>This motivates explainable AI (XAI) (aka interpreability, mechanistic intepretability, etc). There are many opinions on how to generate explanations for AI models. One of the most promising approaches is to try to find out the <strong>concepts</strong> that the model internally recognizes as it makes it’s predictions. This is particularly useful for vision models, since we can understand the airplane classification in terms of if the fuselage, wings, windows, and tires were detected, rather than having to interpret pixels. This class of XAI methods are called <strong>concept-based explanation methods (CBEMs)</strong>, and nowadays, we find concepts in an unsupervised manner, which is called <strong>unsupervised CBEMs (U-CBEMs)</strong>.</p>
@@ -139,7 +139,7 @@
 
 <p>Naturally, we want explanations that are both interpretable (i.e., helpful to humans) and faithful (i.e., reflect the model’s internal computation). However, there’s a tradeoff between the two: more complex explanations are more faithful, but less interpretable (and vice versa). As newer U-CBEM methods are developed, they promise to be more interpretable <strong>and</strong> faithful. This work asks: are they?</p>
 
-<h2 id="the-problem-of-measuring-faithfulness">The Problem of Measuring Faithfulness</h2>
+<h2 id="the-problem-of-measuring-faithfulness"><a href="#the-problem-of-measuring-faithfulness"></a>The Problem of Measuring Faithfulness</h2>
 
 <p>For any explanation method, <strong>faithfulness</strong> asks whether the explanation actually reflects the model’s internal computation. Naturally, we want explanations that are faithful; otherwise, they are useless and may even border on dangerous. Formally, an explanation $E$ is faithful if a <strong>surrogate</strong> $s$ can accurately reconstruct the model $\phi$’s output (for every input $X$) from the explanation:</p>
 
@@ -154,7 +154,7 @@
 
 <p>Without a principled measure, we cannot reliably compare methods or diagnose when a visually compelling explanation misrepresents the model. Before diving into our work, let’s talk about what a U-CBEM is.</p>
 
-<h2 id="components-of-an-unsupervised-concept-based-explanation">Components of an Unsupervised Concept-Based Explanation</h2>
+<h2 id="components-of-an-unsupervised-concept-based-explanation"><a href="#components-of-an-unsupervised-concept-based-explanation"></a>Components of an Unsupervised Concept-Based Explanation</h2>
 
 <p>Here’s a video example of a U-CBEM (I made this for a user-study, so please ignore the robotic voice):</p>
 
@@ -166,7 +166,7 @@
 
 <p>See the paper for a more formal definition of U-CBEMs.</p>
 
-<h2 id="a-motivating-example">A Motivating Example</h2>
+<h2 id="a-motivating-example"><a href="#a-motivating-example"></a>A Motivating Example</h2>
 
 <p>Given the following explanation, what did the model predict?</p>
 
@@ -182,11 +182,11 @@ Explanation comes from CRAFT.</p>
 
 <p>Consider a model that misclassifies a <strong>helicopter</strong> image as an <strong>airplane</strong>. Using a U-CBEM like CRAFT, we can produce explanations for the correct class (helicopter) and the incorrect predicted class (airplane). Visually, both explanations appear equally plausible—highlighting coherent concept patches and sensible importances, but this makes it difficult for a user to <em>simulate</em> what the model predicted (given the explanation). This exemplifies how CRAFT is <em>unfaithful</em> in this setting. Only the class the model predicts (Airplane) should appear plausible from the explanation, which precisely motivates SURF: <strong>interpretability alone does not guarantee faithfulness</strong>.</p>
 
-<h2 id="limitations-of-prior-faithfulness-metrics">Limitations of Prior Faithfulness Metrics</h2>
+<h2 id="limitations-of-prior-faithfulness-metrics"><a href="#limitations-of-prior-faithfulness-metrics"></a>Limitations of Prior Faithfulness Metrics</h2>
 
 <p>There are two families of faithfulness metrics for U-CBEMs.</p>
 
-<h3 id="deletion-based-proxies">Deletion-based proxies</h3>
+<h3 id="deletion-based-proxies"><a href="#deletion-based-proxies"></a>Deletion-based proxies</h3>
 
 <p>The idea is intuitive: if an explanation is faithful, then removing the concepts one by one should degrade the model’s output. Deleting the most important concepts should degrade the model the most. The idea has been adapted into a metric (but since we don’t feel like it actually measures faithfulness, we call them proxies); these proxies have been commonly used in prior works (ACE, MCD, HU-MCD, CDISCO, CRAFT). Each prior work introduces a sightly different variant on the metric—but they all share fundamental problems:</p>
 
@@ -197,7 +197,7 @@ Explanation comes from CRAFT.</p>
 
 <p>There’s (at least two) unresolved questions for deletion-based proxies, and we are not very interested in solving them because there’s a simpler way to do measure faithfulness (at least for U-CBEMs).</p>
 
-<h3 id="surrogate-based-measures">Surrogate-based measures</h3>
+<h3 id="surrogate-based-measures"><a href="#surrogate-based-measures"></a>Surrogate-based measures</h3>
 
 <p>A surrogate-based measure defines a <em>surrogate</em> that maps from the explanation to the model’s output, and a <em>metric</em> to measure the error between the surrogate and the model’s output. If a surrogate can accurately reconstruct the model’s output from the explanation, then we can say that the explanation is faithful.</p>
 
@@ -213,7 +213,7 @@ Explanation comes from CRAFT.</p>
 
 <p><em>Unified framework of faithfulness measures (deletion-based proxies on the left, surrogate-based measures on the right) (from the paper).</em></p>
 
-<h2 id="surf-method-and-assumptions">SURF: Method and Assumptions</h2>
+<h2 id="surf-method-and-assumptions"><a href="#surf-method-and-assumptions"></a>SURF: Method and Assumptions</h2>
 
 <p><strong>Surrogate Faithfulness (SURF)</strong> introduces a simple, linear surrogate inspired by the structure of the model’s final linear layer. The model output for class $i$ decomposes as (up to the bias term):</p>
 
@@ -237,7 +237,7 @@ Explanation comes from CRAFT.</p>
 
 <p>In order to reflect the mental computation a human would need to perform to connect the explanation to the output, we force our surrogate to be <strong>linear and have no trainable parameters</strong>. Thus, the surrogate only really works for explanations on the <strong>final linear layer</strong> in models. In practice, this isn’t really too bad of a limitation so most other work focuses on the same setting, but in the abstract, it’s something that is undesirable.</p>
 
-<h2 id="benchmark-caltech-101-resnet-50">Benchmark: Caltech-101 (ResNet-50)</h2>
+<h2 id="benchmark-caltech-101-resnet-50"><a href="#benchmark-caltech-101-resnet-50"></a>Benchmark: Caltech-101 (ResNet-50)</h2>
 <p><em>Our paper empirically validates that SURF is better (to no one’s surprise) than past surrogate-based measures. Check it out if you’re interested. This page focuses on the more interesting findings.</em></p>
 
 <p>We apply SURF to seven U-CBEMs on object classification with a Caltech-101 finetuned ResNet-50 (~95.6% test accuracy). Each method discovers $K = 5$ concepts per output class:</p>
@@ -308,7 +308,7 @@ Explanation comes from CRAFT.</p>
 <p><strong>No evaluated U-CBEM is faithful.</strong> Even the best method (SAE) has <script type="math/tex; mode=inline">\text{SURF}_{\text{EMD}} = 0.195</script>
 —on average, ~20% of the surrogate’s output distribution is incorrect. In the paper (end of Section 6.2), we speculate as to why certain methods struggle.</p>
 
-<h2 id="parsimony-vs-faithfulness">Parsimony vs. Faithfulness</h2>
+<h2 id="parsimony-vs-faithfulness"><a href="#parsimony-vs-faithfulness"></a>Parsimony vs. Faithfulness</h2>
 
 <p>The number of concepts $K$ in the explanation is the most important hyperparameter for any U-CBEM. More concepts should yield more faithful explanations, but explanations with too many concepts are hard to interpret.</p>
 
@@ -322,7 +322,7 @@ Explanation comes from CRAFT.</p>
 
 <p><em>Placeholder: faithfulness vs. number of concepts plots (EMD and MAE, Fig. 2 from paper).</em></p>
 
-<h2 id="conclusion">Conclusion</h2>
+<h2 id="conclusion"><a href="#conclusion"></a>Conclusion</h2>
 
 <p>SURF helps us reliably measure faithfulness for U-CBEMs applied in the last layer of a vision model. Even in this setting, we see many recent U-CBEMs have high faithfulness errors, despite the simple setting. We encourage future works to avoid deletion-based proxies and use SURF (or SURF-inspired) metrics to measure faithfulness.</p>
 

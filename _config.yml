@@ -20,6 +20,8 @@ markdown: kramdown
 kramdown:
   math_engine: mathjax
   syntax_highlighter: rouge
+  auto_ids: true
+  header_links: true
 theme: minima
 plugins:
   - jekyll-feed
