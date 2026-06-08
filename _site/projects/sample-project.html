@@ -41,8 +41,7 @@
 <script defer src="/assets/academic-project/js/fontawesome.all.min.js"></script>
 <script defer src="/assets/academic-project/js/bulma-carousel.min.js"></script>
 <script defer src="/assets/academic-project/js/bulma-slider.min.js"></script>
-<script defer src="/assets/academic-project/js/index.js"></script>
-<script>
+<script defer src="/assets/academic-project/js/index.js"></script><script>
   window.MathJax = {
     tex: {
       inlineMath: [['\\(', '\\)'], ['$', '$']],
@@ -232,6 +231,119 @@ Figures and tables in markdown are supported here.</p>
     </div>
   </div>
 </footer>
+
+  <script>
+(function () {
+  if (window.__footnotePositionInit) return;
+  window.__footnotePositionInit = true;
+
+  var mobileQuery = window.matchMedia('(max-width: 768px)');
+  var margin = 12;
+  var gap = 8;
+
+  function viewportWidth() {
+    return document.documentElement.clientWidth;
+  }
+
+  function resetContent(content) {
+    content.classList.remove('is-positioned', 'is-below');
+    content.style.removeProperty('--footnote-shift');
+    content.style.removeProperty('--footnote-arrow-left');
+    ['position', 'left', 'top', 'bottom', 'right', 'width', 'z-index', 'transform'].forEach(function (prop) {
+      content.style.removeProperty(prop);
+    });
+  }
+
+  function adjustFootnote(footnote) {
+    var content = footnote.querySelector('.footnote-content');
+    var marker = footnote.querySelector('.footnote-marker') || footnote;
+    if (!content) return;
+
+    document.querySelectorAll('.footnote-content.is-positioned').forEach(function (other) {
+      if (other !== content) resetContent(other);
+    });
+
+    resetContent(content);
+
+    requestAnimationFrame(function () {
+      if (mobileQuery.matches) {
+        var viewport = viewportWidth();
+        var width = viewport - margin * 2;
+        var left = margin;
+        var markerRect = marker.getBoundingClientRect();
+
+        content.classList.add('is-positioned');
+        content.style.position = 'fixed';
+        content.style.left = left + 'px';
+        content.style.width = width + 'px';
+        content.style.maxWidth = 'none';
+        content.style.transform = 'none';
+        content.style.zIndex = '100';
+
+        var height = content.getBoundingClientRect().height;
+        var spaceAbove = markerRect.top - margin;
+        var spaceBelow = window.innerHeight - markerRect.bottom - margin;
+        var showBelow = spaceAbove < height + gap && spaceBelow > spaceAbove;
+
+        var arrowLeft = markerRect.left + markerRect.width / 2 - left;
+        arrowLeft = Math.max(16, Math.min(arrowLeft, width - 16));
+        content.style.setProperty('--footnote-arrow-left', arrowLeft + 'px');
+
+        if (showBelow) {
+          content.classList.add('is-below');
+          content.style.top = (markerRect.bottom + gap) + 'px';
+        } else {
+          content.style.top = Math.max(margin, markerRect.top - height - gap) + 'px';
+        }
+
+        return;
+      }
+
+      var rect = content.getBoundingClientRect();
+      var shift = 0;
+
+      if (rect.left < margin) {
+        shift = margin - rect.left;
+      } else if (rect.right > viewportWidth() - margin) {
+        shift = viewportWidth() - margin - rect.right;
+      }
+
+      if (shift !== 0) {
+        content.style.setProperty('--footnote-shift', shift + 'px');
+      }
+    });
+  }
+
+  function repositionActive() {
+    var active = document.querySelector('.footnote:focus-within');
+    if (active) adjustFootnote(active);
+  }
+
+  document.addEventListener('mouseover', function (e) {
+    var footnote = e.target.closest('.footnote');
+    if (footnote) adjustFootnote(footnote);
+  }, true);
+
+  document.addEventListener('focusin', function (e) {
+    var footnote = e.target.closest('.footnote');
+    if (footnote) adjustFootnote(footnote);
+  });
+
+  document.addEventListener('focusout', function (e) {
+    var footnote = e.target.closest('.footnote');
+    if (!footnote) return;
+    requestAnimationFrame(function () {
+      if (!footnote.matches(':focus-within')) {
+        var content = footnote.querySelector('.footnote-content');
+        if (content) resetContent(content);
+      }
+    });
+  });
+
+  window.addEventListener('scroll', repositionActive, { passive: true });
+  window.addEventListener('resize', repositionActive);
+})();
+</script>
 
 
 </body>

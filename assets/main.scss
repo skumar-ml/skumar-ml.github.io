@@ -445,9 +445,9 @@ a {
   z-index: 20;
   bottom: calc(100% + 0.6rem);
   left: 50%;
-  transform: translateX(-50%) translateY(4px);
+  transform: translateX(calc(-50% + var(--footnote-shift, 0px))) translateY(4px);
   width: max-content;
-  max-width: min(22rem, 80vw);
+  max-width: min(22rem, calc(100vw - 2rem));
   padding: 0.65rem 0.85rem;
   border-radius: 4px;
   background: rgba(250, 250, 250, 0.98);
@@ -458,6 +458,7 @@ a {
   line-height: 1.5;
   text-align: left;
   white-space: normal;
+  overflow-wrap: anywhere;
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
@@ -481,8 +482,41 @@ a {
 .footnote:focus-within .footnote-content {
   visibility: visible;
   opacity: 1;
-  transform: translateX(-50%) translateY(0);
+  transform: translateX(calc(-50% + var(--footnote-shift, 0px))) translateY(0);
   pointer-events: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .footnote:hover .footnote-content:not(.is-positioned),
+  .footnote:focus .footnote-content:not(.is-positioned),
+  .footnote:focus-within .footnote-content:not(.is-positioned) {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .footnote-content.is-positioned {
+    position: fixed;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    z-index: 100;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .footnote-content.is-positioned::after {
+    left: var(--footnote-arrow-left, 50%);
+    transform: translateX(-50%);
+  }
+
+  .footnote-content.is-positioned.is-below::after {
+    top: auto;
+    bottom: 100%;
+    border-top-color: transparent;
+    border-bottom-color: rgba(250, 250, 250, 0.98);
+  }
 }
 
 .footnote-content a {
