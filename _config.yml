@@ -26,20 +26,40 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 # Collections
 collections:
   news:
-    output: true
-  publications:
     output: true
   projects:
     output: true
 
 # Navigation
 header_pages:
-  # - projects.md
-  # - blog.md
+  - projects.md
+  - blog.md
+
+# Blog posts: /blog/post-slug/ (no date in URL)
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      permalink: /blog/:slug/
+  - scope:
+      path: ""
+      type: "news"
+    values:
+      sitemap: false
+  - scope:
+      path: "_posts/2023-01-01-welcome-to-my-website.md"
+    values:
+      sitemap: false
+  - scope:
+      path: "_projects/sample-project.md"
+    values:
+      sitemap: false
 
 # Exclude from processing
 exclude:

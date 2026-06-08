@@ -68,14 +68,3 @@ description: Shubham Kumar is a third-year PhD student at Univeristy of Illinois
 </div>
 
 <p><a href="{{ '/research/' | relative_url }}">View all research &rarr;</a></p>
-
-<!-- ## Recent Publications
-
-{% for pub in site.publications limit:3 %}
-- **{{ pub.title }}**  
-  {{ pub.authors }}  
-  *{{ pub.venue }}* ({{ pub.year }})  
-  {% if pub.pdf %}[PDF]({{ pub.pdf }}){% endif %}
-  {% if pub.code %}[Code]({{ pub.code }}){% endif %}
-  {% if pub.doi %}[DOI]({{ pub.doi }}){% endif %}
-{% endfor %}  -->
