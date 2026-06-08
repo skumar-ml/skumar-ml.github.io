@@ -143,10 +143,27 @@
     return document.documentElement.clientWidth;
   }
 
+  function getContentInset(footnote) {
+    var container = footnote.closest('.post-content, .publication-body, .content');
+    var viewport = viewportWidth();
+
+    if (!container) {
+      return margin;
+    }
+
+    var rect = container.getBoundingClientRect();
+    // Use a single inset for both sides so the tooltip aligns symmetrically
+    // with the text column (the column may not be perfectly centered in the
+    // viewport, which would otherwise leave one edge sticking out).
+    var inset = Math.min(rect.left, viewport - rect.right);
+    return Math.max(margin, inset);
+  }
+
   function resetContent(content) {
     content.classList.remove('is-positioned', 'is-below');
     content.style.removeProperty('--footnote-shift');
     content.style.removeProperty('--footnote-arrow-left');
+    content.style.removeProperty('--footnote-inset');
     ['position', 'left', 'top', 'bottom', 'right', 'width', 'z-index', 'transform'].forEach(function (prop) {
       content.style.removeProperty(prop);
     });
@@ -165,20 +182,21 @@
 
     requestAnimationFrame(function () {
       if (mobileQuery.matches) {
-        var viewport = viewportWidth();
-        var width = viewport - margin * 2;
-        var left = margin;
+        var inset = getContentInset(footnote);
         var markerRect = marker.getBoundingClientRect();
 
         content.classList.add('is-positioned');
         content.style.position = 'fixed';
-        content.style.left = left + 'px';
-        content.style.width = width + 'px';
+        content.style.setProperty('--footnote-inset', inset + 'px');
+        content.style.width = 'auto';
         content.style.maxWidth = 'none';
         content.style.transform = 'none';
         content.style.zIndex = '100';
 
-        var height = content.getBoundingClientRect().height;
+        var contentRect = content.getBoundingClientRect();
+        var height = contentRect.height;
+        var width = contentRect.width;
+        var left = contentRect.left;
         var spaceAbove = markerRect.top - margin;
         var spaceBelow = window.innerHeight - markerRect.bottom - margin;
         var showBelow = spaceAbove < height + gap && spaceBelow > spaceAbove;

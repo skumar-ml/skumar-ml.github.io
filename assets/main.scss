@@ -497,7 +497,10 @@ a {
 
   .footnote-content.is-positioned {
     position: fixed;
-    left: auto;
+    left: var(--footnote-inset, 12px);
+    right: var(--footnote-inset, 12px);
+    width: auto;
+    box-sizing: border-box;
     bottom: auto;
     transform: none;
     z-index: 100;
