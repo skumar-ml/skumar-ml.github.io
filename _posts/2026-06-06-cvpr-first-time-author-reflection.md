@@ -21,7 +21,7 @@ CVPR 2026 was my first time attending a conference as an author{% include academ
 I knew this from going to CVPR in 2024, but the scale of this conference is immense. Naively trying to see everything is a fool's errand. 
 
 <figure class="post-figure post-figure--half">
-  <img src="/assets/images/cvpr_busy.JPG" alt="The reception dinner at CVPR">
+  <img src="/assets/images/cvpr_busy.jpg" alt="The reception dinner at CVPR">
   <figcaption>The reception dinner at CVPR (this picture shows maybe 1% of the attendees).</figcaption>
 </figure>
 
@@ -55,7 +55,7 @@ I spent most of my time in the poster session. Like the workshop posters, the ma
 At CVPR, there were ~650 posters in each poster session. My labmate insisted on walking though every row{% include academic-project/footnote.html text="I told him he was crazy." %}. I opted to pre-select the posters I would be interested in by using [Scholar Inbox](https://www.scholar-inbox.com/). It's a fantastic software&mdash;you should use it. I wish they had an app. 
 
 <figure class="post-figure post-figure--half">
-  <img src="/assets/images/cvpr_labmate.JPG" alt="Me and my labmate at CVPR badge registration.">
+  <img src="/assets/images/cvpr_labmate.jpg" alt="Me and my labmate at CVPR badge registration.">
   <figcaption>Me and <a href="https://samyakr99.github.io/" target="_blank" rel="noopener noreferrer">said labmate</a> at CVPR badge registration.</figcaption>
 </figure>
 

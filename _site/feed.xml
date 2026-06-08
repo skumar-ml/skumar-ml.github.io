@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://skumar-ml.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://skumar-ml.github.io/" rel="alternate" type="text/html" /><updated>2026-06-07T22:03:48-06:00</updated><id>https://skumar-ml.github.io/feed.xml</id><title type="html">Home</title><subtitle>Personal website of Your Name, PhD Student in Your Field at Your University.</subtitle><entry><title type="html">A PhD Student’s Honest Reflection on Attending CVPR as a First-Time Author</title><link href="https://skumar-ml.github.io/blog/cvpr-first-time-author-reflection/" rel="alternate" type="text/html" title="A PhD Student’s Honest Reflection on Attending CVPR as a First-Time Author" /><published>2026-06-07T11:00:00-06:00</published><updated>2026-06-07T11:00:00-06:00</updated><id>https://skumar-ml.github.io/blog/cvpr-first-time-author-reflection</id><content type="html" xml:base="https://skumar-ml.github.io/blog/cvpr-first-time-author-reflection/"><![CDATA[<p>CVPR 2026 was my first time attending a conference as an author<span class="footnote" tabindex="0" role="note">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-06-07T22:09:41-06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Home</title><subtitle>Personal website of Your Name, PhD Student in Your Field at Your University.</subtitle><entry><title type="html">A PhD Student’s Honest Reflection on Attending CVPR as a First-Time Author</title><link href="http://localhost:4000/blog/cvpr-first-time-author-reflection/" rel="alternate" type="text/html" title="A PhD Student’s Honest Reflection on Attending CVPR as a First-Time Author" /><published>2026-06-07T11:00:00-06:00</published><updated>2026-06-07T11:00:00-06:00</updated><id>http://localhost:4000/blog/cvpr-first-time-author-reflection</id><content type="html" xml:base="http://localhost:4000/blog/cvpr-first-time-author-reflection/"><![CDATA[<p>CVPR 2026 was my first time attending a conference as an author<span class="footnote" tabindex="0" role="note">
   <sup class="footnote-marker" aria-hidden="true"></sup>
   <span class="footnote-content">I also attended CVPR 2024, but not as an author.</span>
 </span>
@@ -14,7 +14,7 @@
 <p>I knew this from going to CVPR in 2024, but the scale of this conference is immense. Naively trying to see everything is a fool’s errand.</p>
 
 <figure class="post-figure post-figure--half">
-  <img src="/assets/images/cvpr_busy.JPG" alt="The reception dinner at CVPR" />
+  <img src="/assets/images/cvpr_busy.jpg" alt="The reception dinner at CVPR" />
   <figcaption>The reception dinner at CVPR (this picture shows maybe 1% of the attendees).</figcaption>
 </figure>
 
@@ -56,7 +56,7 @@
 . I opted to pre-select the posters I would be interested in by using <a href="https://www.scholar-inbox.com/">Scholar Inbox</a>. It’s a fantastic software—you should use it. I wish they had an app.</p>
 
 <figure class="post-figure post-figure--half">
-  <img src="/assets/images/cvpr_labmate.JPG" alt="Me and my labmate at CVPR badge registration." />
+  <img src="/assets/images/cvpr_labmate.jpg" alt="Me and my labmate at CVPR badge registration." />
   <figcaption>Me and <a href="https://samyakr99.github.io/" target="_blank" rel="noopener noreferrer">said labmate</a> at CVPR badge registration.</figcaption>
 </figure>
 
@@ -149,7 +149,7 @@
   <sup class="footnote-marker" aria-hidden="true"></sup>
   <span class="footnote-content">Except for graduating, as my labmate reminded me.</span>
 </span>
-; it surely makes all those hours in the lab worth something.</p>]]></content><author><name></name></author><category term="blog" /><summary type="html"><![CDATA[This post honestly reflects on my CVPR experience, touching on navigating the conference, networking, poster sessions, food, and more!]]></summary></entry><entry><title type="html">Welcome to My Academic Website</title><link href="https://skumar-ml.github.io/blog/welcome-to-my-website/" rel="alternate" type="text/html" title="Welcome to My Academic Website" /><published>2023-01-01T10:00:00-07:00</published><updated>2023-01-01T10:00:00-07:00</updated><id>https://skumar-ml.github.io/blog/welcome-to-my-website</id><content type="html" xml:base="https://skumar-ml.github.io/blog/welcome-to-my-website/"><![CDATA[<p>I’m excited to launch my new academic website! This platform will serve as a hub for my research activities, publications, and teaching materials. I’ll be regularly updating this blog with news about my research, conference presentations, and other academic activities.</p>
+; it surely makes all those hours in the lab worth something.</p>]]></content><author><name></name></author><category term="blog" /><summary type="html"><![CDATA[This post honestly reflects on my CVPR experience, touching on navigating the conference, networking, poster sessions, food, and more!]]></summary></entry><entry><title type="html">Welcome to My Academic Website</title><link href="http://localhost:4000/blog/welcome-to-my-website/" rel="alternate" type="text/html" title="Welcome to My Academic Website" /><published>2023-01-01T10:00:00-07:00</published><updated>2023-01-01T10:00:00-07:00</updated><id>http://localhost:4000/blog/welcome-to-my-website</id><content type="html" xml:base="http://localhost:4000/blog/welcome-to-my-website/"><![CDATA[<p>I’m excited to launch my new academic website! This platform will serve as a hub for my research activities, publications, and teaching materials. I’ll be regularly updating this blog with news about my research, conference presentations, and other academic activities.</p>
 
 <h2 id="what-to-expect"><a href="#what-to-expect"></a>What to Expect</h2>
 
