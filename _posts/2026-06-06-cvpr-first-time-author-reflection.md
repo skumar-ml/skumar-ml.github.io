@@ -1,22 +1,28 @@
 ---
 layout: post
 title: "A PhD Student's Honest Reflection on Attending CVPR as a First-Time Author"
-date: 2026-06-08 12:00:00 -0500
+date: 2026-06-07 12:00:00 -0500
 categories: blog
 toc: true
 disclaimer: |
-  **Disclaimer:** I used AI to help organize my thoughts. The content is ~90% written by me.
+  **Disclaimer:** I used AI to help organize my thoughts for this post. The content is ~90% written by me.
 ---
 
 CVPR 2026 was my first time attending a conference as an author{% include academic-project/footnote.html text="I also attended CVPR 2024, but not as an author." %}. I went to all five days (two workshop days, three main conference days), and as the days went on, I maintained a Note on my phone with any fleeting thoughts I had. This post compiles & reflects on them.
 
-<!-- picture of me at the conference -->
+<figure class="post-figure post-figure--half">
+  <img src="/assets/images/cvpr_0.JPG" alt="Shubham Kumar at the CVPR 2026 conference sign">
+  <figcaption>Me at CVPR 2026!</figcaption>
+</figure>
 
 ## The conference is enormous, and most of it is noise
 
 I knew this from going to CVPR in 2024, but the scale of this conference is immense. Naively trying to see everything is a fool's errand. 
 
-<!-- picture of us at the conference-->
+<figure class="post-figure post-figure--half">
+  <img src="/assets/images/cvpr_busy.JPG" alt="The reception dinner at CVPR">
+  <figcaption>The reception dinner at CVPR (this picture shows maybe 1% of the attendees).</figcaption>
+</figure>
 
 It's important to recognize that, at this scale, most of the conference is noise. By noise, I don't mean low-quality posters or talks (although, there is a fair share of that too). I mean that there will be about a dozen papers, a handful of people, and maybe one workshop session that are actually high-signal *to you*. The rest will be irrelevant to your research.
 
@@ -31,9 +37,15 @@ However, note that most posters in a workshop session will be low-quality work. 
 
 ### Orals
 
-Orals are generally not worth attending. Not because the ideas are not good; they are. But because there is no control on the quality of the presentation (or presenter), and by design, there's no interaction. Don't take my word for it, see what people had to say about this CVPR's orals. <!-- embed multiple X posts (perhaps Jia-Bin's) -->. 
+Orals are generally not worth attending. Not because the ideas are not good; they are. But because there is no control on the quality of the presentation (or presenter), and by design, there's no interaction. Don't take my word for it—see what people had to say about this CVPR's orals:
 
-This time would be better spent relaxing, exploring company demos (in case you find that interesting), having fun in the city you are in, or setting up meetings with folks.
+<div class="post-embed" markdown="0">
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">It’s kind of sad that 90%+ of the oral sessions are just presenters standing on the podium reading script in front of poorly designed slides</p>&mdash; Jia-Bin Huang (@jbhuang0604) <a href="https://x.com/jbhuang0604/status/2063296968710087135?ref_src=twsrc%5Etfw">June 6, 2026</a></blockquote>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">CVPR oral presentation this year is a disaster. They read scripts, copy-pasted tables from paper and couldn&#39;t answer questions because they arent the people who did the work.<br><br>CVPR organizer should not let these talk at the precious time of thousands of researchers.</p>&mdash; Viet Lai (@laidacviet) <a href="https://x.com/laidacviet/status/2063300304859447497?ref_src=twsrc%5Etfw">June 6, 2026</a></blockquote>
+<script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
+</div>
+
+This time might be better spent relaxing, exploring company demos (in case you find that interesting), having fun in the city you are in, or setting up meetings with folks.
 
 ### Main-track Poster Session
 
@@ -41,7 +53,10 @@ I spent most of my time in the poster session. Like the workshop posters, the ma
 
 At CVPR, there were ~650 posters in each poster session. My labmate insisted on walking though every row{% include academic-project/footnote.html text="I told him he was crazy." %}. I opted to pre-select the posters I would be interested in by using [Scholar Inbox](https://www.scholar-inbox.com/). It's a fantastic software&mdash;you should use it. I wish they had an app. 
 
-<!-- Picture of said labmate -->
+<figure class="post-figure post-figure--half">
+  <img src="/assets/images/cvpr_labmate.JPG" alt="Me and my labmate at CVPR badge registration.">
+  <figcaption>Me and <a href="https://samyakr99.github.io/" target="_blank" rel="noopener noreferrer">said labmate</a> at CVPR badge registration.</figcaption>
+</figure>
 
 ## Presenting is an underrated skill that almost nobody has
 
@@ -64,7 +79,10 @@ As mentioned above, workshop posters are a great way to meet people. If you have
 
 If your lab is known, or if there are many students in your lab, chances are that some of your labmates will be there. They may have connections or friends of their own, who may become your connections and friends. Don't be shy to introduce yourself to them. Also, your advisor may have alumni who attend. They should  generally be open to meeting. Even if these connections are not super relevant to your area, you should still nurture them. It's good to make friends, and they will make future conferences feel less foreign.
 
-<!-- Picture of our lab and some alumni at conference + dinner -->
+<figure class="post-figure post-figure--half">
+  <img src="/assets/images/cvpr_labAlum.JPG" alt="Some alum from our lab.">
+  <figcaption>Meeting up with some alumni from our lab after the reception dinner.</figcaption>
+</figure>  
 
 For more structured advice on networking, I recommend [Jia-Bin Huang's guide to networking at an in-person conference](https://twitter.com/jbhuang0604/status/1517352789780934656) (and his broader [awesome-tips](https://github.com/jbhuang0604/awesome-tips) collection).
 
@@ -89,6 +107,21 @@ Think about this way: the author has some deeper intuition of the specific probl
 4. Share an idea you have if you feel like it's connected. Talk about how their work would be applicable to their idea. Ask for their opinion.
 5. Offer them a suggestion to improve their work. 
 
+## Presenting my poster
+
+My poster presentation was on the last slot, on the last day. Needless to say, I was wiped before my presentation started, and beyond tired after it ended. A few thoughts on having a good poster session:
+
+1. Have water for yourself. You will be talking close to non-stop.
+2. If someone stares at your poster for 5-10 seconds, ask them if they want you to walk through the poster. Don't just stand there. 
+3. If there are many people around, try to talk loudly (or as loud as you can).
+4. I always like asking people what they work on. You never know how the conversation will evolve. 
+5. If I spend enough time conversing with someone, I ask them to connect on social media.
+
+<figure class="post-figure post-figure--half">
+  <img src="/assets/images/cvpr_poster.JPG" alt="My poster!">
+  <figcaption>Just before my poster session starting.</figcaption>
+</figure>  
+
 ## To conclude
 
-I strongly believe that you can largely control your own experience. So seize the opportunity of CVPR with both hands, and make the most of it. Talk to people, make connections, and have fun! I feel like conferences are the best part of the PhD experience; it surely makes all those hours in the lab worth something.
+I strongly believe that you can largely control your own experience. So seize the opportunity of CVPR with both hands, and make the most of it. Talk to people, make connections, and have fun! I feel like conferences are the best part of the PhD experience{% include academic-project/footnote.html text="Except for graduating, as my labmate reminded me." %}; it surely makes all those hours in the lab worth something.

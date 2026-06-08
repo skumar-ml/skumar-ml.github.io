@@ -3,12 +3,24 @@ document.addEventListener('DOMContentLoaded', function () {
   var content = document.querySelector('.post-layout-with-toc .post-content');
   var tocList = document.getElementById('post-toc-list');
   var tocAside = document.querySelector('.post-toc');
-  if (!content || !tocList || !tocAside) return;
+  var tocNav = document.getElementById('post-toc-nav');
+  var indicator = document.getElementById('post-toc-indicator');
+  if (!content || !tocList || !tocAside || !tocNav || !indicator) return;
 
   var headings = content.querySelectorAll('h2, h3');
   if (!headings.length) {
     tocAside.style.display = 'none';
     return;
+  }
+
+  var itemsById = {};
+
+  function headingText(heading) {
+    var clone = heading.cloneNode(true);
+    clone.querySelectorAll('a[href^="#"]:empty').forEach(function (anchor) {
+      anchor.remove();
+    });
+    return clone.textContent.trim();
   }
 
   headings.forEach(function (heading, index) {
@@ -20,12 +32,87 @@ document.addEventListener('DOMContentLoaded', function () {
     if (heading.tagName === 'H3') {
       item.className = 'post-toc-h3';
     }
+    item.dataset.headingId = heading.id;
 
     var link = document.createElement('a');
     link.href = '#' + heading.id;
-    link.textContent = heading.textContent;
+    link.textContent = headingText(heading);
     item.appendChild(link);
     tocList.appendChild(item);
+    itemsById[heading.id] = item;
+  });
+
+  var activeId = null;
+  var scrollTicking = false;
+  var scrollOffset = 120;
+
+  function moveIndicator(item) {
+    if (!item) return;
+    var navTop = tocNav.getBoundingClientRect().top;
+    var itemRect = item.getBoundingClientRect();
+    indicator.style.transform = 'translateY(' + (itemRect.top - navTop) + 'px)';
+    indicator.style.height = itemRect.height + 'px';
+    indicator.style.opacity = '1';
+  }
+
+  function setActive(id) {
+    if (!id || id === activeId) return;
+    activeId = id;
+
+    tocList.querySelectorAll('li').forEach(function (item) {
+      item.classList.toggle('is-active', item.dataset.headingId === id);
+    });
+
+    moveIndicator(itemsById[id]);
+  }
+
+  function currentSectionId() {
+    var scrollY = window.scrollY + scrollOffset;
+    var currentId = headings[0].id;
+
+    headings.forEach(function (heading) {
+      if (heading.offsetTop <= scrollY) {
+        currentId = heading.id;
+      }
+    });
+
+    return currentId;
+  }
+
+  function updateActiveSection() {
+    setActive(currentSectionId());
+    scrollTicking = false;
+  }
+
+  function onScroll() {
+    if (!scrollTicking) {
+      scrollTicking = true;
+      window.requestAnimationFrame(updateActiveSection);
+    }
+  }
+
+  if (window.location.hash && itemsById[window.location.hash.slice(1)]) {
+    setActive(window.location.hash.slice(1));
+  } else {
+    updateActiveSection();
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', function () {
+    if (activeId && itemsById[activeId]) {
+      moveIndicator(itemsById[activeId]);
+    }
+  });
+
+  tocList.addEventListener('click', function (event) {
+    var link = event.target.closest('a[href^="#"]');
+    if (!link) return;
+    var id = link.getAttribute('href').slice(1);
+    if (itemsById[id]) {
+      window.setTimeout(function () {
+        setActive(id);
+      }, 0);
+    }
   });
 });
 </script>
