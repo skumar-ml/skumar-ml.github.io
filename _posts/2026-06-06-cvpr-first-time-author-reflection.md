@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "A PhD Student's Honest Reflection on Attending CVPR as a First-Time Author"
+description: "This post honestly reflects on my CVPR experience, touching on navigating the conference, networking, poster sessions, food, and more!"
 date: 2026-06-07 12:00:00 -0500
 categories: blog
 toc: true

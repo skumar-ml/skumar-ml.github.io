@@ -1,5 +1,7 @@
 ---
 layout: home
+title: Shubham Kumar | Personal Website
+description: Shubham Kumar is a third-year PhD student at Univeristy of Illinois Urbana-Champaign (UIUC).
 ---
 
 <div class="profile-container">

@@ -1,7 +1,7 @@
 ---
 layout: project
 title: "Measuring the (Un)Faithfulness of Concept-Based Explanations"
-description: "We propose SURF, a principled faithfulness measure for unsupervised concept-based explanations, and show that many state-of-the-art explanation methods are not as faithful as previously reported."
+description: "In our CVPR 2026 paper, we propose SURF, a principled faithfulness measure for unsupervised concept-based explanations. We show that many prior explanation methods are not as faithful as previously reported."
 authors:
   - name: "Shubham Kumar"
     url: "https://skumar-ml.github.io/"
