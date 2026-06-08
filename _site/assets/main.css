@@ -966,6 +966,11 @@ a:hover {
   margin-right: auto;
 }
 
+@media screen and (max-width: 768px) {
+  .post-content .post-figure--half {
+    max-width: 80%;
+  }
+}
 /* Blog post disclaimer */
 .post-disclaimer {
   margin-bottom: 1.5rem;
