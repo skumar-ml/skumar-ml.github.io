@@ -34,11 +34,11 @@ Workshop talks are only worth it if there is a specific speaker you genuinely wa
 
 **I strongly prefer** going to the workshop poster session. It's very interactive, and unlike the main conference poster session, it is not crowded. This means that you can get *a lot* of high-quality time with anyone you want to meet. This is one of the best ways to form connections at a conference. 
 
-However, note that most posters in a workshop session will be low-quality work. You can mostly predict quality depending on the authors (specifically, the PIs) and the affiliations on the work, but it's important to be open-minded; you never know when a poster will surprise you.
+However, note that many posters (even for a session focused on your research area) may not be interesting. You may find that the problem statement is narrow (and sometimes already addressed) or the approach incrementally builds on past methods. You can mostly predict signal depending on the authors (specifically, the PIs) and (sometimes) the affiliations on the work, but it's important to be open-minded; you never know when a poster will surprise you.
 
 ### Orals
 
-Orals are generally not worth attending. Not because the ideas are not good; they are. But because there is no control on the quality of the presentation (or presenter), and by design, there's no interaction. Don't take my word for it—see what people had to say about this CVPR's orals:
+Orals are generally not worth attending. Not because the ideas are not good; they are. But because there is no control on the quality of the presentation (or presenter), and by design, there's no interaction. Don't take my word for it&mdash;see what people had to say about this CVPR's orals:
 
 <div class="post-embed" markdown="0">
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">It’s kind of sad that 90%+ of the oral sessions are just presenters standing on the podium reading script in front of poorly designed slides</p>&mdash; Jia-Bin Huang (@jbhuang0604) <a href="https://x.com/jbhuang0604/status/2063296968710087135?ref_src=twsrc%5Etfw">June 6, 2026</a></blockquote>
