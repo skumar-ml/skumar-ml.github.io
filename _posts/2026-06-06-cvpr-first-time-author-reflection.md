@@ -5,6 +5,9 @@ description: "This post honestly reflects on my CVPR experience, touching on nav
 date: 2026-06-07 12:00:00 -0500
 categories: blog
 toc: true
+redirect_from:
+  - /blog/2026/06/07/cvpr-first-time-author-reflection.html
+  - /blog/2026/06/07/cvpr-first-time-author-reflection/
 disclaimer: |
   **Disclaimer:** I used AI to help organize my thoughts for this post. The content is ~90% written by me.
 ---
