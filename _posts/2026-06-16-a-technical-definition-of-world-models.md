@@ -30,7 +30,7 @@ Let's take a look at a real-life example. Recently I went to grab my lunch from 
 
 ## A technical definition of world models
 
-Let's get some terminology out of the way. An *observation* is something that is seen by the agent. For embodied agents (e.g., robots and humans), this is sensory information (e.g., from eyes and ears). An *abstract state* is a higher-level, compact, and structured representation that is extracted from the observations. It is the useful information our world model operates on. For example, if one is driving, the abstract state could include location of pedestrians, other cars, speed limit, weather, etc. All of these are *inferrable* from our observations, but they are *not* the same as our observations.
+Some terminology first. An *observation* is something that is seen by the agent. For embodied agents (e.g., robots and humans), this is sensory information (e.g., from eyes and ears). An *abstract state* is a higher-level, compact, and structured representation that is extracted from the observations. It is the useful information our world model operates on. For example, if one is driving, the abstract state could include location of pedestrians, other cars, speed limit, weather, etc. All of these are *inferrable* from our observations, but they are *not* the same as our observations.
 
 Technically speaking, any system that meets the following criteria is a world model:
 
@@ -40,7 +40,7 @@ Technically speaking, any system that meets the following criteria is a world mo
 
 There are bonus desiderata that would make a world model more useful, but I don't believe they should be part of the definition{% include academic-project/footnote.html text="Having a semantic abstract state is beneficial, since one can interpret the abstract state. It also allows for policies to interface with a world model through natural language. Relatedly, having a reasoning interface can allow for question-answering about the abstract state, rather than using the world model only as a simulator." %}.
 
-The world model *is not* responsible for:
+The world model is *not* responsible for:
 1. Planning actions.
 2. Rendering a simulation of partial observations from the predicted next state.
 
@@ -53,17 +53,19 @@ The major limitation of LeCun's approach thus far is Goal #2. My personal opinio
 
 <figure class="post-figure post-figure--triptych">
   <div class="post-figure-panels">
-    <div class="post-figure-panel">
+    <div class="post-figure-panel post-figure-panel--primary">
       <p class="post-figure-panel-label">LeCun (JEPA)</p>
       <img src="/assets/images/LeCun.png" alt="Diagram of LeCun's JEPA approach: an observation is encoded into an abstract state, which together with an action predicts the next abstract state.">
     </div>
-    <div class="post-figure-panel">
-      <p class="post-figure-panel-label">Fei-Fei (World Labs)</p>
-      <img src="/assets/images/FeiFei.png" alt="Diagram of Fei-Fei's World Labs approach: an observation is mapped to an interactive, editable 3D world.">
-    </div>
-    <div class="post-figure-panel">
-      <p class="post-figure-panel-label">Jim Fan (WAM)</p>
-      <img src="/assets/images/JimFan.png" alt="Diagram of Jim Fan's World Action Model: given an observation and past action, the model predicts the next action and next observation.">
+    <div class="post-figure-panel-stack">
+      <div class="post-figure-panel">
+        <p class="post-figure-panel-label">Fei-Fei (World Labs)</p>
+        <img src="/assets/images/FeiFei.png" alt="Diagram of Fei-Fei's World Labs approach: an observation is mapped to an interactive, editable 3D world.">
+      </div>
+      <div class="post-figure-panel">
+        <p class="post-figure-panel-label">Jim Fan (WAM)</p>
+        <img src="/assets/images/JimFan.png" alt="Diagram of Jim Fan's World Action Model: given an observation and past action, the model predicts the next action and next observation.">
+      </div>
     </div>
   </div>
   <figcaption>A schematic comparison of three prominent &ldquo;world model&rdquo; approaches. LeCun&rsquo;s JEPA extracts abstract state and predicts the next abstract state; Fei-Fei&rsquo;s World Labs outputs an interactive 3D world; Jim Fan&rsquo;s WAM jointly predicts actions and next observations.</figcaption>
@@ -72,9 +74,9 @@ The major limitation of LeCun's approach thus far is Goal #2. My personal opinio
 ## Fei-Fei's World Models
 It's well known in the AI world that Fei-Fei (a legend for young computer vision researchers such as myself) has started [World Labs](https://www.worldlabs.ai/), and they are trying to build a world model for spatial intelligence. However, I don't think they are actually building a world model. 
 
-In my view, they are really building a *3D simulation environment*{% include academic-project/footnote.html text="Which is useful and non-trivial, but separate from a world model." %}. The 3D environment is essentially richer observed data, but it *is not* an abstract state{% include academic-project/footnote.html text="One could argue against this by redefining what abstract state means." %}. Given a living room, the abstract state would contain things like: the mug is dirty, the TV is on, the cat is on the couch. The 3D model certainly contains this information in its rendering, but one would still need an abstract state extractor. Perhaps World Labs's argument is that accomplishing Goals #1–3 is much easier when you can learn a 3D simulator, because geometrical and physical constraints are enforced. Maybe that's true, but it doesn't mean they are building a world model.
+In my view, they are really building a *3D simulation environment*{% include academic-project/footnote.html text="Which is useful and non-trivial, but separate from a world model." %}. The 3D environment is essentially richer observed data, but it is *not* an abstract state{% include academic-project/footnote.html text="One could argue against this by redefining what abstract state means." %}. Given a living room, the abstract state would contain things like: the mug is dirty, the TV is on, the cat is on the couch. The 3D model certainly contains this information in its rendering, but one would still need an abstract state extractor. Perhaps World Labs's argument is that accomplishing Goals #1–3 is much easier when you can learn a 3D simulator, because geometrical and physical constraints are enforced. Maybe that's true, but it doesn't mean they are building a world model.
 
-Effectively, I'd argue that they are building a next-*observable*-state simulator, and on top of that representation, one would still need to accomplish Goals #1–3, which I don't believe is trivial.
+Effectively, I'd argue that they are building a next-observable-state simulator, and on top of that representation, one would still need to accomplish Goals #1–3, which I don't believe is trivial.
 
 <figure class="post-figure">
   <img src="/assets/images/world-labs-webp.webp" alt="Demo of World Labs generating an interactive, editable 3D environment.">
@@ -84,11 +86,11 @@ Effectively, I'd argue that they are building a next-*observable*-state simulato
 ## Jim Fan's WAM
 Jim Fan's—and by extension NVIDIA's—[thesis](https://www.linkedin.com/pulse/second-pre-training-paradigm-jim-fan-xn5fc/) is that we can directly learn the policy and fold the world model into the learned policy. They are pushing World Action Models (WAMs). WAMs start with a pre-trained video-generation backbone, and train to predict future states (the state is represented by video frames) and robot actions when conditioned on past video frames, language instructions, and action sequences. Then, once the WAM is trained, it can run as a feedforward policy at inference time (the predicted image frames are typically discarded when using the WAM as a policy).
 
-I think this approach is not world modeling for reasons similar to Fei-Fei's approach. Video frames *are not* an abstract state. But Jim is probably betting that a policy doesn't need an explicit world model{% include academic-project/footnote.html text="I would pay to watch LeCun and Jim duke this out." %}.
+I think this approach is not world modeling for reasons similar to Fei-Fei's approach. Video frames are *not* an abstract state. But Jim is probably betting that a policy doesn't need an explicit world model{% include academic-project/footnote.html text="I would pay to watch LeCun and Jim duke this out." %}.
 
 ## So where does that leave us?
 
-By my definition, none of the "big three" are building world models. They are building models that are likely helpful for *robotics*, but I don't see how other domains (e.g., IT, biology, meteorlogy) can leverage these approaches for builiding their own world models. 
+By my definition, none of the "big three" are building world models. They are building models that are likely helpful for robotics, but I don't see how other domains (e.g., IT, biology, meteorlogy) can leverage these approaches for builiding their own world models. 
 
 
 LeCun is the closest of them all to my definition, but it remains to be seen if a true, decoupled world model is actually useful for robotics. It's true that humans have a world model, and many policy failures can be attributed to a lack of a world model. However, it's probably fair to say that the human world model is part of an "end-to-end model", and not some modular piece in our brain. Certainly, there is some evidence that world modeling principles are useful training objectives for models (see Meta's [Code World Models](https://arxiv.org/pdf/2510.02387), [this work](https://arxiv.org/abs/2511.05963) combining world modeling with autoregressive language generation, and [Reinforcement World Model Learning](https://arxiv.org/pdf/2602.05842) as examples).

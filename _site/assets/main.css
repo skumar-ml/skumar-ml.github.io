@@ -970,11 +970,22 @@ a:hover {
   display: flex;
   flex-direction: row;
   gap: 1.25rem;
-  align-items: flex-start;
+  align-items: stretch;
+}
+
+.post-content .post-figure--triptych .post-figure-panel--primary,
+.post-content .post-figure--triptych .post-figure-panel-stack {
+  flex: 1;
+  min-width: 0;
+}
+
+.post-content .post-figure--triptych .post-figure-panel-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 .post-content .post-figure--triptych .post-figure-panel {
-  flex: 1;
   min-width: 0;
 }
 
@@ -991,6 +1002,9 @@ a:hover {
   }
   .post-content .post-figure--triptych .post-figure-panels {
     flex-direction: column;
+    gap: 1.5rem;
+  }
+  .post-content .post-figure--triptych .post-figure-panel-stack {
     gap: 1.5rem;
   }
 }
