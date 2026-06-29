@@ -966,9 +966,32 @@ a:hover {
   margin-right: auto;
 }
 
+.post-content .post-figure--triptych .post-figure-panels {
+  display: flex;
+  flex-direction: row;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.post-content .post-figure--triptych .post-figure-panel {
+  flex: 1;
+  min-width: 0;
+}
+
+.post-content .post-figure--triptych .post-figure-panel-label {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+}
+
 @media screen and (max-width: 768px) {
   .post-content .post-figure--half {
     max-width: 80%;
+  }
+  .post-content .post-figure--triptych .post-figure-panels {
+    flex-direction: column;
+    gap: 1.5rem;
   }
 }
 /* Blog post disclaimer */

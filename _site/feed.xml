@@ -1,4 +1,123 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-06-16T22:33:50-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Home</title><subtitle>Personal website of Your Name, PhD Student in Your Field at Your University.</subtitle><entry><title type="html">A PhD Student’s Honest Reflection on Attending CVPR as a First-Time Author</title><link href="http://localhost:4000/blog/cvpr-first-time-author-reflection/" rel="alternate" type="text/html" title="A PhD Student’s Honest Reflection on Attending CVPR as a First-Time Author" /><published>2026-06-07T13:00:00-04:00</published><updated>2026-06-07T13:00:00-04:00</updated><id>http://localhost:4000/blog/cvpr-first-time-author-reflection</id><content type="html" xml:base="http://localhost:4000/blog/cvpr-first-time-author-reflection/"><![CDATA[<p>CVPR 2026 was my first time attending a conference as an author<span class="footnote" tabindex="0" role="note">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-06-28T21:35:42-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Home</title><subtitle>Personal website of Your Name, PhD Student in Your Field at Your University.</subtitle><entry><title type="html">We Need a Technical Definition for World Models</title><link href="http://localhost:4000/blog/a-technical-definition-of-world-models/" rel="alternate" type="text/html" title="We Need a Technical Definition for World Models" /><published>2026-06-27T13:00:00-04:00</published><updated>2026-06-27T13:00:00-04:00</updated><id>http://localhost:4000/blog/a-technical-definition-of-world-models</id><content type="html" xml:base="http://localhost:4000/blog/a-technical-definition-of-world-models/"><![CDATA[<p>Fads in AI come and go nearly as fast as (or arguably, faster than) fashion trends. CNNs, RNNs, transformers, diffusion, agents, and now world models. It feels like many papers I read lately slyly slip “world models” somewhere, and during my time at IBM this summer, I’ve had the good fortune of studying world models. <strong>My conclusion: most people are not actually building world models.</strong></p>
+
+<p>This may be partly attributed to the loose definition of world models. It’s a loaded term that sounds flashy but currently lacks a <em>technical</em> definition (mainly because no one yet knows how to build one). All definitions for world models I have come across (both from classical thinkers and modern researchers) are high-level and conceptual<span class="footnote" tabindex="0" role="note">
+  <sup class="footnote-marker" aria-hidden="true"></sup>
+  <span class="footnote-content">If you’ve come across other technical definitions, please let me know!</span>
+</span>
+. They help frame what a world model is and why they are helpful, but they do not explain what a world model technically does.</p>
+
+<p><strong>This post seeks to technically define world models by listing the capabilities they should have (I believe there are three).</strong> Then, I examine popular approaches to world models (LeCun’s JEPA, Fei-Fei’s World Labs, Jim Fan’s World Action Models) and show that they are, according to my definition, not world models. I end with some forward-looking thoughts on where I think this all converges.</p>
+
+<h2 id="so-what-is-a-world-model-anyway"><a href="#so-what-is-a-world-model-anyway"></a>So what is a world model anyway?</h2>
+
+<p>A world model, by the most generic definition possible, is an “internal model of how the world works” (<a href="https://openreview.net/pdf?id=BZ5a1r-kVsf">LeCun</a>). It tells an agent what is (or what was/what would be) likely, plausible, and impossible (<a href="https://openreview.net/pdf?id=BZ5a1r-kVsf">LeCun</a>).</p>
+
+<p>Let’s take a look at a real-life example. Recently I went to grab my lunch from a shared fridge. Upon opening the fridge, I realized that my lunch was not on the bottom row where I had originally placed it. What happened to it? My internal world model told me that either (A) someone stole it or (B) someone moved it. My world model judged (A) as unlikely, since I was in an IBM office (not some college dorm), but not impossible. To reduce the uncertainty, my internal <em>policy</em> directed me to gather more <em>observations</em> by looking elsewhere in the fridge, which led me to locate my lunch on the top shelf. Thus, my <em>belief</em> collapsed to (B). Note that my world model didn’t think of other explanations, such as (C) a deer entered the office, found the fridge, and ate my lunch. Strictly plausible, but highly unlikely<span class="footnote" tabindex="0" role="note">
+  <sup class="footnote-marker" aria-hidden="true"></sup>
+  <span class="footnote-content">And if that had indeed occurred, my world model would probably be seriously updated.</span>
+</span>
+.</p>
+
+<figure class="post-figure">
+  <img src="/assets/images/lunch-world-model.png" alt="Three bar charts showing belief over lunch location: first certain on the fridge bottom, then uncertain between fridge top and gone, then certain on the fridge top." />
+  <figcaption>How my belief over lunch location evolved using my world model: initially certain it was on the bottom shelf, uncertain when it was missing (probably somewhere else in the fridge, but maybe it was stolen), then certain again after I checked elsewhere in the fridge.</figcaption>
+</figure>
+
+<!-- Look into some old definitions of what a world model is. Use it to write something here -->
+
+<h2 id="a-technical-definition-of-world-models"><a href="#a-technical-definition-of-world-models"></a>A technical definition of world models</h2>
+
+<p>Let’s get some terminology out of the way. An <em>observation</em> is something that is seen by the agent. For embodied agents (e.g., robots and humans), this is sensory information (e.g., from eyes and ears). An <em>abstract state</em> is a higher-level, compact, and structured representation that is extracted from the observations. It is the useful information our world model operates on. For example, if one is driving, the abstract state could include location of pedestrians, other cars, speed limit, weather, etc. All of these are <em>inferrable</em> from our observations, but they are <em>not</em> the same as our observations.</p>
+
+<p>Technically speaking, any system that meets the following criteria is a world model:</p>
+
+<ul>
+  <li><strong>Goal #1.</strong> Extract an abstract state from observations.</li>
+  <li><strong>Goal #2.</strong> Update the abstract state based on new observations.</li>
+  <li><strong>Goal #3.</strong> Predict the next abstract state, given the current state and an action.</li>
+</ul>
+
+<p>There are bonus desiderata that would make a world model more useful, but I don’t believe they should be part of the definition<span class="footnote" tabindex="0" role="note">
+  <sup class="footnote-marker" aria-hidden="true"></sup>
+  <span class="footnote-content">Having a semantic abstract state is beneficial, since one can interpret the abstract state. It also allows for policies to interface with a world model through natural language. Relatedly, having a reasoning interface can allow for question-answering about the abstract state, rather than using the world model only as a simulator.</span>
+</span>
+.</p>
+
+<p>The world model <em>is not</em> responsible for:</p>
+<ol>
+  <li>Planning actions.</li>
+  <li>Rendering a simulation of partial observations from the predicted next state.</li>
+</ol>
+
+<p>This directly contradicts <a href="https://drfeifei.substack.com/p/a-functional-taxonomy-of-world-models">Fei-Fei’s definition of a world model</a>. I think that what she calls a world model is really an amalgamation of a planner, renderer, and world model. At the end of the day, it’s possible that all three of these components get folded into one end-to-end model, but it is not correct to <em>solely</em> call such a model a world model (instead, such a model includes a world model).</p>
+
+<h2 id="lecuns-jepa-based-world-models"><a href="#lecuns-jepa-based-world-models"></a>LeCun’s JEPA-based World Models</h2>
+<p>LeCun has been building world models using the JEPA framework. Put simply, JEPA is a self-supervised way of training a backbone to accomplish Goal #1: given partial observations, a <em>state extractor</em> learns to represent the abstract state as a latent embedding. Then, an <em>action-conditioned next-state predictor</em> can be learned on top of the state extractor to accomplish Goal #3. Since LeCun’s components are modular, the state extractor and action-conditioned next-state predictor can be trained separately (see <a href="https://arxiv.org/pdf/2603.14482">V-JEPA</a>) or together in an end-to-end fashion (see <a href="https://arxiv.org/pdf/2603.19312">LeWorldModel</a>).</p>
+
+<p>The major limitation of LeCun’s approach thus far is Goal #2. My personal opinion is that a more structured, latent <em>variable</em><span class="footnote" tabindex="0" role="note">
+  <sup class="footnote-marker" aria-hidden="true"></sup>
+  <span class="footnote-content">Something that represents distributions over abstract state, rather than the point estimate of an embedding.</span>
+</span>
+ representation is needed to effectively reach this goal. From what I can tell, this seems to be something his group is actively working towards (see <a href="https://arxiv.org/pdf/2602.11389">C-JEPA</a>).</p>
+
+<figure class="post-figure post-figure--triptych">
+  <div class="post-figure-panels">
+    <div class="post-figure-panel">
+      <p class="post-figure-panel-label">LeCun (JEPA)</p>
+      <img src="/assets/images/LeCun.png" alt="Diagram of LeCun's JEPA approach: an observation is encoded into an abstract state, which together with an action predicts the next abstract state." />
+    </div>
+    <div class="post-figure-panel">
+      <p class="post-figure-panel-label">Fei-Fei (World Labs)</p>
+      <img src="/assets/images/FeiFei.png" alt="Diagram of Fei-Fei's World Labs approach: an observation is mapped to an interactive, editable 3D world." />
+    </div>
+    <div class="post-figure-panel">
+      <p class="post-figure-panel-label">Jim Fan (WAM)</p>
+      <img src="/assets/images/JimFan.png" alt="Diagram of Jim Fan's World Action Model: given an observation and past action, the model predicts the next action and next observation." />
+    </div>
+  </div>
+  <figcaption>A schematic comparison of three prominent &ldquo;world model&rdquo; approaches. LeCun&rsquo;s JEPA extracts abstract state and predicts the next abstract state; Fei-Fei&rsquo;s World Labs outputs an interactive 3D world; Jim Fan&rsquo;s WAM jointly predicts actions and next observations.</figcaption>
+</figure>
+
+<h2 id="fei-feis-world-models"><a href="#fei-feis-world-models"></a>Fei-Fei’s World Models</h2>
+<p>It’s well known in the AI world that Fei-Fei (a legend for young computer vision researchers such as myself) has started <a href="https://www.worldlabs.ai/">World Labs</a>, and they are trying to build a world model for spatial intelligence. However, I don’t think they are actually building a world model.</p>
+
+<p>In my view, they are really building a <em>3D simulation environment</em><span class="footnote" tabindex="0" role="note">
+  <sup class="footnote-marker" aria-hidden="true"></sup>
+  <span class="footnote-content">Which is useful and non-trivial, but separate from a world model.</span>
+</span>
+. The 3D environment is essentially richer observed data, but it <em>is not</em> an abstract state<span class="footnote" tabindex="0" role="note">
+  <sup class="footnote-marker" aria-hidden="true"></sup>
+  <span class="footnote-content">One could argue against this by redefining what abstract state means.</span>
+</span>
+. Given a living room, the abstract state would contain things like: the mug is dirty, the TV is on, the cat is on the couch. The 3D model certainly contains this information in its rendering, but one would still need an abstract state extractor. Perhaps World Labs’s argument is that accomplishing Goals #1–3 is much easier when you can learn a 3D simulator, because geometrical and physical constraints are enforced. Maybe that’s true, but it doesn’t mean they are building a world model.</p>
+
+<p>Effectively, I’d argue that they are building a next-<em>observable</em>-state simulator, and on top of that representation, one would still need to accomplish Goals #1–3, which I don’t believe is trivial.</p>
+
+<figure class="post-figure">
+  <img src="/assets/images/world-labs-webp.webp" alt="Demo of World Labs generating an interactive, editable 3D environment." />
+  <figcaption>A demo from the <a href="https://www.worldlabs.ai/" target="_blank" rel="noopener noreferrer">World Labs</a> homepage, showing a generated 3D world.</figcaption>
+</figure>
+
+<h2 id="jim-fans-wam"><a href="#jim-fans-wam"></a>Jim Fan’s WAM</h2>
+<p>Jim Fan’s—and by extension NVIDIA’s—<a href="https://www.linkedin.com/pulse/second-pre-training-paradigm-jim-fan-xn5fc/">thesis</a> is that we can directly learn the policy and fold the world model into the learned policy. They are pushing World Action Models (WAMs). WAMs start with a pre-trained video-generation backbone, and train to predict future states (the state is represented by video frames) and robot actions when conditioned on past video frames, language instructions, and action sequences. Then, once the WAM is trained, it can run as a feedforward policy at inference time (the predicted image frames are typically discarded when using the WAM as a policy).</p>
+
+<p>I think this approach is not world modeling for reasons similar to Fei-Fei’s approach. Video frames <em>are not</em> an abstract state. But Jim is probably betting that a policy doesn’t need an explicit world model<span class="footnote" tabindex="0" role="note">
+  <sup class="footnote-marker" aria-hidden="true"></sup>
+  <span class="footnote-content">I would pay to watch LeCun and Jim duke this out.</span>
+</span>
+.</p>
+
+<h2 id="so-where-does-that-leave-us"><a href="#so-where-does-that-leave-us"></a>So where does that leave us?</h2>
+
+<p>By my definition, none of the “big three” are building world models. They are building models that are likely helpful for <em>robotics</em>, but I don’t see how other domains (e.g., IT, biology, meteorlogy) can leverage these approaches for builiding their own world models.</p>
+
+<p>LeCun is the closest of them all to my definition, but it remains to be seen if a true, decoupled world model is actually useful for robotics. It’s true that humans have a world model, and many policy failures can be attributed to a lack of a world model. However, it’s probably fair to say that the human world model is part of an “end-to-end model”, and not some modular piece in our brain. Certainly, there is some evidence that world modeling principles are useful training objectives for models (see Meta’s <a href="https://arxiv.org/pdf/2510.02387">Code World Models</a>, <a href="https://arxiv.org/abs/2511.05963">this work</a> combining world modeling with autoregressive language generation, and <a href="https://arxiv.org/pdf/2602.05842">Reinforcement World Model Learning</a> as examples).</p>
+
+<p>If I had to guess, domains that are more easily RL’ed or that can collect enough expert demonstrations can probably learn implicit world models. Other domains will need to learn explicit world models. Explicit world models will help policies generalize to novel scenarios, whereas implicit world models will be easier to train and integrate with policies<span class="footnote" tabindex="0" role="note">
+  <sup class="footnote-marker" aria-hidden="true"></sup>
+  <span class="footnote-content">In gradient descent we trust!</span>
+</span>
+. Regardless, I’m excited to see where we go from here.</p>]]></content><author><name></name></author><category term="blog" /><summary type="html"><![CDATA[Many AI researchers are building world models, and while we conceptual understand what a world model is, I feel that we lack a technical definition of one. This post gives one.]]></summary></entry><entry><title type="html">A PhD Student’s Honest Reflection on Attending CVPR as a First-Time Author</title><link href="http://localhost:4000/blog/cvpr-first-time-author-reflection/" rel="alternate" type="text/html" title="A PhD Student’s Honest Reflection on Attending CVPR as a First-Time Author" /><published>2026-06-07T13:00:00-04:00</published><updated>2026-06-07T13:00:00-04:00</updated><id>http://localhost:4000/blog/cvpr-first-time-author-reflection</id><content type="html" xml:base="http://localhost:4000/blog/cvpr-first-time-author-reflection/"><![CDATA[<p>CVPR 2026 was my first time attending a conference as an author<span class="footnote" tabindex="0" role="note">
   <sup class="footnote-marker" aria-hidden="true"></sup>
   <span class="footnote-content">I also attended CVPR 2024, but not as an author.</span>
 </span>
