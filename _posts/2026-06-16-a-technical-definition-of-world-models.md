@@ -9,6 +9,11 @@ disclaimer: |
   **Disclaimer:** AI was used to find references and proofread. The content was 100% written by me.
 ---
 
+<div class="post-epigraph">
+  <p class="post-epigraph-text">&ldquo;You see, but you do not observe. The distinction is clear.&rdquo;</p>
+  <p class="post-epigraph-cite">&mdash; Sherlock Holmes to Dr. Watson, <em>A Scandal in Bohemia</em></p>
+</div>
+
 Fads in AI come and go nearly as fast as (or arguably, faster than) fashion trends. CNNs, RNNs, transformers, diffusion, agents, and now world models. It feels like many papers I read lately slyly slip “world models” somewhere, and during my time at IBM this summer, I’ve had the good fortune of studying world models. **My conclusion: most people are not actually building world models.** 
 
 This may be partly attributed to the loose definition of world models. It's a loaded term that sounds flashy but currently lacks a *technical* definition (mainly because no one yet knows how to build one). All definitions for world models I have come across (both from classical thinkers and modern researchers) are high-level and conceptual{% include academic-project/footnote.html text="If you've come across other technical definitions, please let me know!" %}. They help frame what a world model is and why they are helpful, but they do not explain what a world model technically does.
@@ -25,8 +30,6 @@ Let's take a look at a real-life example. Recently I went to grab my lunch from 
   <img src="/assets/images/lunch-world-model.png" alt="Three bar charts showing belief over lunch location: first certain on the fridge bottom, then uncertain between fridge top and gone, then certain on the fridge top.">
   <figcaption>How my belief over lunch location evolved using my world model: initially certain it was on the bottom shelf, uncertain when it was missing (probably somewhere else in the fridge, but maybe it was stolen), then certain again after I checked elsewhere in the fridge.</figcaption>
 </figure>
-
-<!-- Look into some old definitions of what a world model is. Use it to write something here -->
 
 ## A technical definition of world models
 

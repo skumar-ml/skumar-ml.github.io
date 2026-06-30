@@ -410,6 +410,29 @@ a {
   }
 }
 
+/* Blog post epigraph / pull quote */
+.post-content .post-epigraph {
+  margin: 0 0 1.75rem;
+  padding: 0.85rem 1rem;
+  border-left: 3px solid #e8e8e8;
+  background: #f8f9fa;
+  line-height: 1.6;
+}
+
+.post-content .post-epigraph-text {
+  margin: 0 0 0.4rem;
+  color: #333;
+  font-size: 1.05rem;
+  font-style: italic;
+}
+
+.post-content .post-epigraph-cite {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+  font-style: normal;
+}
+
 /* Heading permalink anchors (kramdown header_links) */
 .post-content h1,
 .post-content h2,
