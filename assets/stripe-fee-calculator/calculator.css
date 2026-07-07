@@ -1,0 +1,389 @@
+/* Stripe Fee Calculator — minimal UI */
+
+.tool-page .page-header {
+  margin-bottom: 2rem;
+}
+
+.tool-page .page-heading {
+  font-size: 1.75rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
+}
+
+.tool-page .tool-description {
+  color: #6b7280;
+  margin-top: 0;
+  max-width: 520px;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.stripe-fee-calculator {
+  --sfc-bg: #ffffff;
+  --sfc-surface: #f9fafb;
+  --sfc-border: #e5e7eb;
+  --sfc-border-soft: #f3f4f6;
+  --sfc-text: #111827;
+  --sfc-muted: #6b7280;
+  --sfc-faint: #9ca3af;
+  --sfc-accent: #4f46e5;
+  --sfc-accent-soft: #eef2ff;
+  --sfc-radius: 14px;
+  --sfc-radius-sm: 10px;
+  --sfc-shadow: 0 1px 2px rgba(17, 24, 39, 0.04), 0 8px 24px rgba(17, 24, 39, 0.06);
+
+  max-width: 680px;
+  color: var(--sfc-text);
+  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.sfc-card {
+  background: var(--sfc-bg);
+  border: 1px solid var(--sfc-border-soft);
+  border-radius: var(--sfc-radius);
+  box-shadow: var(--sfc-shadow);
+  overflow: hidden;
+}
+
+.sfc-body {
+  padding: 1.5rem;
+}
+
+.sfc-field {
+  margin-bottom: 1rem;
+}
+
+.sfc-field:last-child {
+  margin-bottom: 0;
+}
+
+.sfc-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sfc-muted);
+  margin-bottom: 0.5rem;
+}
+
+.sfc-select-wrap {
+  position: relative;
+}
+
+.sfc-select-wrap::after {
+  content: '';
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 1.5px solid var(--sfc-muted);
+  border-bottom: 1.5px solid var(--sfc-muted);
+  transform: translateY(-65%) rotate(45deg);
+  pointer-events: none;
+}
+
+.sfc-select,
+.sfc-input {
+  width: 100%;
+  padding: 0.72rem 0.9rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  border: 1px solid var(--sfc-border);
+  border-radius: var(--sfc-radius-sm);
+  background: var(--sfc-bg);
+  color: var(--sfc-text);
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  appearance: none;
+}
+
+.sfc-select {
+  padding-right: 2.25rem;
+  cursor: pointer;
+}
+
+.sfc-select:hover,
+.sfc-input:hover {
+  border-color: #d1d5db;
+}
+
+.sfc-select:focus,
+.sfc-input:focus {
+  outline: none;
+  border-color: var(--sfc-accent);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+.sfc-addons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.sfc-chip {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.sfc-chip input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.sfc-chip-label {
+  display: inline-block;
+  padding: 0.42rem 0.8rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--sfc-muted);
+  background: var(--sfc-surface);
+  border: 1px solid var(--sfc-border);
+  border-radius: 999px;
+  transition: all 0.18s ease;
+}
+
+.sfc-chip:hover .sfc-chip-label {
+  border-color: #d1d5db;
+  color: var(--sfc-text);
+}
+
+.sfc-chip input:checked + .sfc-chip-label {
+  color: var(--sfc-accent);
+  background: var(--sfc-accent-soft);
+  border-color: #c7d2fe;
+}
+
+.sfc-chip input:focus-visible + .sfc-chip-label {
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+.sfc-custom {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: var(--sfc-surface);
+  border: 1px solid var(--sfc-border-soft);
+  border-radius: var(--sfc-radius-sm);
+}
+
+.sfc-custom-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.sfc-custom-grid .sfc-field {
+  margin-bottom: 0;
+}
+
+.sfc-amount-section {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--sfc-border-soft);
+}
+
+.sfc-amount-wrap {
+  position: relative;
+}
+
+.sfc-currency {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--sfc-faint);
+  pointer-events: none;
+}
+
+.sfc-amount-input {
+  padding: 0.9rem 1rem 0.9rem 2rem;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  border: none;
+  background: var(--sfc-surface);
+  border-radius: var(--sfc-radius-sm);
+}
+
+.sfc-amount-input::placeholder {
+  color: #d1d5db;
+  font-weight: 500;
+}
+
+.sfc-amount-input:focus {
+  background: var(--sfc-bg);
+  border: 1px solid var(--sfc-accent);
+  padding: calc(0.9rem - 1px) calc(1rem - 1px) calc(0.9rem - 1px) calc(2rem - 1px);
+}
+
+.sfc-results {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--sfc-border-soft);
+  background: var(--sfc-surface);
+}
+
+.sfc-result {
+  padding: 1.35rem 1rem;
+  text-align: center;
+}
+
+.sfc-result + .sfc-result {
+  border-left: 1px solid var(--sfc-border-soft);
+}
+
+.sfc-result-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--sfc-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 0.45rem;
+}
+
+.sfc-result-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--sfc-text);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+  transition: opacity 0.15s ease;
+}
+
+.sfc-result-value.is-updating {
+  opacity: 0.45;
+}
+
+.sfc-result--primary {
+  background: var(--sfc-bg);
+}
+
+.sfc-result--primary .sfc-result-value {
+  color: var(--sfc-accent);
+  font-size: 1.65rem;
+}
+
+.sfc-result-hint {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.72rem;
+  color: var(--sfc-faint);
+  line-height: 1.4;
+}
+
+.sfc-formula-note {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.5rem;
+  margin-top: 0.85rem;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.8rem;
+  color: var(--sfc-muted);
+  line-height: 1.45;
+  background: var(--sfc-surface);
+  border: 1px solid var(--sfc-border-soft);
+  border-radius: var(--sfc-radius-sm);
+}
+
+.sfc-formula-badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--sfc-accent);
+  background: var(--sfc-accent-soft);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.sfc-formula-note a {
+  color: var(--sfc-accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.sfc-formula-note a:hover {
+  text-decoration: underline;
+}
+
+.sfc-hidden {
+  display: none !important;
+}
+
+.sfc-faq {
+  margin-top: 3rem;
+  max-width: 680px;
+  padding-top: 2rem;
+  border-top: 1px solid var(--sfc-border-soft, #f3f4f6);
+}
+
+.sfc-faq h2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+  color: #111827;
+}
+
+.sfc-faq h2:first-child {
+  margin-top: 0;
+}
+
+.sfc-faq p {
+  color: #6b7280;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+
+.sfc-faq a {
+  color: #4f46e5;
+  text-decoration: none;
+}
+
+.sfc-faq a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 640px) {
+  .sfc-body {
+    padding: 1.15rem;
+  }
+
+  .sfc-custom-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sfc-amount-input {
+    font-size: 1.65rem;
+  }
+
+  .sfc-results {
+    grid-template-columns: 1fr;
+  }
+
+  .sfc-result + .sfc-result {
+    border-left: none;
+    border-top: 1px solid var(--sfc-border-soft);
+  }
+
+  .sfc-result-value {
+    font-size: 1.35rem;
+  }
+
+  .sfc-result--primary .sfc-result-value {
+    font-size: 1.45rem;
+  }
+}

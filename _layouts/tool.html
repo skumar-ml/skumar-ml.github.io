@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<article class="page tool-page">
+
+  <header class="page-header">
+    <h1 class="page-heading">{{ page.title | escape }}</h1>
+    {%- if page.description -%}
+    <p class="tool-description">{{ page.description | escape }}</p>
+    {%- endif -%}
+  </header>
+
+  <div class="tool-content">
+    {{ content }}
+  </div>
+
+</article>
