@@ -13,13 +13,13 @@ description: Calculate how much Stripe will charge in processing fees, and how m
 
 ## How much does Stripe charge per transaction?
 
-Stripe fees depend on the payment method. Domestic card payments are typically **2.9% + 30¢** per successful transaction. International cards, currency conversion, and manually entered cards add extra percentage fees on top.
+Stripe fees depend on the payment method. Domestic card payments are usually **2.9% + 30¢** per successful transaction. International cards, currency conversion, and manually entered cards add extra percentage fees on top.
 
 Rates vary by payment method — bank debits like ACH can be as low as **0.8%** (with a cap), while buy-now-pay-later options like Klarna or Affirm run **5–8% + fixed fee**. See [Stripe's local payment methods pricing](https://stripe.com/pricing/local-payment-methods) for the full list.
 
 ## What does "You should ask for" mean?
 
-If you want to **receive** a specific amount after Stripe takes its cut, this field shows the invoice amount you need to charge. For example, to net $100 with standard domestic card fees (2.9% + 30¢), you'd need to charge about **$103.30**.
+If you want to **receive** a specific amount after Stripe takes its cut, this field shows the invoice amount you need to charge. For example, to net $100 with standard domestic card fees (2.9% + 30¢), you'd need to charge **$103.30**.
 
 ## Do Stripe fees vary by country?
 
