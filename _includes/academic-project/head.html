@@ -75,6 +75,8 @@
 
 {%- if ap.favicon -%}
 <link rel="icon" type="image/x-icon" href="{{ ap.favicon | relative_url }}">
+{%- else -%}
+<link rel="icon" type="image/png" href="{{ '/assets/images/pochita_favicon.png' | relative_url }}">
 {%- endif -%}
 
 <link rel="stylesheet" href="{{ '/assets/academic-project/css/bulma.min.css' | relative_url }}">
