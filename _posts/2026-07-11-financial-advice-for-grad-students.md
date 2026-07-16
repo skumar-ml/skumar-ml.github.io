@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Grad Students Need Financial Advice Too"
+title: "PhD Students Need Financial Advice Too"
 description: "TODO: one-sentence summary of the post."
 date: 2026-07-14 12:00:00 -0500
 categories: blog
@@ -11,7 +11,7 @@ disclaimer: |
 
 I was recently chatting with one of my intern-buddies, and I was surprised to learn he kept all of his cash in his bank account. Not a single penny was invested. I explained to him why he should invest, and after he came around to my view, I started to explain the basics of investing. That conversation made me remember how clueless I was when I first started investing in 2020, and it helped me realize how much implicit investing knowledge I had soaked up over the years. 
 
-But you're a grad student, and grad students are busy! We have a bunch of things constantly pulling at our attention. You need to grade homework for the class you TA, your advisor wants your help writing a proposal, NeurIPS assigned you 5 papers to review, and the list never ends. If you've never invested before, it's easy to let investing slip to the bottom of your priority list. It's one of those things that feels daunting to start on because there are so many unknowns to navigate. 
+But you're a PhD student, and PhD students are busy! We have a bunch of things constantly pulling at our attention. You need to grade homework for the class you TA, your advisor wants your help writing a proposal, NeurIPS assigned you 5 papers to review, and the list never ends. If you've never invested before, it's easy to let investing slip to the bottom of your priority list. It's one of those things that feels daunting to start on because there are so many unknowns to navigate. 
 
 So, I'm writing this blog post to convince you to start investing, with some pointers on how to get started.
 
@@ -19,7 +19,7 @@ So, I'm writing this blog post to convince you to start investing, with some poi
   <img src="/assets/images/OpenInvestingMeme.jpg" alt="Two-panel meme: Nicolas Cage looking stressed with text 'Some random guy asking me to start investing'; Pedro Pascal laughing with text 'Me who can barely survive on my stipend'.">
 </figure>
 
-## 1. Why Grad Students Should Care About Investing
+## 1. Why PhD Students Should Care About Investing
 
 1. **Investing during grad school is one of the lowest-risk ways to learn, arguably, the highest-leverage skill of your life**. At some point, you will begin investing your money{% include academic-project/footnote.html text="I'm assuming you are convinced about the benefits of investing. If you do not believe in investing, arguments to convince you otherwise are <a href='https://awealthofcommonsense.com/2024/09/what-if-you-only-invested-at-market-peaks-2/' target='_blank' rel='noopener noreferrer'>in</a> <a href='https://www.etf.com/docs/IfYouCan.pdf' target='_blank' rel='noopener noreferrer'>these</a> <a href='https://jlcollinsnh.com/2012/04/19/stocks-part-ii-the-market-always-goes-up/' target='_blank' rel='noopener noreferrer'>pieces</a>." %}. Right now, your yearly earnings are (hopefully) at the lowest point they will ever be in your career. That's why now is the perfect time to invest. You **will** make mistakes, and there will be days when your investments are in the red (i.e., you are losing money). Even though it hurts to lose <span class="tex2jax_ignore">$100</span> when your PhD only pays you <span class="tex2jax_ignore">$2,800</span> a month, trust me; these mistakes are a *lot* less painful now than in the future, when your earnings have increased 5-20x. At that point, you want to know what you are doing, not figuring it out for the first time. 
 
