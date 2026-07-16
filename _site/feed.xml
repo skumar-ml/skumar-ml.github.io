@@ -1,4 +1,116 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-07-08T22:16:06-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Home</title><subtitle>Personal website of Your Name, PhD Student in Your Field at Your University.</subtitle><entry><title type="html">We Need a Technical Definition for World Models</title><link href="http://localhost:4000/blog/a-technical-definition-of-world-models/" rel="alternate" type="text/html" title="We Need a Technical Definition for World Models" /><published>2026-06-27T13:00:00-04:00</published><updated>2026-06-27T13:00:00-04:00</updated><id>http://localhost:4000/blog/a-technical-definition-of-world-models</id><content type="html" xml:base="http://localhost:4000/blog/a-technical-definition-of-world-models/"><![CDATA[<div class="post-epigraph">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-07-15T22:55:02-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Home</title><subtitle>Personal website of Your Name, PhD Student in Your Field at Your University.</subtitle><entry><title type="html">Grad Students Need Financial Advice Too</title><link href="http://localhost:4000/blog/financial-advice-for-grad-students/" rel="alternate" type="text/html" title="Grad Students Need Financial Advice Too" /><published>2026-07-11T13:00:00-04:00</published><updated>2026-07-11T13:00:00-04:00</updated><id>http://localhost:4000/blog/financial-advice-for-grad-students</id><content type="html" xml:base="http://localhost:4000/blog/financial-advice-for-grad-students/"><![CDATA[<p>I was recently chatting with one of my intern-buddies, and I was surprised to learn he kept all of his cash in his bank account. Not a single penny was invested. I explained to him why he should invest, and after he came around to my view, I started to explain the basics of investing. That conversation made me remember how clueless I was when I first started investing in 2020, and it helped me realize how much implicit investing knowledge I had soaked up over the years.</p>
+
+<p>But you’re a grad student, and grad students are busy! We have a bunch of things constantly pulling at our attention. You need to grade homework for the class you TA, your advisor wants your help writing a proposal, NeurIPS assigned you 5 papers to review, and the list never ends. If you’ve never invested before, it’s easy to let investing slip to the bottom of your priority list. It’s one of those things that feels daunting to start on because there are so many unknowns to navigate.</p>
+
+<p>So, I’m writing this blog post to convince you to start investing, with some pointers on how to get started.</p>
+
+<figure class="post-figure post-figure--half">
+  <img src="/assets/images/OpenInvestingMeme.jpg" alt="Two-panel meme: Nicolas Cage looking stressed with text 'Some random guy asking me to start investing'; Pedro Pascal laughing with text 'Me who can barely survive on my stipend'." />
+</figure>
+
+<h2 id="1-why-grad-students-should-care-about-investing"><a href="#1-why-grad-students-should-care-about-investing"></a>1. Why Grad Students Should Care About Investing</h2>
+
+<ol>
+  <li>
+    <p><strong>Investing during grad school is one of the lowest-risk ways to learn, arguably, the highest-leverage skill of your life</strong>. At some point, you will begin investing your money<span class="footnote" tabindex="0" role="note">
+  <sup class="footnote-marker" aria-hidden="true"></sup>
+  <span class="footnote-content">I’m assuming you are convinced about the benefits of investing. If you do not believe in investing, arguments to convince you otherwise are <a href="https://awealthofcommonsense.com/2024/09/what-if-you-only-invested-at-market-peaks-2/" target="_blank" rel="noopener noreferrer">in</a> <a href="https://www.etf.com/docs/IfYouCan.pdf" target="_blank" rel="noopener noreferrer">these</a> <a href="https://jlcollinsnh.com/2012/04/19/stocks-part-ii-the-market-always-goes-up/" target="_blank" rel="noopener noreferrer">pieces</a>.</span>
+</span>
+. Right now, your yearly earnings are (hopefully) at the lowest point they will ever be in your career. That’s why now is the perfect time to invest. You <strong>will</strong> make mistakes, and there will be days when your investments are in the red (i.e., you are losing money). Even though it hurts to lose <span class="tex2jax_ignore">$100</span> when your PhD only pays you <span class="tex2jax_ignore">$2,800</span> a month, trust me; these mistakes are a <em>lot</em> less painful now than in the future, when your earnings have increased 5-20x. At that point, you want to know what you are doing, not figuring it out for the first time.</p>
+  </li>
+  <li>
+    <p><strong>Experience is the greatest teacher</strong>. You can read all the Reddit posts and watch all of the YouTube videos you want. None of it will get you ready for the emotional rollercoaster of being invested in the market. There’s no way to tell what your emotional reaction will be during a market crash, when your portfolio is down 10-20%—whether you’ll be able to resist panic selling, or whether you’ll have the courage to invest more while the market is volatile<span class="footnote" tabindex="0" role="note">
+  <sup class="footnote-marker" aria-hidden="true"></sup>
+  <span class="footnote-content">Or if you are like me and continue to stay on the sidelines since you’re greedy enough to believe you can perfectly time the market.</span>
+</span>
+. Living these experiences firsthand will prepare you for when real money is on the line.</p>
+  </li>
+</ol>
+
+<p>So, please, start investing. Your future you will thank you.</p>
+
+<h2 id="2-what-to-invest-in"><a href="#2-what-to-invest-in"></a>2. What to Invest In</h2>
+
+<p>There are a million options for what to buy. At the simplest level, you can invest in <strong>stocks</strong> (individual publicly traded companies like Google, Tesla), or you can invest in an <strong>index fund</strong>, which is a weighted average of many companies. For example, the <a href="https://en.wikipedia.org/wiki/S%26P_500" target="_blank" rel="noopener noreferrer">S&amp;P 500</a> is a weighted average of the 500 largest companies in the USA. There are also index funds for specific categories (<a href="https://en.wikipedia.org/wiki/Nasdaq-100" target="_blank" rel="noopener noreferrer">NASDAQ-100</a> is predominantly for tech, <a href="https://investor.vanguard.com/investment-products/etfs/profile/vht" target="_blank" rel="noopener noreferrer">VHT</a> tracks the health care sector, etc).<span class="footnote" tabindex="0" role="note">
+  <sup class="footnote-marker" aria-hidden="true"></sup>
+  <span class="footnote-content">Technically, the S&amp;P 500 is an index, and there are various index funds (like VOO, IVV, SPYM) designed to closely track the original index.</span>
+</span></p>
+
+<p>If you believe America will generally do well over the coming decades, then index funds are a great choice. You average out the fluctuations of individual companies, which means you track the American economy (or the growth of a specific sector). If you feel like an individual company will win, you can opt to invest in its stock—this gives you a chance to beat index funds, but may expose you to more volatility.</p>
+
+<h2 id="3-investing-strategies"><a href="#3-investing-strategies"></a>3. Investing Strategies</h2>
+
+<p>As a grad student, you realistically don’t have time to actively trade the market or do significant market research to pick individual winners. If you think you can outsmart Wall Street and find mispriced bets, you’re likely to be wrong<span class="footnote" tabindex="0" role="note">
+  <sup class="footnote-marker" aria-hidden="true"></sup>
+  <span class="footnote-content">For more on this, check <a href="https://jlcollinsnh.com/2012/04/25/stocks-part-iii-most-people-lose-money-in-the-market/" target="_blank" rel="noopener noreferrer">this article</a>.</span>
+</span>
+. Institutional investors have access to resources that retail investors (jargon that refers to casuals like us) will never have, and this is literally their full-time job. But the benefit of living in a free market is that if you have a strong belief about a certain stock, you can go ahead and buy it<span class="footnote" tabindex="0" role="note">
+  <sup class="footnote-marker" aria-hidden="true"></sup>
+  <span class="footnote-content">Perhaps a keen AI researcher could have foreseen the explosion in NVIDIA stock.</span>
+</span>
+.</p>
+
+<p>My personal preference is to follow a <strong>buy and hold strategy</strong>. In this strategy, once investments are made, they are rarely sold. The buyer believes that the investment will, on average, have good returns over a <em>long</em> period of time (on the order of years to decades). This is diametrically opposed to <strong>active trading</strong>, where one is buying and selling on a frequent basis (on the order of days to weeks).</p>
+
+<p>A key concept to be aware of is <strong>Dollar-Cost Averaging (DCAing)</strong>. Let’s say you have <span class="tex2jax_ignore">$1,000</span> to invest, and you know where you want to invest it. Instead of investing it all today, you invest it over a span of time (e.g., invest <span class="tex2jax_ignore">$33</span> every day for a month, or <span class="tex2jax_ignore">$250</span> every week). The key idea is that the market has natural volatility, and so it’s natural for a clever investor to want to “time the market” (pick a point where the price of the investment is low). In practice, this is really hard to do. DCAing allows you to participate if the market rises, while also exposing you to entry points at lower prices if the market falls. The beauty is that you don’t even need to log in to your brokerage every day. Every modern brokerage has an automated DCA feature that you can set. It’s a great strategy. <a href="https://ofdollarsanddata.com/even-god-couldnt-beat-dollar-cost-averaging/" target="_blank" rel="noopener noreferrer">Even God can’t beat it</a>.</p>
+
+<p>DCAing can work well for a lot of people. But some folks want more control, or think they can do better than DCAing (like myself). My personal strategy is to keep at most X% of my portfolio as cash in case there’s a market pullback, and DCA the rest<span class="footnote" tabindex="0" role="note">
+  <sup class="footnote-marker" aria-hidden="true"></sup>
+  <span class="footnote-content">For me, X is around 30%.</span>
+</span>
+. This way, I stay exposed to gains in the market, while saving some dry powder in case there’s a more opportune moment to invest. There are a few downsides with this approach: (1) you actually have to track the market to watch for opportunities, and sometimes you can miss some if it’s a busy period in life; (2) when a pullback is actively happening, it’s easy to fall into the trap of trying to perfectly “time” the dip. Before you know it, the market can recover, and your opportunity is gone; you would have been better off just DCAing.</p>
+
+<p>If I were a smarter man, I’d DCA all of my cash. But I’m foolish enough to believe I can do better.</p>
+
+<figure class="post-figure post-figure--half">
+  <img src="/assets/images/TimingMarketMeme.jpeg" alt="Distracted boyfriend meme: the man labeled Investors looks at Timing the Market while his girlfriend Buy and Hold looks on disapprovingly." />
+</figure>
+
+<h2 id="4-what-brokerage-to-invest-through"><a href="#4-what-brokerage-to-invest-through"></a>4. What Brokerage to Invest Through?</h2>
+
+<p>You invest through a brokerage, which is a platform that provides investing services. <a href="https://robinhood.com/" target="_blank" rel="noopener noreferrer">Robinhood</a> is great for beginners. They have a nice UI, which makes investing feel much easier. Personally, I use <a href="https://www.fidelity.com/" target="_blank" rel="noopener noreferrer">Fidelity</a>. If you haven’t opened a brokerage account, ask your friends for a referral link. You’ll both get rewarded! Otherwise, you’re always welcome to use mine<span class="footnote" tabindex="0" role="note">
+  <sup class="footnote-marker" aria-hidden="true"></sup>
+  <span class="footnote-content">Robinhood referral link: <a href="https://join.robinhood.com/shubhak-9f74ea/" target="_blank" rel="noopener noreferrer">https://join.robinhood.com/shubhak-9f74ea/</a>. But seriously, check with your friends first.</span>
+</span>
+ (yes, this is a shameless plug).</p>
+
+<p>If you’ve gotten to this point, you know the basics for investing. Feel free to stop reading and start investing! The rest of the blog post talks about more advanced knowledge I’ve accumulated over the years.</p>
+
+<h2 id="5-taxes--the-roth-ira"><a href="#5-taxes--the-roth-ira"></a>5. Taxes &amp; the Roth IRA</h2>
+
+<p>An individual brokerage account is the most basic way to invest (this is the default account you open with any brokerage). The money invested in this account has already been taxed (what we call <em>post-tax</em> money). In an individual account, if your investments grow (e.g., from 10k to 30k), and you sell those investments, you need to pay <em>capital gains tax</em> on the earned 20k, and the capital gains tax can be significant<span class="footnote" tabindex="0" role="note">
+  <sup class="footnote-marker" aria-hidden="true"></sup>
+  <span class="footnote-content">Currently, the federal long-term capital gains tax is at 15%, and most states tax capital gains as regular income (in California, that could be up to an additional 13%!).</span>
+</span>
+.</p>
+
+<p>But what if there was a way to avoid paying capital gains tax? This is where <em>tax-advantaged</em> brokerage accounts come in. In particular, for grad students, I highly recommend a Roth IRA. When you’re a grad student, you are typically in the lowest tax bracket of your life. Thus, you want to pay taxes <em>now</em>, rather than later on when your salary puts you in a higher tax bracket<span class="footnote" tabindex="0" role="note">
+  <sup class="footnote-marker" aria-hidden="true"></sup>
+  <span class="footnote-content">Contrast this with when your earnings are at their peak. In such cases, you probably want to invest in a <em>pre-tax</em> IRA, which allows you to defer your taxes to later years, when your income may be less (for example, when you are retired).</span>
+</span>
+. Like with an individual account, you contribute post-tax money to a Roth IRA. When you sell investments or make <em>qualified</em> withdrawals, they are completely tax-free (no income tax or capital gains tax).</p>
+
+<p>Yes, there’s a catch (actually, there are two). The amount you can contribute to a Roth IRA every year is capped (in 2026, it was <span class="tex2jax_ignore">$7,500</span>). Also, there are rules for withdrawing from the Roth IRA: (1) you can withdraw your principal (i.e., your contributions) at any time without penalty; (2) earnings can be withdrawn tax-free after you are 59.5 years old<span class="footnote" tabindex="0" role="note">
+  <sup class="footnote-marker" aria-hidden="true"></sup>
+  <span class="footnote-content">There are a couple of other nuances that are worth being aware of. You can read more <a href="https://www.irs.gov/retirement-plans/roth-iras" target="_blank" rel="noopener noreferrer">here</a>.</span>
+</span>
+. If you are comfortable with parking your investments for the long term, then a Roth IRA can be one of the best ways to reduce your tax liability.</p>
+
+<p>If you’re interested, your brokerage should have an option to open a Roth IRA. Personally, I try to max out my Roth IRA contributions every year, and then I invest any leftover money in my individual brokerage account.</p>
+
+<h2 id="6-earning-interest-on-your-cash"><a href="#6-earning-interest-on-your-cash"></a>6. Earning Interest on Your Cash</h2>
+
+<p>Personally, I try to keep as little cash as possible in my checking account. I keep enough to survive (rent + food) for 2 months and cover any small, surprise expense (e.g., unexpected travel or a night out). Then, I try to keep as much cash as possible in my brokerage accounts, because most brokerage accounts will give you interest on your cash<span class="footnote" tabindex="0" role="note">
+  <sup class="footnote-marker" aria-hidden="true"></sup>
+  <span class="footnote-content">Just be aware that if you ever need to access cash in your brokerage account, it can take 3-5 business days to transfer to your bank account. So make sure you keep enough cash in your checking account to cover your expected and unexpected short-term expenses.</span>
+</span>
+.</p>
+
+<p>Interest rates vary over time (they are set by the Federal Reserve, which is like the bank for banks). When the interest rate is high, brokerages will give you a higher return on your cash. Even if it’s low, it beats having your cash sit in a checking account, where you’re probably getting zero interest. Currently, the interest rate is 3.5%. In recent years, it’s been as high as 5.5%.</p>
+
+<h2 id="concluding-thoughts"><a href="#concluding-thoughts"></a>Concluding Thoughts</h2>
+
+<p>Even if you decide not to follow any of the investing advice in this post (which is totally okay!), I hope I’ve convinced you to get started with investing (however you best see fit). Make your money work for you, so eventually, you don’t have to!</p>]]></content><author><name></name></author><category term="blog" /><summary type="html"><![CDATA[TODO: one-sentence summary of the post.]]></summary></entry><entry><title type="html">We Need a Technical Definition for World Models</title><link href="http://localhost:4000/blog/a-technical-definition-of-world-models/" rel="alternate" type="text/html" title="We Need a Technical Definition for World Models" /><published>2026-06-27T13:00:00-04:00</published><updated>2026-06-27T13:00:00-04:00</updated><id>http://localhost:4000/blog/a-technical-definition-of-world-models</id><content type="html" xml:base="http://localhost:4000/blog/a-technical-definition-of-world-models/"><![CDATA[<div class="post-epigraph">
   <p class="post-epigraph-text">&ldquo;You see, but you do not observe. The distinction is clear.&rdquo;</p>
   <p class="post-epigraph-cite">&mdash; Sherlock Holmes to Dr. Watson, <em>A Scandal in Bohemia</em></p>
 </div>
