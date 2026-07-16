@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "PhD Students Need Financial Advice Too"
-description: "TODO: one-sentence summary of the post."
+description: "Investing as a PhD student is one of the lowest-risk ways to learn, arguably, the highest-leverage skill of your life. This post convinces you to start investing, with some pointers on how to get started."
 date: 2026-07-14 12:00:00 -0500
 categories: blog
 toc: true
