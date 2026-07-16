@@ -2,7 +2,7 @@
 layout: post
 title: "Grad Students Need Financial Advice Too"
 description: "TODO: one-sentence summary of the post."
-date: 2026-07-11 12:00:00 -0500
+date: 2026-07-14 12:00:00 -0500
 categories: blog
 toc: true
 disclaimer: |
