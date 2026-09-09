@@ -11,6 +11,7 @@ affiliation: "University of Illinois Urbana-Champaign"
 venue: "CVPR 2026"
 published_date: 2026-03-27
 start_date: 2026-03-27
+image: /assets/academic-project/images/surf_faithfulness_demo.png
 keywords:
   - explainable AI
   - concept-based explanations
@@ -18,7 +19,7 @@ keywords:
   - sparse autoencoders
   - interpretability
 links:
-  - name: "arXiv"
+  - name: "Paper"
     type: arxiv
     url: "https://arxiv.org/abs/2504.10833"
   - name: "Code"

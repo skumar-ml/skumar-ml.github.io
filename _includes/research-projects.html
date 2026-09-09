@@ -1,0 +1,44 @@
+{%- comment -%}
+  Publication-style research list. Optional: include.limit
+{%- endcomment -%}
+{%- assign sorted_projects = site.projects | where_exp: "item", "item.listed != false" | sort: "start_date" | reverse -%}
+{%- assign research_limit = include.limit | default: 1000 -%}
+<div class="research-projects">
+{%- for project in sorted_projects limit: research_limit -%}
+  {%- assign thumb = project.image | default: project.teaser.image -%}
+  <article class="research-item">
+    {%- if thumb -%}
+    <a class="research-thumb" href="{{ project.url | relative_url }}">
+      <img src="{{ thumb | relative_url }}" alt="{{ project.title | escape }}">
+    </a>
+    {%- endif -%}
+    <div class="research-body">
+      {%- if project.venue -%}
+      <p class="research-venue">
+        {{ project.venue }}{%- if project.highlight %} <span class="research-highlight">· {{ project.highlight }}</span>{%- endif -%}
+      </p>
+      {%- endif -%}
+      <h3 class="research-title"><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
+      {%- if project.authors -%}
+      <p class="research-authors">
+        {%- for author in project.authors -%}
+          {%- if author.name == "Shubham Kumar" -%}<strong>{{ author.name }}</strong>{%- else -%}{{ author.name }}{%- endif -%}
+          {%- if author.equal_contribution -%}*{%- endif -%}
+          {%- unless forloop.last -%}, {% endunless -%}
+        {%- endfor -%}
+      </p>
+      {%- endif -%}
+      <p class="research-links">
+        <a href="{{ project.url | relative_url }}">Project</a>
+        {%- if project.links -%}
+        {%- for link in project.links -%}
+          {%- assign is_external = false -%}
+          {%- if link.url contains "://" -%}{%- assign is_external = true -%}{%- endif -%}
+        <a href="{{ link.url | relative_url }}"{% if is_external %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ link.name }}</a>
+        {%- endfor -%}
+        {%- endif -%}
+      </p>
+    </div>
+  </article>
+{%- endfor -%}
+</div>

@@ -1,16 +1,33 @@
 {%- comment -%}
   Renders Recent News from _news/*.md (site.news collection).
   Configure visibility via news_cutoff_date in _config.yml.
+  Hide items with listed: false.
 {%- endcomment -%}
-{%- assign sorted_news = site.news | sort: 'date' | reverse -%}
+{%- assign sorted_news = site.news | where_exp: "item", "item.listed != false" | sort: 'date' | reverse -%}
 {%- assign news_cutoff = site.news_cutoff_date | date: '%Y-%m-%d' -%}
-<div class="compact-news" style="margin-bottom: 20px;">
-  <ul>
+<div class="compact-news">
   {%- for news_item in sorted_news -%}
     {%- assign item_date = news_item.date | date: '%Y-%m-%d' -%}
     {%- if site.news_cutoff_date == nil or item_date >= news_cutoff -%}
-    <li><strong>{{ news_item.date | date: "%B %Y" }}</strong>: {{ news_item.content | markdownify | replace: '<p>', '' | replace: '</p>', '' | strip }}</li>
+    {%- assign month_num = news_item.date | date: "%m" -%}
+    {%- case month_num -%}
+      {%- when "01" -%}{%- assign month_abbr = "Jan" -%}
+      {%- when "02" -%}{%- assign month_abbr = "Feb" -%}
+      {%- when "03" -%}{%- assign month_abbr = "Mar" -%}
+      {%- when "04" -%}{%- assign month_abbr = "Apr" -%}
+      {%- when "05" -%}{%- assign month_abbr = "May" -%}
+      {%- when "06" -%}{%- assign month_abbr = "June" -%}
+      {%- when "07" -%}{%- assign month_abbr = "July" -%}
+      {%- when "08" -%}{%- assign month_abbr = "Aug" -%}
+      {%- when "09" -%}{%- assign month_abbr = "Sep" -%}
+      {%- when "10" -%}{%- assign month_abbr = "Oct" -%}
+      {%- when "11" -%}{%- assign month_abbr = "Nov" -%}
+      {%- when "12" -%}{%- assign month_abbr = "Dec" -%}
+    {%- endcase -%}
+    <div class="news-item">
+      <span class="news-date">{{ month_abbr }} {{ news_item.date | date: "%Y" }}</span>
+      <div class="news-text">{{ news_item.content | markdownify | replace: '<p>', '' | replace: '</p>', '' | strip }}</div>
+    </div>
     {%- endif -%}
   {%- endfor -%}
-  </ul>
 </div>

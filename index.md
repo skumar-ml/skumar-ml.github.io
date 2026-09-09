@@ -27,43 +27,17 @@ description: Shubham Kumar is a third-year PhD student in AI at Univeristy of Il
 
 <div class="clearfix"></div>
 
-## Recent News
+<div class="research-section-header">
+  <h2>Recent News</h2>
+</div>
 
 {% include recent-news.html %}
 
-## Research Highlights
-
-{% assign sorted_projects = site.projects | where_exp: "item", "item.listed != false" | sort: "start_date" | reverse %}
-<div class="research-projects">
-{% for project in sorted_projects limit:2 %}
-<div class="project">
-  <div class="project-header">
-    <h3 class="project-title"><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
-    {% if project.venue %}
-    <span class="project-venue-badge" title="Accepted to {{ project.venue | escape }}">{{ project.venue }}</span>
-    {% endif %}
-  </div>
-
-  {% if project.image %}
-  <a href="{{ project.url | relative_url }}">
-    <img src="{{ project.image | relative_url }}" alt="{{ project.title }}" class="project-image">
-  </a>
-  {% endif %}
-
-  <div class="project-content">
-    {{ project.description | default: project.excerpt }}
-    <p><a href="{{ project.url | relative_url }}">View project &rarr;</a></p>
-  </div>
-
-  {% if project.links %}
-  <div class="project-links">
-    {% for link in project.links %}
-    <a href="{{ link.url }}" class="project-link" target="_blank" rel="noopener noreferrer">{{ link.name }}</a>
-    {% endfor %}
-  </div>
-  {% endif %}
-</div>
-{% endfor %}
+<div class="research-section-header">
+  <h2>Research Highlights</h2>
+  <span class="research-section-note">Selected</span>
 </div>
 
-<p><a href="{{ '/research/' | relative_url }}">View all research &rarr;</a></p>
+{% include research-projects.html limit=2 %}
+
+<p class="research-view-all"><a href="{{ '/research/' | relative_url }}">View all research &rarr;</a></p>
