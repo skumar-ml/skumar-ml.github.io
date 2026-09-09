@@ -6,8 +6,8 @@ description: Shubham Kumar is a third-year PhD student in AI at Univeristy of Il
 
 <div class="profile-container">
   <div class="profile-bio">
-    <p>Welcome to my website! I am a third-year PhD student in the Computer Vision and Robotics Laboratory at the University of Illinois at Urbana-Champaign, advised by Prof. <a href="https://vision.ai.illinois.edu/narendra-ahuja/" target="_blank" rel="noopener noreferrer">Narendra Ahuja</a>.</p>
-    <p>I want to understand how and why AI models (for any modality) fail. I believe the key to getting there is by making sense of our model's intermediate representations. I am currently at IBM this summer, under the mentorship of <a href="https://saurabhjha.one/" target="_blank" rel="noopener noreferrer">Saurabh Jha</a>.</p>
+    <p>Welcome to my website! I am a fourth-year PhD student in the Computer Vision and Robotics Laboratory at the University of Illinois at Urbana-Champaign, advised by Prof. <a href="https://vision.ai.illinois.edu/narendra-ahuja/" target="_blank" rel="noopener noreferrer">Narendra Ahuja</a>.</p>
+    <p>I want to understand how and why AI models (for any modality) fail. I believe the key to getting there is by making sense of a model's intermediate representations. I just spent a summer at IBM, under the mentorship of <a href="https://saurabhjha.one/" target="_blank" rel="noopener noreferrer">Saurabh Jha</a>, where I worked on world models for decision-making and planning.</p>
     <p>I obtained my B.S. from UCSD, where I did research with Prof. <a href="https://sites.google.com/view/ucsdvpl/home?authuser=0" target="_blank" rel="noopener noreferrer">Truong Nguyen</a> and Prof. <a href="https://jacobsschool.ucsd.edu/node/3287" target="_blank" rel="noopener noreferrer">Pamela Cosman</a>.</p>
 
     <div class="social-links" style="text-align: center;">
@@ -21,7 +21,7 @@ description: Shubham Kumar is a third-year PhD student in AI at Univeristy of Il
     </div>
   </div>
   <div class="profile-image">
-    <img src="assets/images/profile.jpg" alt="Shubham Kumar" class="profile-pic">
+    <img src="assets/images/Shubham_Pic.jpg" alt="Shubham Kumar" class="profile-pic">
   </div>
 </div>
 
