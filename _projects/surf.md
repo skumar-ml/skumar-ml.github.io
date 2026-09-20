@@ -11,7 +11,7 @@ affiliation: "University of Illinois Urbana-Champaign"
 venue: "CVPR 2026"
 published_date: 2026-03-27
 start_date: 2026-03-27
-image: /assets/academic-project/images/surf_faithfulness_demo.png
+image: /assets/academic-project/images/surf/surf_faithfulness_demo.png
 keywords:
   - explainable AI
   - concept-based explanations
@@ -30,11 +30,11 @@ links:
     url: "https://youtu.be/HpDWq9PIAjs"
   - name: "Poster"
     type: supplementary
-    url: "/assets/academic-project/images/CVPR_2026_SURF_Poster.png"
+    url: "/assets/academic-project/images/surf/CVPR_2026_SURF_Poster.png"
 disclaimer: |
   Disclaimer: I initially one-shot generated the content on this project page with Cursor (provided my poster and paper PDFs). I was unsatisifed, so I proceeded to <s>lightly</s> meaningfully manually edit the text.
 teaser:
-  image: "/assets/academic-project/images/CVPR_2026_SURF_Poster.png"
+  image: "/assets/academic-project/images/surf/CVPR_2026_SURF_Poster.png"
   caption: "CVPR 2026 poster — SURF measures whether concept-based explanations actually reflect a vision model's computation. <a href='/assets/academic-project/pdfs/surf-camera-ready.pdf' target='_blank'>PDF for full resolution</a>."
 bibtex: |
   @inproceedings{kumar2026surf,
@@ -94,7 +94,7 @@ See the paper for a more formal definition of U-CBEMs.
 
 Given the following explanation, what did the model predict? 
 
-![CRAFT explanations for Class 1 and Class 2 on a helicopter image](/assets/academic-project/images/surf_faithfulness_demo.png){: .inline-image}
+![CRAFT explanations for Class 1 and Class 2 on a helicopter image](/assets/academic-project/images/surf/surf_faithfulness_demo.png){: .inline-image}
 
 <details class="content-dropdown" markdown="1">
 <summary><strong>Reveal the answer</strong></summary>
@@ -127,7 +127,7 @@ The idea is simple; however, surrogate-based measures must be defined carefully.
 
 There's some other issues with prior surrogate-based measures. Take our word for it (or read the paper!). Also, enjoy this nice figure comparing the two that I spent way too much time on, and that none of my reviewers seemingly cared for.
 
-![Unified faithfulness framework comparing surrogate-based measures and deletion-based proxies](/assets/academic-project/images/surf_framework_overview/surf_framework_overview-1.png)
+![Unified faithfulness framework comparing surrogate-based measures and deletion-based proxies](/assets/academic-project/images/surf/surf_framework_overview/surf_framework_overview-1.png)
 
 *Unified framework of faithfulness measures (deletion-based proxies on the left, surrogate-based measures on the right) (from the paper).*
 

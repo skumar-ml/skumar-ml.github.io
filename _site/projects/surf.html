@@ -12,11 +12,11 @@
 <meta property="og:site_name" content="University of Illinois Urbana-Champaign">
 <meta property="og:title" content="Measuring the (Un)Faithfulness of Concept-Based Explanations">
 <meta property="og:description" content="In our CVPR 2026 paper, we propose SURF, a principled faithfulness measure for unsupervised concept-based explanations. We show that many prior explanation m...">
-<meta property="og:url" content="http://localhost:4000/projects/surf.html"><meta property="og:image" content="http://localhost:4000/assets/academic-project/images/surf_faithfulness_demo.png">
+<meta property="og:url" content="http://localhost:4000/projects/surf.html"><meta property="og:image" content="http://localhost:4000/assets/academic-project/images/surf/surf_faithfulness_demo.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Measuring the (Un)Faithfulness of Concept-Based Explanations"><meta property="article:published_time" content="2026-03-27T00:00:00-05:00"><meta property="article:tag" content="explainable AI"><meta property="article:tag" content="concept-based explanations"><meta property="article:tag" content="faithfulness"><meta property="article:tag" content="sparse autoencoders"><meta property="article:tag" content="interpretability"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@skumar_ml"><meta name="twitter:title" content="Measuring the (Un)Faithfulness of Concept-Based Explanations">
-<meta name="twitter:description" content="In our CVPR 2026 paper, we propose SURF, a principled faithfulness measure for unsupervised concept-based explanations. We show that many prior explanation m..."><meta name="twitter:image" content="http://localhost:4000/assets/academic-project/images/surf_faithfulness_demo.png"><meta name="citation_title" content="Measuring the (Un)Faithfulness of Concept-Based Explanations"><meta name="citation_author" content="Shubham Kumar"><meta name="citation_author" content="Narendra Ahuja"><meta name="citation_publication_date" content="2026"><meta name="citation_conference_title" content="CVPR 2026"><meta name="theme-color" content="#2563eb">
+<meta name="twitter:description" content="In our CVPR 2026 paper, we propose SURF, a principled faithfulness measure for unsupervised concept-based explanations. We show that many prior explanation m..."><meta name="twitter:image" content="http://localhost:4000/assets/academic-project/images/surf/surf_faithfulness_demo.png"><meta name="citation_title" content="Measuring the (Un)Faithfulness of Concept-Based Explanations"><meta name="citation_author" content="Shubham Kumar"><meta name="citation_author" content="Narendra Ahuja"><meta name="citation_publication_date" content="2026"><meta name="citation_conference_title" content="CVPR 2026"><meta name="theme-color" content="#2563eb">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 </noscript>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Source+Serif+4:ital,wght@0,400;1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script defer src="/assets/academic-project/js/fontawesome.all.min.js"></script>
@@ -46,10 +46,12 @@
 <script defer src="/assets/academic-project/js/bulma-slider.min.js"></script>
 <script defer src="/assets/academic-project/js/index.js"></script><script>
   window.MathJax = {
+    loader: { load: ['[tex]/color'] },
     tex: {
       inlineMath: [['\\(', '\\)'], ['$', '$']],
       displayMath: [['\\[', '\\]'], ['$$', '$$']],
-      processEscapes: true
+      processEscapes: true,
+      packages: {'[+]': ['color']}
     },
     options: {
       skipHtmlTags: ['noscript', 'style', 'textarea', 'pre', 'code']
@@ -66,7 +68,25 @@
     <i class="fas fa-chevron-up"></i>
   </button>
 
-  
+  <div class="more-works-container">
+  <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works" type="button">
+    <i class="fas fa-flask"></i>
+    More Works
+    <i class="fas fa-chevron-down dropdown-arrow"></i>
+  </button>
+  <div class="more-works-dropdown" id="moreWorksDropdown">
+    <div class="dropdown-header">
+      <h4>More Works</h4>
+      <button class="close-btn" onclick="toggleMoreWorks()" type="button" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="works-list"><a href="/projects/loca.html" class="work-item"><div class="work-info">
+          <h5>Minimal, Local, Causal Explanations for Jailbreak Success in Large Language Models</h5><p>LOCA provides minimal, local, causal explanations for jailbreak success in large language models.</p><span class="work-venue">COLM 2026</span></div>
+        <i class="fas fa-external-link-alt"></i>
+      </a></div>
+  </div>
+</div>
 
   <main id="main-content">
     <section class="hero">
@@ -97,7 +117,7 @@
   </a>
 </span>
 <span class="link-block">
-  <a href="/assets/academic-project/images/CVPR_2026_SURF_Poster.png" target="_blank" rel="noopener noreferrer"
+  <a href="/assets/academic-project/images/surf/CVPR_2026_SURF_Poster.png" target="_blank" rel="noopener noreferrer"
      class="external-link button is-normal is-rounded is-dark">
     <span class="icon"><i class="fas fa-file-pdf"></i></span>
     <span>Poster</span>
@@ -118,7 +138,7 @@
       </div>
     </section><section class="hero teaser">
       <div class="container is-max-desktop">
-        <div class="hero-body"><img src="/assets/academic-project/images/CVPR_2026_SURF_Poster.png" alt="Measuring the (Un)Faithfulness of Concept-Based Explanations" loading="lazy"><h2 class="subtitle has-text-centered">CVPR 2026 poster — SURF measures whether concept-based explanations actually reflect a vision model's computation. <a href='/assets/academic-project/pdfs/surf-camera-ready.pdf' target='_blank'>PDF for full resolution</a>.</h2></div>
+        <div class="hero-body"><img src="/assets/academic-project/images/surf/CVPR_2026_SURF_Poster.png" alt="Measuring the (Un)Faithfulness of Concept-Based Explanations" loading="lazy"><h2 class="subtitle has-text-centered">CVPR 2026 poster — SURF measures whether concept-based explanations actually reflect a vision model's computation. <a href='/assets/academic-project/pdfs/surf-camera-ready.pdf' target='_blank'>PDF for full resolution</a>.</h2></div>
       </div>
     </section><section class="section project-body-section">
       <div class="container is-max-desktop">
@@ -172,7 +192,7 @@
 
 <p>Given the following explanation, what did the model predict?</p>
 
-<p><img src="/assets/academic-project/images/surf_faithfulness_demo.png" alt="CRAFT explanations for Class 1 and Class 2 on a helicopter image" class="inline-image" /></p>
+<p><img src="/assets/academic-project/images/surf/surf_faithfulness_demo.png" alt="CRAFT explanations for Class 1 and Class 2 on a helicopter image" class="inline-image" /></p>
 
 <details class="content-dropdown">
   <summary><strong>Reveal the answer</strong></summary>
@@ -211,7 +231,7 @@ Explanation comes from CRAFT.</p>
 
 <p>There’s some other issues with prior surrogate-based measures. Take our word for it (or read the paper!). Also, enjoy this nice figure comparing the two that I spent way too much time on, and that none of my reviewers seemingly cared for.</p>
 
-<p><img src="/assets/academic-project/images/surf_framework_overview/surf_framework_overview-1.png" alt="Unified faithfulness framework comparing surrogate-based measures and deletion-based proxies" /></p>
+<p><img src="/assets/academic-project/images/surf/surf_framework_overview/surf_framework_overview-1.png" alt="Unified faithfulness framework comparing surrogate-based measures and deletion-based proxies" /></p>
 
 <p><em>Unified framework of faithfulness measures (deletion-based proxies on the left, surrogate-based measures on the right) (from the paper).</em></p>
 

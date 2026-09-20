@@ -58,10 +58,6 @@ defaults:
       path: "_posts/2023-01-01-welcome-to-my-website.md"
     values:
       sitemap: false
-  - scope:
-      path: "_projects/sample-project.md"
-    values:
-      sitemap: false
 
 # Exclude from processing
 exclude:

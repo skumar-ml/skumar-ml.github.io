@@ -23,10 +23,12 @@
 <link rel="icon" type="image/png" href="/assets/images/pochita_favicon.png">
   <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Home" /><script>
   window.MathJax = {
+    loader: { load: ['[tex]/color'] },
     tex: {
       inlineMath: [['\\(', '\\)'], ['$', '$']],
       displayMath: [['\\[', '\\]'], ['$$', '$$']],
-      processEscapes: true
+      processEscapes: true,
+      packages: {'[+]': ['color']}
     },
     options: {
       skipHtmlTags: ['noscript', 'style', 'textarea', 'pre', 'code']

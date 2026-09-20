@@ -22,10 +22,12 @@
 <link rel="icon" type="image/png" href="/assets/images/pochita_favicon.png">
   <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Home" /><script>
   window.MathJax = {
+    loader: { load: ['[tex]/color'] },
     tex: {
       inlineMath: [['\\(', '\\)'], ['$', '$']],
       displayMath: [['\\[', '\\]'], ['$$', '$$']],
-      processEscapes: true
+      processEscapes: true,
+      packages: {'[+]': ['color']}
     },
     options: {
       skipHtmlTags: ['noscript', 'style', 'textarea', 'pre', 'code']
@@ -83,7 +85,7 @@
       <div class="news-text"><a href="https://arxiv.org/pdf/2609.00455">See our pre-print</a> on belief-based world models for LLM decision-making under partial observability.</div>
     </div><div class="news-item">
       <span class="news-date">July 2026</span>
-      <div class="news-text">Our paper, <a href="https://arxiv.org/abs/2605.00123">LOCA</a>, has been accepted to COLM 2026! LOCA explains jailbreak attack success in LLMs.</div>
+      <div class="news-text">Our paper, <a href="https://arxiv.org/abs/2605.00123">LOCA</a>, has been accepted to COLM 2026! LOCA explains why jailbreak attacks succeed in LLMs.</div>
     </div><div class="news-item">
       <span class="news-date">June 2026</span>
       <div class="news-text">Attended CVPR 2026 in Denver! Read my <a href="/blog/cvpr-first-time-author-reflection/">reflection on the experience</a>.</div>
@@ -109,11 +111,17 @@
   <span class="research-section-note">Selected</span>
 </div>
 
-<div class="research-projects"><article class="research-item"><a class="research-thumb" href="/projects/surf.html">
-      <img src="/assets/academic-project/images/surf_faithfulness_demo.png" alt="Measuring the (Un)Faithfulness of Concept-Based Explanations" />
+<div class="research-projects"><article class="research-item"><a class="research-thumb" href="/projects/loca.html">
+      <img src="/assets/academic-project/images/loca/LOCA-Algorithm.png" alt="Minimal, Local, Causal Explanations for Jailbreak Success in Large Language Models" />
+    </a><div class="research-body"><p class="research-venue">
+        COLM 2026</p><h3 class="research-title"><a href="/projects/loca.html">Minimal, Local, Causal Explanations for Jailbreak Success in Large Language Models</a></h3><p class="research-authors"><strong>Shubham Kumar</strong>, Narendra Ahuja</p><p class="research-links">
+        <a href="/projects/loca.html">Project</a><a href="https://arxiv.org/abs/2605.00123" target="_blank" rel="noopener noreferrer">Paper</a><a href="https://github.com/skumar-ml/loca-jailbreaks" target="_blank" rel="noopener noreferrer">Code</a><a href="/assets/academic-project/images/loca/COLM_LOCA_2026_Poster.pdf">Poster</a></p>
+    </div>
+  </article><article class="research-item"><a class="research-thumb" href="/projects/surf.html">
+      <img src="/assets/academic-project/images/surf/surf_faithfulness_demo.png" alt="Measuring the (Un)Faithfulness of Concept-Based Explanations" />
     </a><div class="research-body"><p class="research-venue">
         CVPR 2026</p><h3 class="research-title"><a href="/projects/surf.html">Measuring the (Un)Faithfulness of Concept-Based Explanations</a></h3><p class="research-authors"><strong>Shubham Kumar</strong>, Narendra Ahuja</p><p class="research-links">
-        <a href="/projects/surf.html">Project</a><a href="https://arxiv.org/abs/2504.10833" target="_blank" rel="noopener noreferrer">Paper</a><a href="https://github.com/skumar-ml/surf-eval" target="_blank" rel="noopener noreferrer">Code</a><a href="https://youtu.be/HpDWq9PIAjs" target="_blank" rel="noopener noreferrer">Video</a><a href="/assets/academic-project/images/CVPR_2026_SURF_Poster.png">Poster</a></p>
+        <a href="/projects/surf.html">Project</a><a href="https://arxiv.org/abs/2504.10833" target="_blank" rel="noopener noreferrer">Paper</a><a href="https://github.com/skumar-ml/surf-eval" target="_blank" rel="noopener noreferrer">Code</a><a href="https://youtu.be/HpDWq9PIAjs" target="_blank" rel="noopener noreferrer">Video</a><a href="/assets/academic-project/images/surf/CVPR_2026_SURF_Poster.png">Poster</a></p>
     </div>
   </article></div>
 

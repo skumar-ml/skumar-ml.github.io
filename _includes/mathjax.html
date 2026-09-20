@@ -1,9 +1,11 @@
 <script>
   window.MathJax = {
+    loader: { load: ['[tex]/color'] },
     tex: {
       inlineMath: [['\\(', '\\)'], ['$', '$']],
       displayMath: [['\\[', '\\]'], ['$$', '$$']],
-      processEscapes: true
+      processEscapes: true,
+      packages: {'[+]': ['color']}
     },
     options: {
       skipHtmlTags: ['noscript', 'style', 'textarea', 'pre', 'code']
