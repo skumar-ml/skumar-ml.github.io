@@ -15,7 +15,7 @@ disclaimer: |
 CVPR 2026 was my first time attending a conference as an author{% include academic-project/footnote.html text="I also attended CVPR 2024, but not as an author." %}. I went to all five days (two workshop days, three main conference days), and as the days went on, I maintained a Note on my phone with any fleeting thoughts I had. This post compiles & reflects on them.
 
 <figure class="post-figure post-figure--half">
-  <img src="/assets/images/cvpr_0.JPG" alt="Shubham Kumar at the CVPR 2026 conference sign">
+  <img src="/assets/images/cvpr/cvpr_0.JPG" alt="Shubham Kumar at the CVPR 2026 conference sign">
   <figcaption>Me at CVPR 2026!</figcaption>
 </figure>
 
@@ -24,7 +24,7 @@ CVPR 2026 was my first time attending a conference as an author{% include academ
 I knew this from going to CVPR in 2024, but the scale of this conference is immense. Naively trying to see everything is a fool's errand. 
 
 <figure class="post-figure post-figure--half">
-  <img src="/assets/images/cvpr_busy.jpg" alt="The reception dinner at CVPR">
+  <img src="/assets/images/cvpr/cvpr_busy.jpg" alt="The reception dinner at CVPR">
   <figcaption>The reception dinner at CVPR (this picture shows maybe 1% of the attendees).</figcaption>
 </figure>
 
@@ -58,7 +58,7 @@ I spent most of my time in the poster session. Like the workshop posters, the ma
 At CVPR, there were ~650 posters in each poster session. My labmate insisted on walking though every row{% include academic-project/footnote.html text="I told him he was crazy." %}. I opted to pre-select the posters I would be interested in by using [Scholar Inbox](https://www.scholar-inbox.com/). It's a fantastic software&mdash;you should use it. I wish they had an app. 
 
 <figure class="post-figure post-figure--half">
-  <img src="/assets/images/cvpr_labmate.jpg" alt="Me and my labmate at CVPR badge registration.">
+  <img src="/assets/images/cvpr/cvpr_labmate.jpg" alt="Me and my labmate at CVPR badge registration.">
   <figcaption>Me and <a href="https://samyakr99.github.io/" target="_blank" rel="noopener noreferrer">said labmate</a> at CVPR badge registration.</figcaption>
 </figure>
 
@@ -84,7 +84,7 @@ As mentioned above, workshop posters are a great way to meet people. If you have
 If your lab is known, or if there are many students in your lab, chances are that some of your labmates will be there. They may have connections or friends of their own, who may become your connections and friends. Don't be shy to introduce yourself to them. Also, your advisor may have alumni who attend. They should  generally be open to meeting. Even if these connections are not super relevant to your area, you should still nurture them. It's good to make friends, and they will make future conferences feel less foreign.
 
 <figure class="post-figure post-figure--half">
-  <img src="/assets/images/cvpr_labAlum.JPG" alt="Some alum from our lab.">
+  <img src="/assets/images/cvpr/cvpr_labAlum.JPG" alt="Some alum from our lab.">
   <figcaption>Meeting up with some alumni from our lab after the reception dinner.</figcaption>
 </figure>  
 
@@ -122,7 +122,7 @@ My poster presentation was on the last slot, on the last day. Needless to say, I
 5. If I spend enough time conversing with someone, I ask them to connect on social media.
 
 <figure class="post-figure post-figure--half">
-  <img src="/assets/images/cvpr_poster.JPG" alt="My poster!">
+  <img src="/assets/images/cvpr/cvpr_poster.JPG" alt="My poster!">
   <figcaption>Just before my poster session starting.</figcaption>
 </figure>  
 

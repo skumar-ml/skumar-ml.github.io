@@ -1,11 +1,80 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-09-20T10:43:39-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Home</title><subtitle>Personal website of Your Name, PhD Student in Your Field at Your University.</subtitle><entry><title type="html">PhD Students Need Financial Advice Too</title><link href="http://localhost:4000/blog/financial-advice-for-grad-students/" rel="alternate" type="text/html" title="PhD Students Need Financial Advice Too" /><published>2026-07-14T12:00:00-05:00</published><updated>2026-07-14T12:00:00-05:00</updated><id>http://localhost:4000/blog/financial-advice-for-grad-students</id><content type="html" xml:base="http://localhost:4000/blog/financial-advice-for-grad-students/"><![CDATA[<p>I was recently chatting with one of my intern-buddies, and I was surprised to learn he kept all of his cash in his bank account. Not a single penny was invested. I explained to him why he should invest, and after he came around to my view, I started to explain the basics of investing. That conversation made me remember how clueless I was when I first started investing in 2020, and it helped me realize how much implicit investing knowledge I had soaked up over the years.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-10-13T16:55:36-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Home</title><subtitle>Personal website of Your Name, PhD Student in Your Field at Your University.</subtitle><entry><title type="html">Attending COLM 2026 as a PhD Student</title><link href="http://localhost:4000/blog/colm-2026-reflection/" rel="alternate" type="text/html" title="Attending COLM 2026 as a PhD Student" /><published>2026-10-12T12:00:00-05:00</published><updated>2026-10-12T12:00:00-05:00</updated><id>http://localhost:4000/blog/colm-2026-reflection</id><content type="html" xml:base="http://localhost:4000/blog/colm-2026-reflection/"><![CDATA[<p>I just wrapped up COLM 2026; it was my second conference as a PhD student, and it felt materially different from my prior conference experience. This post catalogs the differences and reflects on the more nuanced things I learned this time around.</p>
+
+<figure class="post-figure post-figure--half">
+  <img src="/assets/images/colm/COLM_intro.jpg" alt="Shubham Kumar in front of the COLM 2026 conference banner" />
+  <figcaption>Me at COLM 2026!</figcaption>
+</figure>
+
+<h2 id="compared-to-cvpr"><a href="#compared-to-cvpr"></a>Compared to CVPR</h2>
+
+<p>I went to CVPR 2026 in June<span class="footnote" tabindex="0" role="note">
+  <sup class="footnote-marker" aria-hidden="true"></sup>
+  <span class="footnote-content">I wrote about that experience <a href="/blog/cvpr-first-time-author-reflection/">here</a>.</span>
+</span>
+. COLM was significantly smaller and generally felt less overwhelming (CVPR confirmed 12,200 attendees; COLM probably had 3,000). This made the conference experience feel more intimate. There was a higher chance of bumping into people I had met in prior days, and I could actually walk around and browse posters.</p>
+
+<p>In terms of location, San Francisco was awesome! It completely shits on Denver (where CVPR was hosted). SF is the mecca of AI<span class="footnote" tabindex="0" role="note">
+  <sup class="footnote-marker" aria-hidden="true"></sup>
+  <span class="footnote-content">no qualifier needed</span>
+</span>
+, both in terms of startups/products and research. You can almost feel the city living and breathing it, which is pretty cool, especially for an AI researcher visiting from out of town. COLM also happened to overlap with SF Tech Week, so there was a lot of energy in the city.</p>
+
+<p>SF is doubly awesome because I have a fairly large group of school friends and family living in SF (and the broader Bay Area), so a meaningful part of the trip was spent reconnecting with them.</p>
+
+<figure class="post-figure post-figure--pair">
+  <div class="post-figure-panels">
+    <div class="post-figure-panel">
+      <img src="/assets/images/colm/COLM_fam.jpg" alt="Shubham Kumar with family on a wooded trail" />
+    </div>
+    <div class="post-figure-panel">
+      <img src="/assets/images/colm/COLM_friends.jpg" alt="Shubham Kumar with friends on a grassy field" />
+    </div>
+  </div>
+  <figcaption>With family and friends in the Bay Area.</figcaption>
+</figure>
+
+<h2 id="maximizing-networking-at-the-conference"><a href="#maximizing-networking-at-the-conference"></a>Maximizing Networking at the Conference</h2>
+
+<p>In my CVPR post, I wrote about how to network and make the most of the conference<span class="footnote" tabindex="0" role="note">
+  <sup class="footnote-marker" aria-hidden="true"></sup>
+  <span class="footnote-content">See my <a href="/blog/cvpr-first-time-author-reflection/#the-strategy-behind-meeting-people">strategies for meeting people</a>.</span>
+</span>
+. I think all of those things hold here.</p>
+
+<p>Like before, I spent most of my time at the poster session. Posters are where you can have real conversations—but it can get crowded fast. If you want to talk to a specific author, go early; it’s a reliable way to get individual (or small-group) time with the author (and they will also be more relaxed/fresh).</p>
+
+<p>At CVPR, I was using <a href="https://www.scholar-inbox.com/">Scholar Inbox</a> to pre-select interesting posters. While this worked fairly well, Scholar Inbox’s mobile UI is not great (I wish they had an app!). So for COLM, I took my recent papers, gave them to ChatGPT, and asked it to find all the posters I should visit for each session. This was surprisingly super helpful. The really valuable thing this enabled was asking for names of specific PhD students &amp; professors I should try to meet who have recent work in my area. I used this to find a professor at Berkeley who I ended up connecting with at the conference.</p>
+
+<h2 id="maximizing-my-own-poster-session"><a href="#maximizing-my-own-poster-session"></a>Maximizing My Own Poster Session</h2>
+
+<p>After COLM (which was my second time doing a poster session), I felt like I had developed more of a “technique” for getting the most out of my <em>own</em> poster session (I wrote at length on how to get the most out of <em>other</em> poster sessions in my <a href="/blog/cvpr-first-time-author-reflection/#getting-the-most-out-of-poster-presenters">CVPR post</a>). Some notable things I observed:</p>
+
+<ul>
+  <li><strong>Message people the night before your poster.</strong> During a multi-day conference, hopefully you are meeting people relevant to your area and exchanging contact info with them. The night before my poster session, I messaged these folks (and any older connections from previous conferences/experiences) the time/location of my poster. Granted, most people I messaged didn’t end up coming to my poster 😂</li>
+  <li><strong>Your first time giving your poster presentation will not be optimized.</strong> Pay attention to places where you want to tweak the delivery for future groups. Reading your audience members can also be a useful signal for modifying your pitch.</li>
+  <li><strong>Have a <em>full</em> water bottle.</strong> I was talking non-stop for 2 hours. My throat was dying halfway through, literally to the point that I just started carrying my water bottle (see picture below). Make sure you fill up your water bottle before the poster session.</li>
+  <li><strong>Pause and prompt questions.</strong> After finishing a section of my poster, I always liked pausing to ask if anyone in my audience had any questions. It gives you (as the presenter) a break, helps folks feel comfortable engaging, and helps everyone get on the same page before moving on. I wasn’t initially expecting it, but most times I paused, someone had a question.</li>
+  <li><strong>Read your audience.</strong> This is one of the more subtle things I started picking up on as the poster session went on. You can try to discern what the person/audience is interested in and focus on that. I will say that doing this requires you to pay closer attention to your audience. That’s a good habit to have, and it encourages eye contact &amp; open body language.
+    <ol>
+      <li>Some people are not from the area, so spending more time on background is helpful.</li>
+      <li>Some people don’t care about the method / results, and just want the main summary (what problem you solved, why it’s important, the main things you found, conceptually how the method works). Quite literally, it’s the few-minute elevator pitch of your work.</li>
+      <li>Some people care deeply about the method, and not at all about the results.</li>
+      <li>Some people are super interested in the results. One guy wanted me to walk through my charts/figures in close detail, which was amusing since I forgot how I generated one of the figures (I was focused only on conveying the takeaway).</li>
+    </ol>
+  </li>
+</ul>
+
+<figure class="post-figure post-figure--half">
+  <img src="/assets/images/colm/COLM_poster.jpg" alt="Shubham Kumar presenting his poster at COLM 2026, water bottle in hand" />
+  <figcaption>Me at my poster, water bottle in hand.</figcaption>
+</figure>]]></content><author><name></name></author><category term="blog" /><summary type="html"><![CDATA[This post catalogs how COLM felt different from CVPR and reflects on networking and getting more out of my own poster session.]]></summary></entry><entry><title type="html">PhD Students Need Financial Advice Too</title><link href="http://localhost:4000/blog/financial-advice-for-grad-students/" rel="alternate" type="text/html" title="PhD Students Need Financial Advice Too" /><published>2026-07-14T12:00:00-05:00</published><updated>2026-07-14T12:00:00-05:00</updated><id>http://localhost:4000/blog/financial-advice-for-grad-students</id><content type="html" xml:base="http://localhost:4000/blog/financial-advice-for-grad-students/"><![CDATA[<p>I was recently chatting with one of my intern-buddies, and I was surprised to learn he kept all of his cash in his bank account. Not a single penny was invested. I explained to him why he should invest, and after he came around to my view, I started to explain the basics of investing. That conversation made me remember how clueless I was when I first started investing in 2020, and it helped me realize how much implicit investing knowledge I had soaked up over the years.</p>
 
 <p>But you’re a PhD student, and PhD students are busy! We have a bunch of things constantly pulling at our attention. You need to grade homework for the class you TA, your advisor wants your help writing a proposal, NeurIPS assigned you 5 papers to review, and the list never ends. If you’ve never invested before, it’s easy to let investing slip to the bottom of your priority list. It’s one of those things that feels daunting to start on because there are so many unknowns to navigate.</p>
 
 <p>So, I’m writing this blog post to convince you to start investing, with some pointers on how to get started.</p>
 
 <figure class="post-figure post-figure--half">
-  <img src="/assets/images/OpenInvestingMeme.jpg" alt="Two-panel meme: Nicolas Cage looking stressed with text 'Some random guy asking me to start investing'; Pedro Pascal laughing with text 'Me who can barely survive on my stipend'." />
+  <img src="/assets/images/financial-advice/OpenInvestingMeme.jpg" alt="Two-panel meme: Nicolas Cage looking stressed with text 'Some random guy asking me to start investing'; Pedro Pascal laughing with text 'Me who can barely survive on my stipend'." />
 </figure>
 
 <h2 id="1-why-phd-students-should-care-about-investing"><a href="#1-why-phd-students-should-care-about-investing"></a>1. Why PhD Students Should Care About Investing</h2>
@@ -64,7 +133,7 @@
 <p>If I were a smarter man, I’d DCA all of my cash. But I’m foolish enough to believe I can do better.</p>
 
 <figure class="post-figure post-figure--half">
-  <img src="/assets/images/TimingMarketMeme.jpeg" alt="Distracted boyfriend meme: the man labeled Investors looks at Timing the Market while his girlfriend Buy and Hold looks on disapprovingly." />
+  <img src="/assets/images/financial-advice/TimingMarketMeme.jpeg" alt="Distracted boyfriend meme: the man labeled Investors looks at Timing the Market while his girlfriend Buy and Hold looks on disapprovingly." />
 </figure>
 
 <h2 id="4-what-brokerage-to-invest-through"><a href="#4-what-brokerage-to-invest-through"></a>4. What Brokerage to Invest Through?</h2>
@@ -141,7 +210,7 @@
 .</p>
 
 <figure class="post-figure">
-  <img src="/assets/images/lunch-world-model.png" alt="Three bar charts showing belief over lunch location: first certain on the fridge bottom, then uncertain between fridge top and gone, then certain on the fridge top." />
+  <img src="/assets/images/world-models/lunch-world-model.png" alt="Three bar charts showing belief over lunch location: first certain on the fridge bottom, then uncertain between fridge top and gone, then certain on the fridge top." />
   <figcaption>How my belief over lunch location evolved using my world model: initially certain it was on the bottom shelf, uncertain when it was missing (probably somewhere else in the fridge, but maybe it was stolen), then certain again after I checked elsewhere in the fridge.</figcaption>
 </figure>
 
@@ -184,16 +253,16 @@
   <div class="post-figure-panels">
     <div class="post-figure-panel post-figure-panel--primary">
       <p class="post-figure-panel-label">LeCun (JEPA)</p>
-      <img src="/assets/images/LeCun.png" alt="Diagram of LeCun's JEPA approach: an observation is encoded into an abstract state, which together with an action predicts the next abstract state." />
+      <img src="/assets/images/world-models/LeCun.png" alt="Diagram of LeCun's JEPA approach: an observation is encoded into an abstract state, which together with an action predicts the next abstract state." />
     </div>
     <div class="post-figure-panel-stack">
       <div class="post-figure-panel">
         <p class="post-figure-panel-label">Fei-Fei (World Labs)</p>
-        <img src="/assets/images/FeiFei.png" alt="Diagram of Fei-Fei's World Labs approach: an observation is mapped to an interactive, editable 3D world." />
+        <img src="/assets/images/world-models/FeiFei.png" alt="Diagram of Fei-Fei's World Labs approach: an observation is mapped to an interactive, editable 3D world." />
       </div>
       <div class="post-figure-panel">
         <p class="post-figure-panel-label">Jim Fan (WAM)</p>
-        <img src="/assets/images/JimFan.png" alt="Diagram of Jim Fan's World Action Model: given an observation and past action, the model predicts the next action and next observation." />
+        <img src="/assets/images/world-models/JimFan.png" alt="Diagram of Jim Fan's World Action Model: given an observation and past action, the model predicts the next action and next observation." />
       </div>
     </div>
   </div>
@@ -216,7 +285,7 @@
 <p>Effectively, I’d argue that they are building a next-observable-state simulator, and on top of that representation, one would still need to accomplish Goals #1–3, which I don’t believe is trivial.</p>
 
 <figure class="post-figure">
-  <img src="/assets/images/world-labs-webp.webp" alt="Demo of World Labs generating an interactive, editable 3D environment." />
+  <img src="/assets/images/world-models/world-labs-webp.webp" alt="Demo of World Labs generating an interactive, editable 3D environment." />
   <figcaption>A demo from the <a href="https://www.worldlabs.ai/" target="_blank" rel="noopener noreferrer">World Labs</a> homepage, showing a generated 3D world.</figcaption>
 </figure>
 
@@ -246,7 +315,7 @@
 . I went to all five days (two workshop days, three main conference days), and as the days went on, I maintained a Note on my phone with any fleeting thoughts I had. This post compiles &amp; reflects on them.</p>
 
 <figure class="post-figure post-figure--half">
-  <img src="/assets/images/cvpr_0.JPG" alt="Shubham Kumar at the CVPR 2026 conference sign" />
+  <img src="/assets/images/cvpr/cvpr_0.JPG" alt="Shubham Kumar at the CVPR 2026 conference sign" />
   <figcaption>Me at CVPR 2026!</figcaption>
 </figure>
 
@@ -255,7 +324,7 @@
 <p>I knew this from going to CVPR in 2024, but the scale of this conference is immense. Naively trying to see everything is a fool’s errand.</p>
 
 <figure class="post-figure post-figure--half">
-  <img src="/assets/images/cvpr_busy.jpg" alt="The reception dinner at CVPR" />
+  <img src="/assets/images/cvpr/cvpr_busy.jpg" alt="The reception dinner at CVPR" />
   <figcaption>The reception dinner at CVPR (this picture shows maybe 1% of the attendees).</figcaption>
 </figure>
 
@@ -297,7 +366,7 @@
 . I opted to pre-select the posters I would be interested in by using <a href="https://www.scholar-inbox.com/">Scholar Inbox</a>. It’s a fantastic software—you should use it. I wish they had an app.</p>
 
 <figure class="post-figure post-figure--half">
-  <img src="/assets/images/cvpr_labmate.jpg" alt="Me and my labmate at CVPR badge registration." />
+  <img src="/assets/images/cvpr/cvpr_labmate.jpg" alt="Me and my labmate at CVPR badge registration." />
   <figcaption>Me and <a href="https://samyakr99.github.io/" target="_blank" rel="noopener noreferrer">said labmate</a> at CVPR badge registration.</figcaption>
 </figure>
 
@@ -335,7 +404,7 @@
 <p>If your lab is known, or if there are many students in your lab, chances are that some of your labmates will be there. They may have connections or friends of their own, who may become your connections and friends. Don’t be shy to introduce yourself to them. Also, your advisor may have alumni who attend. They should  generally be open to meeting. Even if these connections are not super relevant to your area, you should still nurture them. It’s good to make friends, and they will make future conferences feel less foreign.</p>
 
 <figure class="post-figure post-figure--half">
-  <img src="/assets/images/cvpr_labAlum.JPG" alt="Some alum from our lab." />
+  <img src="/assets/images/cvpr/cvpr_labAlum.JPG" alt="Some alum from our lab." />
   <figcaption>Meeting up with some alumni from our lab after the reception dinner.</figcaption>
 </figure>
 
@@ -380,7 +449,7 @@
 </ol>
 
 <figure class="post-figure post-figure--half">
-  <img src="/assets/images/cvpr_poster.JPG" alt="My poster!" />
+  <img src="/assets/images/cvpr/cvpr_poster.JPG" alt="My poster!" />
   <figcaption>Just before my poster session starting.</figcaption>
 </figure>
 

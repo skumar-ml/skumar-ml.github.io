@@ -16,7 +16,7 @@ But you're a PhD student, and PhD students are busy! We have a bunch of things c
 So, I'm writing this blog post to convince you to start investing, with some pointers on how to get started.
 
 <figure class="post-figure post-figure--half">
-  <img src="/assets/images/OpenInvestingMeme.jpg" alt="Two-panel meme: Nicolas Cage looking stressed with text 'Some random guy asking me to start investing'; Pedro Pascal laughing with text 'Me who can barely survive on my stipend'.">
+  <img src="/assets/images/financial-advice/OpenInvestingMeme.jpg" alt="Two-panel meme: Nicolas Cage looking stressed with text 'Some random guy asking me to start investing'; Pedro Pascal laughing with text 'Me who can barely survive on my stipend'.">
 </figure>
 
 ## 1. Why PhD Students Should Care About Investing
@@ -46,7 +46,7 @@ DCAing can work well for a lot of people. But some folks want more control, or t
 If I were a smarter man, I'd DCA all of my cash. But I'm foolish enough to believe I can do better.
 
 <figure class="post-figure post-figure--half">
-  <img src="/assets/images/TimingMarketMeme.jpeg" alt="Distracted boyfriend meme: the man labeled Investors looks at Timing the Market while his girlfriend Buy and Hold looks on disapprovingly.">
+  <img src="/assets/images/financial-advice/TimingMarketMeme.jpeg" alt="Distracted boyfriend meme: the man labeled Investors looks at Timing the Market while his girlfriend Buy and Hold looks on disapprovingly.">
 </figure>
 
 ## 4. What Brokerage to Invest Through?

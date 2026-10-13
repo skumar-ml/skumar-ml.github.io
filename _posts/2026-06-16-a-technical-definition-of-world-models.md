@@ -27,7 +27,7 @@ A world model, by the most generic definition possible, is an "internal model of
 Let's take a look at a real-life example. Recently I went to grab my lunch from a shared fridge. Upon opening the fridge, I realized that my lunch was not on the bottom row where I had originally placed it. What happened to it? My internal world model told me that either (A) someone stole it or (B) someone moved it. My world model judged (A) as unlikely, since I was in an IBM office (not some college dorm), but not impossible. To reduce the uncertainty, my internal *policy* directed me to gather more *observations* by looking elsewhere in the fridge, which led me to locate my lunch on the top shelf. Thus, my *belief* collapsed to (B). Note that my world model didn't think of other explanations, such as (C) a deer entered the office, found the fridge, and ate my lunch. Strictly plausible, but highly unlikely{% include academic-project/footnote.html text="And if that had indeed occurred, my world model would probably be seriously updated." %}.
 
 <figure class="post-figure">
-  <img src="/assets/images/lunch-world-model.png" alt="Three bar charts showing belief over lunch location: first certain on the fridge bottom, then uncertain between fridge top and gone, then certain on the fridge top.">
+  <img src="/assets/images/world-models/lunch-world-model.png" alt="Three bar charts showing belief over lunch location: first certain on the fridge bottom, then uncertain between fridge top and gone, then certain on the fridge top.">
   <figcaption>How my belief over lunch location evolved using my world model: initially certain it was on the bottom shelf, uncertain when it was missing (probably somewhere else in the fridge, but maybe it was stolen), then certain again after I checked elsewhere in the fridge.</figcaption>
 </figure>
 
@@ -58,16 +58,16 @@ The major limitation of LeCun's approach thus far is Goal #2. My personal opinio
   <div class="post-figure-panels">
     <div class="post-figure-panel post-figure-panel--primary">
       <p class="post-figure-panel-label">LeCun (JEPA)</p>
-      <img src="/assets/images/LeCun.png" alt="Diagram of LeCun's JEPA approach: an observation is encoded into an abstract state, which together with an action predicts the next abstract state.">
+      <img src="/assets/images/world-models/LeCun.png" alt="Diagram of LeCun's JEPA approach: an observation is encoded into an abstract state, which together with an action predicts the next abstract state.">
     </div>
     <div class="post-figure-panel-stack">
       <div class="post-figure-panel">
         <p class="post-figure-panel-label">Fei-Fei (World Labs)</p>
-        <img src="/assets/images/FeiFei.png" alt="Diagram of Fei-Fei's World Labs approach: an observation is mapped to an interactive, editable 3D world.">
+        <img src="/assets/images/world-models/FeiFei.png" alt="Diagram of Fei-Fei's World Labs approach: an observation is mapped to an interactive, editable 3D world.">
       </div>
       <div class="post-figure-panel">
         <p class="post-figure-panel-label">Jim Fan (WAM)</p>
-        <img src="/assets/images/JimFan.png" alt="Diagram of Jim Fan's World Action Model: given an observation and past action, the model predicts the next action and next observation.">
+        <img src="/assets/images/world-models/JimFan.png" alt="Diagram of Jim Fan's World Action Model: given an observation and past action, the model predicts the next action and next observation.">
       </div>
     </div>
   </div>
@@ -82,7 +82,7 @@ In my view, they are really building a *3D simulation environment*{% include aca
 Effectively, I'd argue that they are building a next-observable-state simulator, and on top of that representation, one would still need to accomplish Goals #1–3, which I don't believe is trivial.
 
 <figure class="post-figure">
-  <img src="/assets/images/world-labs-webp.webp" alt="Demo of World Labs generating an interactive, editable 3D environment.">
+  <img src="/assets/images/world-models/world-labs-webp.webp" alt="Demo of World Labs generating an interactive, editable 3D environment.">
   <figcaption>A demo from the <a href="https://www.worldlabs.ai/" target="_blank" rel="noopener noreferrer">World Labs</a> homepage, showing a generated 3D world.</figcaption>
 </figure>
 
