@@ -4,7 +4,7 @@ title: "Attending COLM 2026 as a PhD Student"
 description: "This post catalogs how COLM felt different from CVPR and reflects on networking and getting more out of my own poster session."
 date: 2026-10-12 12:00:00 -0500
 categories: blog
-image: /assets/images/colm/COLM_intro.jpg
+image: /assets/images/colm/COLM_poster.jpg
 toc: true
 disclaimer: |
   **Disclaimer:** Content was written manually. AI was used for proofreading.
