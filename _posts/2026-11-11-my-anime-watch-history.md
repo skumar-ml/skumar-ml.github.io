@@ -9,9 +9,9 @@ disclaimer: |
   **Disclaimer:** All content was written by me. AI was used to format the post.
 ---
 
-I started watching anime in 2017. It's been my main media for almost the past 10 years, so naturally, I felt it was time to document my anime watch history. Before I wrote out this list, I guessed that I had watched 25 anime. I was sorely wrong: I've watched 47 anime. 
+I started watching anime in 2017. It's been my main media for almost the past 10 years, so naturally, I felt it was time to document my anime watch history. Before I wrote out this list, I guessed that I had watched 25 anime. I was sorely wrong: I've watched 47 anime, and a bit of back-of-the-agent math puts me at around **1,000 hours of watchtime**.
 
-I've cataloged what I've watched below, in roughly chronological order{% include academic-project/footnote.html text="I initially tried doing this from pure recall, then I realized I could just go through my Crunchyroll and Netflix watch history." %}. Below that is my top-10 ranking, and a few other opinionated lists. I've included Western animated shows, even if they are not technically anime.
+I've cataloged what I've watched below, in roughly chronological order{% include academic-project/footnote.html text="I initially tried doing this from pure recall, then I realized I could just go through my Crunchyroll and Netflix watch history." %}. Below that is my top-10 ranking, a few other opinionated lists, and reviews on each show I've watched. I've included Western animated shows, even if they are technically not anime.
 
 ## A Roughly Chronological Order of the Anime I've Watched
 
