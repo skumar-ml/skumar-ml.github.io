@@ -501,7 +501,11 @@ a {
   display: flex;
   flex-direction: row;
   gap: 1.25rem;
-  align-items: center;
+  align-items: flex-start;
+}
+
+.post-content .post-figure--pair .post-figure-panel .post-placeholder {
+  margin: 0.6rem 0 0;
 }
 
 .post-content .post-figure--pair .post-figure-panel {
@@ -527,6 +531,28 @@ a {
     flex-direction: column;
     gap: 1.5rem;
   }
+}
+
+/* Unfinished slots in a draft post. The text inside is the author's placeholder, unchanged. */
+.post-content .post-placeholder {
+  margin: 1.25rem 0 1.5rem;
+  padding: 0.85rem 1rem;
+  border: 1px dashed #c5c5c5;
+  border-radius: 4px;
+  background: #fafafa;
+  color: #555;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.post-content .post-placeholder--inline {
+  display: inline;
+  margin: 0;
+  padding: 0.05em 0.35em;
+  font-size: 0.92em;
+  white-space: nowrap;
+  vertical-align: baseline;
 }
 
 /* Blog post disclaimer */
@@ -611,6 +637,393 @@ a {
 .post-content > ul > li + li,
 .post-content > ol > li + li {
   margin-top: 0.6rem;
+}
+
+/* Anime watch-history post: year rows, then opinion cards */
+.post-content .anime-chrono-note {
+  margin: 0 0 0.75rem;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.post-content .anime-chrono {
+  margin: 0 0 1.75rem;
+  border: 1px solid #e6e6e6;
+  border-radius: 6px;
+  overflow: hidden;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.post-content .anime-year {
+  display: grid;
+  grid-template-columns: 4.25rem minmax(0, 1fr);
+  gap: 0.35rem 0.75rem;
+  align-items: start;
+  padding: 0.45rem 0.75rem;
+  background: #fff;
+
+  &:nth-child(even) {
+    background: #fafafa;
+  }
+}
+
+.post-content .anime-year + .anime-year {
+  border-top: 1px solid #eee;
+}
+
+.post-content .anime-year-label {
+  padding-top: 0.12rem;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.03em;
+  line-height: 1.55rem;
+  color: #777;
+}
+
+.post-content .anime-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.post-content .anime-chip {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.12rem 0.4rem;
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+  padding: 0.08rem 0.55rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #222;
+  overflow-wrap: break-word;
+}
+
+.post-content a.anime-chip {
+  text-decoration: none;
+
+  &:hover {
+    border-color: #b9d6f5;
+    color: #0366d6;
+    text-decoration: none;
+  }
+}
+
+.post-content .anime-chip.is-partial {
+  border-style: dashed;
+  border-color: #c5c5c5;
+  background: transparent;
+  color: #444;
+}
+
+.post-content .anime-chip-note {
+  color: #888;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.45;
+  white-space: nowrap;
+}
+
+.post-content .anime-lists {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin: 0.35rem 0 0.5rem;
+
+  .anime-list--wide {
+    grid-column: 1 / -1;
+  }
+
+  section {
+    margin: 0;
+    padding: 0.85rem 1rem 1rem;
+    border: 1px solid #e8e8e8;
+    border-radius: 6px;
+    background: #fff;
+  }
+
+  h3 {
+    margin: 0 0 0.55rem;
+    font-size: 1.08rem;
+    line-height: 1.3;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 1.15rem;
+
+    li + li {
+      margin-top: 0.22rem;
+    }
+  }
+}
+
+.post-content .anime-rank {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(5, auto);
+  grid-auto-flow: column;
+  column-gap: 1.75rem;
+  counter-reset: anime-rank;
+
+  li {
+    counter-increment: anime-rank;
+    display: grid;
+    grid-template-columns: 1.5rem minmax(0, 1fr);
+    gap: 0.35rem;
+    align-items: baseline;
+    padding: 0.28rem 0;
+    border-bottom: 1px solid #eee;
+
+    &::before {
+      content: counter(anime-rank);
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: #999;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .post-content .anime-year {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.25rem;
+  }
+
+  .post-content .anime-year-label {
+    padding-top: 0;
+    line-height: 1.3;
+  }
+
+  .post-content .anime-lists,
+  .post-content .anime-rank {
+    grid-template-columns: 1fr;
+  }
+
+  .post-content .anime-rank {
+    grid-template-rows: none;
+    grid-auto-flow: row;
+  }
+}
+
+.post-content .anime-reviews {
+  margin: 0.25rem 0 0;
+}
+
+.post-content .anime-review-search {
+  margin: 0.15rem 0 1.1rem;
+}
+
+.post-content .anime-review-search-label {
+  display: block;
+  margin: 0 0 0.35rem;
+  color: #666;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.post-content .anime-review-search-input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: #fff;
+  color: #222;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+
+  &:focus {
+    border-color: #0366d6;
+    outline: 2px solid rgba(3, 102, 214, 0.28);
+    outline-offset: 1px;
+  }
+}
+
+.post-content .anime-review-empty {
+  margin: 0.15rem 0 0.4rem;
+  color: #666;
+}
+
+.post-content .anime-review {
+  padding: 0.9rem 0 0.15rem;
+}
+
+.post-content .anime-review + .anime-review {
+  border-top: 1px solid #eee;
+}
+
+.post-content .anime-review.is-first-match {
+  border-top: 0;
+}
+
+.post-content .anime-review-title {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.3;
+  scroll-margin-top: 1rem;
+}
+
+.post-content .anime-review-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  margin: 0.45rem 0 0.7rem;
+}
+
+.post-content .anime-review-years {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.post-content .anime-review-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.post-content .anime-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.08rem 0.5rem;
+  border-radius: 999px;
+  background: #f3f4f6;
+  color: #444;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-decoration: none;
+
+  &:hover {
+    background: #eef3f8;
+    color: #0366d6;
+    text-decoration: none;
+  }
+}
+
+.post-content .anime-tag--rank {
+  min-width: 1.7rem;
+  justify-content: center;
+  padding-right: 0.45rem;
+  padding-left: 0.45rem;
+  background: #2c2c2c;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+
+  &:hover {
+    background: #111;
+    color: #fff;
+  }
+}
+
+.post-content .anime-year-pill {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.28rem;
+  padding: 0.08rem 0.5rem;
+  border: 1px solid #e4e4e4;
+  border-radius: 999px;
+  background: #fff;
+  color: #333;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.45;
+}
+
+.post-content .anime-year-kicker {
+  color: #8a8a8a;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.post-content .anime-review-body {
+  margin: 0;
+}
+
+.post-content .anime-review > .post-placeholder {
+  margin: 0;
+}
+
+.post-content .anime-rec {
+  margin: 0.8rem 0 0.35rem;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid #e6e6e6;
+  border-left-width: 3px;
+  border-radius: 6px;
+}
+
+.post-content .anime-rec-label {
+  display: block;
+  margin: 0 0 0.4rem;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.post-content .anime-rec--yes {
+  background: #f4fbf6;
+  border-color: #d7eedd;
+  border-left-color: #1f8a4c;
+
+  .anime-rec-label {
+    color: #1b7f4a;
+  }
+}
+
+.post-content .anime-rec--no {
+  background: #fdf6f6;
+  border-color: #f3d6d6;
+  border-left-color: #c4382c;
+
+  .anime-rec-label {
+    color: #b42318;
+  }
+}
+
+.post-content .anime-rec--neutral {
+  background: #f7f7f8;
+  border-color: #e7e7e7;
+  border-left-color: #9a9a9a;
+
+  .anime-rec-label {
+    color: #666;
+  }
+}
+
+.post-content .anime-rec .post-placeholder {
+  margin: 0;
+  background: rgba(255, 255, 255, 0.72);
 }
 
 /* Distill-style numbered hover footnotes in blog posts */
@@ -841,6 +1254,13 @@ a {
   }
 }
 
+/* Blog index: smaller page title than the default 42px post heading */
+article.post:has(> .post-content > .blog-posts) > .post-header .post-title {
+  font-size: 1.75rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
 /* Blog posts */
 .blog-posts {
   .blog-under-construction {
@@ -851,24 +1271,27 @@ a {
   }
 
   .post {
-    margin-bottom: 2em;
-    padding-bottom: 1em;
+    margin-bottom: 1.35em;
+    padding-bottom: 0.85em;
     border-bottom: 1px solid #eee;
-    
+
     h2 {
-      margin-top: 0;
+      margin: 0 0 0.2em;
+      font-size: 1.25rem;
+      line-height: 1.35;
     }
-    
+
     .post-date {
       color: #666;
       font-size: 0.9em;
-      margin-bottom: 1em;
+      margin: 0 0 0.4em;
     }
-    
-    .read-more {
-      display: inline-block;
-      margin-top: 0.5em;
-      font-weight: 600;
+
+    .post-excerpt {
+      > p,
+      > .post-epigraph {
+        margin-bottom: 0;
+      }
     }
   }
 }
